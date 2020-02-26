@@ -78,40 +78,51 @@ switch ($marca) {
 
 
 
-function objeto_a_json($data) {
+function objeto_a_json($data)
+{
     if (is_object($data)) {
         $data = get_object_vars($data);
     }
 
     if (is_array($data)) {
         return array_map(__FUNCTION__, $data);
-    }
-    else {
+    } else {
         return $data;
     }
-    }
+}
 
-  $urlModelo='https://cotizadorderco.com/models-brands/'.$alias;
-  //echo $alias;
-  $objModelos = file_get_contents($urlModelo);
-  if($modelo == 'APV FURGON' || $modelo == 'APV VAN'){
+$urlModelo = 'https://cotizadorderco.com/models-brands/' . $alias;
+$cURLConnection = curl_init();
+curl_setopt($cURLConnection, CURLOPT_URL, $urlModelo);
+curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
+$phoneList = curl_exec($cURLConnection);
+var_dump($phoneList);
+curl_close($cURLConnection);
+$jsonArrayResponse = json_decode($phoneList);
+var_dump($jsonArrayResponse);
+
+
+
+//echo $alias;
+$objModelos = file_get_contents($urlModelo);
+if ($modelo == 'APV FURGON' || $modelo == 'APV VAN') {
     $modelo = 'APV';
-  }
-  $jsonModelos = objeto_a_json($objModelos);
-  $arrayModelos = json_decode($jsonModelos, true);
-  $numModelos = count($arrayModelos);
-  for($m=0;$m<$numModelos;$m++){
-    if($arrayModelos[$m]['name'] == $modelo){
-        $urlVersiones='https://cotizadorderco.com/version-brands/'.$arrayModelos[$m]['_id'];
+}
+$jsonModelos = objeto_a_json($objModelos);
+$arrayModelos = json_decode($jsonModelos, true);
+$numModelos = count($arrayModelos);
+for ($m = 0; $m < $numModelos; $m++) {
+    if ($arrayModelos[$m]['name'] == $modelo) {
+        $urlVersiones = 'https://cotizadorderco.com/version-brands/' . $arrayModelos[$m]['_id'];
         $objVersiones = file_get_contents($urlVersiones);
         $jsonVersiones = objeto_a_json($objVersiones);
         $arrayVersiones = json_decode($jsonVersiones, true);
         $numVersiones = count($arrayVersiones);
-        for($v=0;$v<$numVersiones;$v++){
-          $opcionVersiones .='<option value="'.$arrayVersiones[$v]['name'].'" data-sap="'.$arrayVersiones[$v]['codigo_sap'].'">'.$arrayVersiones[$v]['name'].'</option>';
+        for ($v = 0; $v < $numVersiones; $v++) {
+            $opcionVersiones .= '<option value="' . $arrayVersiones[$v]['name'] . '" data-sap="' . $arrayVersiones[$v]['codigo_sap'] . '">' . $arrayVersiones[$v]['name'] . '</option>';
         }
     }
-  }
+}
 
 ?>
 
