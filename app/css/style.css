@@ -1,0 +1,256 @@
+/*General*/
+.np{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+body{
+  margin: 0;
+  padding: 0;
+}
+.paddingPage{
+  width: 100%;
+  padding-left: 75px;
+  padding-right: 75px
+}
+.text-center{
+  text-align: center;
+}
+.img-responsive{
+  display: grid;
+  margin:auto;
+}
+.contenedor-datos{
+  opacity: 1;
+  transition: 1s all;
+}
+
+/*Header*/
+.headerSpace{
+  margin: 25px 0px;
+  padding: 25px 0px;
+}
+#tituloHeader{
+  color: white;
+  margin: 0;
+  font-family: 'helvetica_bold';
+  text-align: left;
+  font-size: 60px;
+  line-height: 62px;
+  transition: 0.6s;
+}
+.naturaLetter{
+  font-weight: 100;
+}
+/*End Header*/
+
+/*Footer*/
+/*EndFooter*/
+
+/*Inicio*/
+#backgroundImage{
+  background-image: url(../images/background_madrenatura1.png);
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 800px;
+  transition: 0.8s all;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+.topTitle{
+  margin-top: 35px;
+}
+.topTitle h1{
+  color: white;
+  font-family: 'helvetica_bold';
+  font-size: 32px;
+  margin-bottom: 15px;
+  margin-top: 0px;
+}
+.textoRegistro{
+  color: white;
+  font-family: 'helvetica';
+  margin: 0;
+  font-size: 21px;
+}
+.lineHeader{
+  height: 1px;
+  background-color: black;
+  width: 280px;
+  margin: auto;
+}
+.inputForm{
+  width: 100%;
+}
+.fondoForms{
+  background-color: rgba(180, 100, 79, 0.7);
+  padding: 25px 15px;
+  height: auto;
+  border: 10px solid white;
+}
+
+.posFormIngreso{
+  margin-top: 35px;
+}
+.inputForm{
+  border: 1px solid white;
+  padding: 15px;
+  font-size: 18px;
+  color: rgba(180, 100, 79, 1);
+  text-align: center;
+}
+.inputForm::placeholder{
+  text-align: center;
+}
+.espaceBtnForm{
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+.btnFormulario{
+  width: 100%;
+  color: white;
+  padding: 15px 20px;
+  background-color: #425550;
+  border: 1px solid #425550;
+  font-size: 21px;
+  font-family: 'helvetica_bold';
+  outline: none;
+  margin:auto;
+  max-width: 300px;
+}
+
+.spaceBtns{
+  margin-bottom: 20px;
+}
+/*End Inicio*/
+
+/*Validaciones Forms*/
+.errorStyle{
+  color: #5E2525;
+  font-family: 'helvetica';
+  font-size: 16px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  opacity: 0;
+  transition: 0.4s all;
+}
+.backgroundTurno1{
+  background-color: #41544F;
+  padding: 20px;
+  margin-top: 25px;
+}
+.backgroundTurno2{
+  background-color: #8A9974;
+  padding: 20px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.backgroundTurno3{
+  background-color: #ADA157;
+  padding: 20px;
+  margin-top: 25px;
+}
+.backgroundTurno1 p,.backgroundTurno2 p,.backgroundTurno3 p{
+  color:white;
+  font-size: 21px;
+  font-family: 'helvetica';
+}
+.selectButton{
+  color: #B25E49;
+  font-family: 'helvetica';
+  font-size: 16px;
+  font-weight: 600;
+  background-color: white;
+  border:1px solid white;
+  outline: none;
+  padding: 12px 8px;
+  margin-top: 45px;
+  width: 100%;
+}
+
+/*Responsive*/
+
+@media (min-width: 320px) {
+  .paddingPage{
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px
+  }
+  .textSlogan{
+    color: white;
+    font-family: 'helvetica';
+    font-size: 32px;
+    margin-top: 5px;
+    font-weight: 2  00;
+    text-align: center;
+    bottom: 0;
+  }
+  .posLogo{
+      bottom: 0;
+  }
+  .espaceMovil{
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+}
+@media (min-width: 768px) {
+  .paddingPage{
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 30px
+  }
+  .posElements{
+    position: relative;
+    bottom: 0;
+    margin-top: 50px;
+      padding-bottom: 100px;
+  }
+  .textSlogan{
+    position: relative;
+    text-align: center;
+  }
+  .posLogo{
+    position: relative;
+  }
+  .backgroundTurno3{
+    margin: auto;
+    max-width: 299px;
+  }
+}
+@media (min-width: 992px) {
+  .paddingPage{
+    width: 100%;
+    padding-left: 120px;
+    padding-right: 120px
+  }
+  .backgroundTurno3{
+    margin: 25px 0px 0px 0px;
+  }
+}
+@media (min-width: 1200px) {
+  .textSlogan{
+    position: absolute;
+    text-align: left;
+  }
+  .posLogo{
+    position: absolute;
+  }
+  .posElements{
+    position: relative;
+    bottom: 0;
+    margin-top: 150px;
+      padding-bottom: 100px;
+  }
+
+}
+@media (min-width: 1400px) {
+  .paddingPage{
+    width: 100%;
+    padding-left: 150px;
+    padding-right: 150px
+  }
+}
