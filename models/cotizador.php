@@ -1,5 +1,83 @@
 <?php
 
+$marca = 'Suzuki';
+// Marcas ....
+switch ($marca) {
+    case 'Suzuki':
+        $logo = 'logosuzuki.png';
+        $alias = 'suzuki';
+        $marca_sap = 'SUZUKI';
+        $marca_tienda = $marca_sap;
+        break;
+
+    case 'Citroën':
+        $logo = 'logocitroen.png';
+        $alias = 'citroen';
+        $marca_sap = 'CITROËN';
+        $marca_tienda = 'CITROEN';
+        break;
+
+    case 'DS':
+        $logo = 'logo-ds-big.png';
+        $alias = 'ds';
+        $marca_sap = 'DS';
+        $marca_tienda = $marca_sap;
+        break;
+
+    case 'Mazda':
+        $logo = 'logomazda.png';
+        $alias = 'mazda';
+        $marca_sap = 'MAZDA';
+        $marca_tienda = $marca_sap;
+
+        break;
+
+    case 'Great wall':
+        $logo = 'logogreatwall.png';
+        $alias = 'great-wall';
+        $marca_sap = 'GREAT WALL';
+        $marca_tienda = $marca_sap;
+        break;
+
+    case 'Haval':
+        $logo = 'logohaval.png';
+        $alias = 'haval';
+        $marca_sap = 'HAVAL';
+        $marca_tienda = $marca_sap;
+        break;
+
+    case 'Foton':
+        $logo = 'logofoton.png';
+        $alias = 'foton';
+        $marca_sap = 'FOTON';
+        $marca_tienda = $marca_sap;
+        break;
+
+    case 'Jac':
+        $logo = 'logojac.png';
+        $alias = 'jac';
+        $marca_sap = 'JAC';
+        $marca_tienda = $marca_sap;
+        break;
+
+    case 'Changan':
+        $logo = 'logochangan.png';
+        $alias = 'changan';
+        $marca_sap = 'CHANGAN';
+        $marca_tienda = $marca_sap;
+        break;
+
+    case 'Renault':
+        $logo = 'logorenault.png';
+        $alias = 'renault';
+        $marca_sap = 'RENAULT';
+        $marca_tienda = $marca_sap;
+        break;
+}
+
+
+
+
 function objeto_a_json($data) {
     if (is_object($data)) {
         $data = get_object_vars($data);
@@ -43,7 +121,7 @@ function objeto_a_json($data) {
     <meta name="keywords" content="Portal de Crecimiento - Lindley">
     <link rel="shortcut icon" href="./app/img/favicon.png" type="image/x-icon">
     <meta name="description" content="Portal de Crecimiento - Lindley">
-    <title>Landing Natura</title>
+    <title>Landing campaña derco</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     <link rel="stylesheet" href="../app/css/bootstrap.css" />
