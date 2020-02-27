@@ -254,3 +254,88 @@ body{
     padding-right: 150px
   }
 }
+
+.content{
+  text-align: center;
+}
+
+.np{
+  padding-left: 0;
+  padding-right: 0;
+}
+.sectionBanner{
+  background-color: #232323;
+}
+
+.sinpadding div {
+  color: white;
+  padding: 10px 0px;
+  border: 1px solid salmon;
+  font-weight: 600;
+  font-size: 32px;
+  letter-spacing: 10px;
+}
+
+.titulo{
+  color: black;
+  font-family: 'helvetica_medium', 'Open sans';
+}
+.textoGeneral{
+  color: black;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 16px;
+}
+.imgResponsive{
+  width: 100%;
+  margin: auto;
+}
+
+.cardB{
+  border: 1px solid black;
+  padding: 5px 20px;
+  margin-top: 15px;
+  max-width: 380px;
+  margin: auto;
+}
+
+@media(min-width: 320px){
+  .fixPad{
+      padding: 5px 0px;
+  }
+}
+
+@media(min-width: 768px){
+  .fixPad{
+      padding: 5px 10px;
+  }
+}
+@media(min-width: 1024px){
+  .fixPad{
+      padding: 5px 15px;
+  }
+}
+
+.car-border{
+  border: 2px solid red;
+  margin: 0px 10px;
+}
+
+.fk-btn{
+  width: 5%;
+  border:1px solid black;
+  border-radius: 15px;
+  margin-top: 40px;
+}
+
+.padin{
+  margin: auto;
+}
+
+.paginador-area{
+  padding: auto;
+}
+
+.marg{
+margin-top: 30px;
+}

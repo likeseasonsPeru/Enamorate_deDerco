@@ -1,91 +1,101 @@
-<head>
-    <link href="../app/css/bootstrap.css">
-    <link href="../app/css/estilos.css" rel="stylesheet" type="text/css">
-</head>
-<div id="content">
+<div class="col-12 text-center">
     <h1>TENEMOS LO QUE NECESITAS</h1>
     <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h2>
-    <section class="sectionBanner col-12">
-        <div class="container">
-            <div class="row text-center sinpadding">
+    <div class="row text-center">
+                <div class="col-4 col-md-6 col-lg-4 fixPad card-border">
+                    <div class="col-4 cardB">
+                        <div class="col-12">
+                            <h1 class="titulo right">
+                                $19000
+                            </h1>
+                        </div>
+                        <div class="col-12">
+                            <img class="imgResponsive" src="app/img/3sporthome.jpg" alt="">
+                        </div>
+                        <div class="col-12">
+                                <p class="text-left textoGeneral">
+                                    Swift Sport
+                                </p>
+                                <p class="text-left textoGeneral">
+                                    Suzuki                          
+                             </p>
+                        </div>
+                        
+                        <div class="row">
+                        <a class="col-lg-6">VER MÁS</a>
+                        <a class="col-lg-6">COTIZAR</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 col-md-6 col-lg-4 fixPad card-border">
+                    <div class="col-4 cardB">
+                        <div class="col-12">
+                            <h1 class="titulo">
+                            $19000
+                            </h1>
+                        </div>
+                        <div class="col-12">
+                            <img class="imgResponsive" src="app/img/3sporthome.jpg" alt="">
+                        </div>
+                        <div class="col-12">
+                        <p class="text-left textoGeneral">
+                                Swift Sport
+                            </p>
+                            <p class="text-left textoGeneral">
+                                Suzuki                          
+                           </p>
+                        </div>
+                        
+                        <div class="row">
+                        <a class="col-lg-6">VER MÁS</a>
+                        <a class="col-lg-6">COTIZAR</a>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-4 col-md-6 col-lg-4 fixPad card-border">
+                    <div class="col-4 cardB">
+                        <div class="col-12">
+                            <h1 class="titulo">
+                            $19000
+                            </h1>
+                        </div>
+                        <div class="col-12">
+                            <img class="imgResponsive" src="app/img/3sporthome.jpg" alt="">
+                        </div>
+                        <div class="col-12">
+                            <p class="text-left textoGeneral">
+                                Swift Sport
+                            </p>
+                            <p class="text-left textoGeneral">
+                                Suzuki                          
+                           </p>
+                        </div>
+                    <div class="row">
+                        <a class="col-lg-6">VER MÁS</a>
+                        <a class="col-lg-6">COTIZAR</a>
+                    </div>
+                    </div>
+                </div>
+                <div>
+                </div>
             </div>
-            <div class="row">
-                <button class="btn btn-info">
-                    Clickeame
-                </button>
-            </div>
-            <div class="row text-center">
-                <div class="col-12 col-md-6 col-lg-4 fixPad">
-                    <div class="col-12 cardB">
-                        <div class="col-12">
-                            <h1 class="titulo">
-                                Carrito
-                            </h1>
-                        </div>
-                        <div class="col-12">
-                            <img class="imgResponsive" src="https://neetwork.com/wp-content/uploads/2019/11/descargar-im%C3%A1genes-gratis.png" alt="">
-                        </div>
-                        <div class="col-12">
-                            <p class="textoGeneral">
-                                Descripción: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas sapiente cupiditate praesentium, assumenda fugit ullam eveniet soluta velit perspiciatis inventore vitae ab dolorem enim error. Omnis ex asperiores iusto laboriosam.
-                            </p>
-                        </div>
-                        
-                        <div class="col-12">
-                            <button class="btn btn-danger">
-                                Clickeame
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 fixPad">
-                    <div class="col-12 cardB">
-                        <div class="col-12">
-                            <h1 class="titulo">
-                                Carrito
-                            </h1>
-                        </div>
-                        <div class="col-12">
-                            <img class="imgResponsive" src="https://neetwork.com/wp-content/uploads/2019/11/descargar-im%C3%A1genes-gratis.png" alt="">
-                        </div>
-                        <div class="col-12">
-                            <p class="textoGeneral">
-                                Descripción: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas sapiente cupiditate praesentium, assumenda fugit ullam eveniet soluta velit perspiciatis inventore vitae ab dolorem enim error. Omnis ex asperiores iusto laboriosam.
-                            </p>
-                        </div>
-                        
-                        <div class="col-12">
-                            <button class="btn btn-danger">
-                                Clickeame
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 fixPad">
-                    <div class="col-12 cardB">
-                        <div class="col-12">
-                            <h1 class="titulo">
-                                Carrito
-                            </h1>
-                        </div>
-                        <div class="col-12">
-                            <img class="imgResponsive" src="https://neetwork.com/wp-content/uploads/2019/11/descargar-im%C3%A1genes-gratis.png" alt="">
-                        </div>
-                        <div class="col-12">
-                            <p class="textoGeneral">
-                                Descripción: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas sapiente cupiditate praesentium, assumenda fugit ullam eveniet soluta velit perspiciatis inventore vitae ab dolorem enim error. Omnis ex asperiores iusto laboriosam.
-                            </p>
-                        </div>
-                        
-                        <div class="col-12">
-                            <button class="btn btn-danger">
-                                Clickeame
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
+            <div class="marg">
+                <nav class="paginador-area" aria-label="Page navigation example">
+                    <ul class="pagination col-12">
+                    <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                     <span aria-hidden="true">&laquo;</span>
+                    </a>
+                   </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                   <li class="page-item"><a class="page-link" href="#">2</a></li>
+                   <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+               <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
             </div>
         </div>
-    </section>
-</div>
