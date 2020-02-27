@@ -1,6 +1,7 @@
 <?php
 
-$marca = 'Suzuki';
+$modelo = 'MAZDA 2 SPORT';
+$marca = 'Mazda';
 // Marcas ....
 switch ($marca) {
     case 'Suzuki':
@@ -76,8 +77,6 @@ switch ($marca) {
 }
 
 
-
-
 function objeto_a_json($data)
 {
     if (is_object($data)) {
@@ -93,15 +92,23 @@ function objeto_a_json($data)
 
 $urlModelo = 'https://cotizadorderco.com/models-brands/' . $alias;
 $cURLConnection = curl_init();
+
+curl_setopt($cURLConnection, CURLOPT_SSL_VERIFYHOST, FALSE);
+curl_setopt($cURLConnection, CURLOPT_SSL_VERIFYPEER, FALSE);
 curl_setopt($cURLConnection, CURLOPT_URL, $urlModelo);
 curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
-$phoneList = curl_exec($cURLConnection);
-var_dump($phoneList);
+$objModelos = curl_exec($cURLConnection);
+$jsonModelos = objeto_a_json($objModelos);
+//var_dump($phoneList);
+if ($modelo == 'APV FURGON' || $modelo == 'APV VAN') {
+    $modelo = 'APV';
+}
 curl_close($cURLConnection);
-$jsonArrayResponse = json_decode($phoneList);
-var_dump($jsonArrayResponse);
+$arrayModelos = json_decode($jsonModelos, true);
 
 
+
+/* 
 
 //echo $alias;
 $objModelos = file_get_contents($urlModelo);
@@ -110,13 +117,23 @@ if ($modelo == 'APV FURGON' || $modelo == 'APV VAN') {
 }
 $jsonModelos = objeto_a_json($objModelos);
 $arrayModelos = json_decode($jsonModelos, true);
+ */
+$opcionVersiones= '';
 $numModelos = count($arrayModelos);
 for ($m = 0; $m < $numModelos; $m++) {
     if ($arrayModelos[$m]['name'] == $modelo) {
         $urlVersiones = 'https://cotizadorderco.com/version-brands/' . $arrayModelos[$m]['_id'];
-        $objVersiones = file_get_contents($urlVersiones);
+        $cURLConnection2 = curl_init();
+        curl_setopt($cURLConnection2, CURLOPT_SSL_VERIFYHOST, FALSE);
+        curl_setopt($cURLConnection2, CURLOPT_SSL_VERIFYPEER, FALSE);
+        curl_setopt($cURLConnection2, CURLOPT_URL, $urlVersiones);
+        curl_setopt($cURLConnection2, CURLOPT_RETURNTRANSFER, true);
+        $objVersiones = curl_exec($cURLConnection2);
+        //var_dump($objVersiones);
         $jsonVersiones = objeto_a_json($objVersiones);
+        curl_close($cURLConnection2);
         $arrayVersiones = json_decode($jsonVersiones, true);
+
         $numVersiones = count($arrayVersiones);
         for ($v = 0; $v < $numVersiones; $v++) {
             $opcionVersiones .= '<option value="' . $arrayVersiones[$v]['name'] . '" data-sap="' . $arrayVersiones[$v]['codigo_sap'] . '">' . $arrayVersiones[$v]['name'] . '</option>';
