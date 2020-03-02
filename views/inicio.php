@@ -1,21 +1,21 @@
-<section class="col-12"> 
-    <div class="container">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h1>Tenemos lo que necesitas</h1>
-                <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h2>
-                <h3>¿Qué tipo de auto prefieres?</h3>
-            </div>
-                <div class="text-center">
-                    <div class="row">
-                        <div class="col-12 col-lg-4 align-content-center"><img src="app/img/3sporthome.jpg"></div>
-                        <div class="col-12 col-lg-4"><img src="app/img/3sporthome.jpg"></div>
-                        <div class="col-12 col-lg-4"><img src="app/img/3sporthome.jpg"></div>
-                    </div>   
-                </div>
-        </div>
+<div class="col-12 text-center">
+    <h1>TENEMOS LO QUE NECESITAS</h1>
+    <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h2>
+    <h3>¿Qué tipo de auto prefieres?</h3>
+    <h2>¿Cúal es tu presupuesto?</h2>
+    <div class="text-content">
+    <label>MIN</label>
+    <input type="text"></input>
+    <label>MAX</label>
+    <input type="text"></input>
     </div>
-</section>
-<div class="text-center padin marg">
-<a  class="col-12 fk-btn" href="segundo.php">Descubre tu auto</a>
-</div> 
+    <h2>Cuéntanos sobre ti</h2>
+    <div class="text-content">
+    <label>MIN</label>
+    <input type="text"></input>
+    <label>MAX</label>
+    <input type="text"></input>
+    </div>
+    <div class="marg">
+        <a class="col-12 fk-btn" href="segundo.php">Siguiente</a>
+    </div>

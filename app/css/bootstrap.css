@@ -6242,7 +6242,7 @@ html {
   }
   .carousel-inner {
     position: relative;
-    width: 100%;
+    width: 80%;
     overflow: hidden;
   }
   .carousel-inner > .item {

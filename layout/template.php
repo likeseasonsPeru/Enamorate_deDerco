@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="app/css/style.css"/>
     <script src="app/js/jquery.js"></script>
     <script src="app/js/bootstrap.min.js"></script>
+    <script src="app/js/functions.js"></script>
+    
 </head>
 <body>
   <?php include $path['layout'].'header.php'; ?>

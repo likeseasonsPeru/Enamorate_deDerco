@@ -339,3 +339,46 @@ body{
 .marg{
 margin-top: 30px;
 }
+
+.fo{
+  font-family: Hind Siliguri, Arial, Helvetica, sans-serif;
+}
+
+
+.ig{
+  background-color: white;
+}
+
+.ig:hover{
+  cursor: pointer;
+}
+
+.precio-card{
+  color: black;
+  font-family: 'helvetica_medium', 'Open sans';
+  font-size: xx-large;
+}
+
+@media(min-width: 1200px){
+  .precio-card{
+    font-size: xx-large;
+  }
+}
+
+@media(max-width: 960){
+  .precio-card{
+      font-size: large;
+  }
+}
+
+@media(max-width: 720px){
+  .precio-card{
+      font-size: medium;
+  }
+}
+
+@media(max-width: 576px){
+  .precio-card{
+      font-size: small;
+  }
+}
