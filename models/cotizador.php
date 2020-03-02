@@ -1,7 +1,31 @@
 <?php
 
-$modelo = 'MAZDA 2 SPORT';
-$marca = 'Mazda';
+$modelo = 'NEW C3';
+$marca = 'Citroën';
+$marcaid = '';
+
+// Utms
+
+$utm_source = '';
+$utm_campaign = '';
+$utm_medium = '';
+if (isset($_GET['utm_source'])) {
+    $utm_source = $_GET['utm_source'];
+} else {
+    $utm_source = 'Web Derco';
+}
+if (isset($_GET['utm_campaign'])) {
+    $utm_campaign = $_GET['utm_campaign'];
+} else {
+    $utm_campaign = 'None';
+}
+if (isset($_GET['utm_medium'])) {
+    $utm_medium = $_GET['utm_medium'];
+} else {
+    $utm_medium = 'Web Derco';
+}
+
+
 // Marcas ....
 switch ($marca) {
     case 'Suzuki':
@@ -90,6 +114,8 @@ function objeto_a_json($data)
     }
 }
 
+// Modelos 
+
 $urlModelo = 'https://cotizadorderco.com/models-brands/' . $alias;
 $cURLConnection = curl_init();
 
@@ -105,21 +131,11 @@ if ($modelo == 'APV FURGON' || $modelo == 'APV VAN') {
 }
 curl_close($cURLConnection);
 $arrayModelos = json_decode($jsonModelos, true);
-
-
-
-/* 
-
-//echo $alias;
-$objModelos = file_get_contents($urlModelo);
-if ($modelo == 'APV FURGON' || $modelo == 'APV VAN') {
-    $modelo = 'APV';
-}
-$jsonModelos = objeto_a_json($objModelos);
-$arrayModelos = json_decode($jsonModelos, true);
- */
-$opcionVersiones= '';
 $numModelos = count($arrayModelos);
+
+// Versiones
+
+$opcionVersiones = '';
 for ($m = 0; $m < $numModelos; $m++) {
     if ($arrayModelos[$m]['name'] == $modelo) {
         $urlVersiones = 'https://cotizadorderco.com/version-brands/' . $arrayModelos[$m]['_id'];
@@ -141,6 +157,39 @@ for ($m = 0; $m < $numModelos; $m++) {
     }
 }
 
+// Offices
+
+$urlOffice = 'https://cotizadorderco.com/offices-brands/' . $alias;
+$cURLConnection3 = curl_init();
+curl_setopt($cURLConnection3, CURLOPT_SSL_VERIFYHOST, FALSE);
+curl_setopt($cURLConnection3, CURLOPT_SSL_VERIFYPEER, FALSE);
+curl_setopt($cURLConnection3, CURLOPT_URL, $urlOffice);
+curl_setopt($cURLConnection3, CURLOPT_RETURNTRANSFER, true);
+$objoffices = curl_exec($cURLConnection3);
+$jsonOffices = objeto_a_json($objoffices);
+curl_close($cURLConnection3);
+$arrayOffices = json_decode($jsonOffices, true);
+$numOffices = count($arrayOffices);
+
+$opcionOffice = '';
+$html_lima = '';
+$html_provincia = '';
+
+for ($i = 0; $i < $numOffices; $i++) {
+
+    $codigo_sap = $arrayOffices[$i]['codigo_sap'];
+    $distrito = $arrayOffices[$i]['district'];
+    $tienda = $arrayOffices[$i]['name'];
+    $direccion = $arrayOffices[$i]['address'];
+    $provincia = $arrayOffices[$i]['department'];
+
+    if ($provincia == 'Lima') {
+        $html_lima .= '<option value="' . $codigo_sap . '" data-distrito="' . $distrito . '" data-provincia="' . $provincia . '" data-tienda="' . $tienda . '">' . $direccion . '</option>';
+    } else {
+        $html_provincia .= '<option value="' . $codigo_sap . '" data-distrito="' . $distrito . '" data-provincia="' . $provincia . '" data-tienda="' . $tienda . '">' . $direccion . '</option>';
+    }
+}
+
 ?>
 
 <head>
@@ -155,9 +204,14 @@ for ($m = 0; $m < $numModelos; $m++) {
     <link rel="stylesheet" href="../app/css/bootstrap.css" />
     <link rel="stylesheet" href="../app/fonts/stylesheet.css" />
     <link rel="stylesheet" href="../app/css/style.css" />
-    <script src="app/js/jquery.js"></script>
-    <script src="app/js/bootstrap.min.js"></script>
+    <script src="../app/js/jquery.js"></script>
+    <script src="../app/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+   <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 
 
@@ -183,7 +237,6 @@ for ($m = 0; $m < $numModelos; $m++) {
                                 <input type="text" id="modelo" class="form-control form-style" name="modelo" minlength="2" required disabled value="<?php echo $modelo; ?>">
                             </div>
                             <p id="opcmodelo" class="p-formstyle" style="opacity:0;">Seleccione un modelo</p>
-
                             <div class="form-group">
                                 <div class="col-xs-12 np">
                                     <label class="form-titulos">Versión</label>
@@ -293,3 +346,641 @@ for ($m = 0; $m < $numModelos; $m++) {
         </div>
     </div>
 </div>
+
+<!-- Modal Legales de la Web -->
+<div class="modal fade" id="modalDatosPersonales" tabindex="-1" role="dialog" aria-labelledby="modalBases" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title style-titlemodal" id="exampleModalBases">LEGAL PARA COTIZAR</h5>
+                <button type="button" class=" close " data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="style-x">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+                    <u>Cotización Web</u>
+                </div>
+                <br>
+                <div class="text-center">
+                    <b>Cláusula de Datos Personales para Usos Adicionales </b>
+                </div>
+                <br>
+                <p>
+                    De conformidad con lo dispuesto en la Ley 29733, Ley de Protección de Datos Personales y su Reglamento, aprobado mediante Decreto Supremo 3-2013-JUS, DERCO PERÚ S.A. (en adelante, “DERCO”) informa al USUARIO que los datos personales cuyo tratamiento autoriza a DERCO, a Dercocenter S.A.C. y Automotriz Latinoamericana S.A.C. (en adelante, las “Empresas”), así como aquellos datos que autorice en el futuro en el contexto de la generación de la presente cotización y/o simulación, serán incorporados en el banco de datos personales “Clientes de la empresa y reclamantes” de titularidad de DERCO. Este banco de datos personales ha sido inscrito en el Registro Nacional de Protección de Datos Personales con Código de Registro 6898. La dirección del titular del Banco es Av. Nicolás de Ayllón 2648, Ate, Lima.
+
+                </p>
+                <p>
+                    EL USUARIO autoriza a DERCO a utilizar la Información a fin de que DERCO, de manera directa, o a través de sus Encargados y Terceras Empresas:
+                </p>
+                <p>
+
+                    <li>
+                        Atienda reclamos y/o solicitudes de El USUARIO respecto de los productos y/o servicios brindados por DERCO.
+                    </li>
+                    <li>
+                        Le ofrezca productos y/o servicios vinculados o asociados a los productos y/o servicios automotrices de DERCO (venta de repuestos, accesorios y productos automotrices, venta de vehículos de las marcas de DERCO y servicios post-venta). El envío de estas comunicaciones o mensajes con las ofertas y/o anuncios publicitarios podrá ser remitida a través de medios escritos (por ejemplo, comunicaciones físicas), verbal (por ejemplo, mensajes o llamadas telefónicas) o electrónicos/informáticos (por ejemplo, correo electrónico, Whatsapp y Redes Sociales).
+                    </li>
+                    <li>
+                        Realizar encuestas, evaluar niveles de satisfacción, Net Promoter Score, estudios de mercado, preferencias de los usuarios, invitaciones a eventos y campañas.
+                    </li>
+
+                </p>
+                <p>
+
+                    EL USUARIO autoriza expresamente a DERCO a actualizar y completar su Información accediendo a fuentes públicas y/o la información que el USUARIO nos provea en el futuro.
+
+                </p>
+                <p>
+                    Asimismo, EL USUARIO reconoce haber sido informado que el tratamiento de sus datos por parte de DERCO, directamente o a través de las Terceras Empresas o Encargados, será hasta por un plazo de diez (10) años después de que finalice su relación comercial con DERCO.
+
+                </p>
+                <p>
+                    Cabe precisar que, respecto a las Transferencias a Terceros y a Encargados y al ejercicio de los derechos ARCO se aplicarán al presente caso lo estipulado en la anterior Cláusula Informativa.
+
+                    La aceptación o no de esta autorización para usos adicionales (ajenos a la ejecución de la relación contractual) no condiciona la prestación del servicio que EL USUARIO adquiere a través del contrato que está siendo suscrito.
+
+                </p>
+
+                <!--span class="excepcion-colormodal">Nota: </span>El envío de esta información implica que usted está aceptando los aspectos legales y políticas de privacidad de este sitio web. -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Clausulas de la Web -->
+<div class="modal fade" id="modalClausulas" tabindex="-1" role="dialog" aria-labelledby="modalBases" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title style-titlemodal" id="exampleModalBases">LEGAL PARA COTIZAR</h5>
+                <button type="button" class=" close " data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="style-x">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center">
+                    <u>Cláusula Informativa</u>
+                </div>
+                <br>
+                <br>
+                <p>
+                    De conformidad con lo dispuesto en la Ley 29733, Ley de Protección de Datos Personales y su Reglamento, aprobado mediante Decreto Supremo 3-2013-JUS, DERCO PERÚ S.A. (en adelante, “DERCO”) informa al USUARIO que los datos personales cuyo tratamiento autoriza a DERCO, a Dercocenter S.A.C. y Automotriz Latinoamericana S.A.C. (en adelante, las “Empresas”), así como aquellos datos que autorice en el futuro en el contexto de la generación de la presente cotización y/o simulación, serán incorporados en el banco de datos personales “Clientes de la empresa y reclamantes” de titularidad de DERCO. Este banco de datos personales ha sido inscrito en el Registro Nacional de Protección de Datos Personales con Código de Registro 6898. La dirección del titular del Banco es Av. Nicolás de Ayllón 2648, Ate, Lima.
+                </p>
+                <p>
+                    El USUARIO autoriza a DERCO a tratar sus datos personales con la finalidad de brindar un adecuado servicio derivado de la cotización que este envía, con la potencial finalidad de adquirir algún producto o servicio comercializado por las Empresas. La negativa del titular de proporcionar sus datos personales, genera la imposibilidad de ejecutar la relación comercial y/o una eventual relación contractual.
+                </p>
+                <p>
+                    <b>Transferencias a Terceros y Encargados del tratamiento.-</b> <br>
+                    EL USUARIO autoriza expresamente a DERCO a transferir su Información a terceras empresas (incluyendo pero no limitándose a aquellas que pertenecen al mismo grupo empresarial de DERCO), quienes podrán utilizar su Información para los usos y finalidades autorizados por EL USUARIO.
+                </p>
+                <p>
+                    En virtud de lo señalado, el USUARIO autoriza expresamente a DERCO a dar tratamiento, procesar y transferir su información a sus empresas subsidiarias, grupo empresarial, concesionarios, afiliadas y socios comerciales listados en la página web de DERCO https://www.derco.com.pe (en adelante, las “Terceras Empresas”), ubicados en el Perú y en el extranjero, conforme a los procedimientos que DERCO determine en el marco de sus operaciones habituales.
+
+                </p>
+                <p>
+                    EL USUARIO reconoce haber sido informado que su Información podrá ser conservada, tratada y transferida por DERCO a las Terceras Empresas hasta diez (10) años después de que finalice su relación comercial.
+                </p>
+                <p>
+                    Asimismo, EL USUARIO reconoce que DERCO utilizará diversos encargados, ubicados en el Perú y en el extranjero, quienes realizarán los tratamientos por cuenta y beneficio de DERCO, los cuales se encuentran listados en la página web de DERCO https://www.derco.com.pe.
+
+                </p>
+                <p>
+                    <b>Plazo de conservación.-</b> <br>
+
+                    DERCO podrá utilizar la Información de EL USUARIO hasta diez (10) años después de que finalice su relación comercial.
+
+                </p>
+                <p>
+                    <b>Ejercicio de derechos.-</b> <br>
+
+                    EL USUARIO puede ejercer los derechos de acceso, rectificación, cancelación, revocación y oposición reconocidos por la Ley 29733 y su reglamento (o aquellas que las modifiquen o sustituyan).
+
+                </p>
+                <p>
+                    Para ejercer cualquiera de los referidos derechos deberá remitir una comunicación a la siguiente dirección electrónica: derechosarco@derco.pe o ingresar a la sección denominada derechos ARCO en nuestra página web https://www.derco.com.pe.
+
+                </p>
+
+                <!--span class="excepcion-colormodal">Nota: </span>El envío de esta información implica que usted está aceptando los aspectos legales y políticas de privacidad de este sitio web. -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type='text/javascript'>
+    var re = new RegExp("^[A-Za-záéíóúÁÉÍÓÚÑñ ]+$");
+    var reruc = new RegExp("^[A-Za-záéíóúÁÉÍÓÚÑñ -.&0123456789]+$");
+    //NOMBRES
+    $("#first_name").keydown(function(e) {
+        // Permite: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190, 32]) !== -1 ||
+            // Permite: Ctrl+A
+            (e.keyCode == 65 && e.ctrlKey === true) ||
+            // Permite: home, end, left, right
+            (e.keyCode >= 35 && e.keyCode <= 39)) {
+            // solo permitir lo que no este dentro de estas condiciones es un return false
+            return;
+        }
+
+        // Aseguramos que son letras
+        if ((e.keyCode < 65 || (e.keyCode > 95 && e.keyCode < 106)) && ((e.keyCode > 122 || e.keyCode < 129) || (e.keyCode > 165 || e.keyCode < 181))) {
+            e.preventDefault();
+        }
+    });
+
+    $("#first_name").keyup(function(e) {
+        var first_name = $(this).val();
+
+        if (!re.test(first_name)) {
+            $('#opcnombre').css('opacity', '1');
+            $('.color-effect-2').css('border-color', '#FF1D25');
+        } else {
+            $('#opcnombre').css('opacity', '0');
+            $('.color-effect-2').css('border-color', '#39B54A');
+        }
+    });
+
+    //APELLIDOS
+    $("#last_name").keydown(function(e) {
+        // Permite: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190, 32]) !== -1 ||
+            // Permite: Ctrl+A
+            (e.keyCode == 65 && e.ctrlKey === true) ||
+            // Permite: home, end, left, right
+            (e.keyCode >= 35 && e.keyCode <= 39)) {
+            // solo permitir lo que no este dentro de estas condiciones es un return false
+            return;
+        }
+
+        // Aseguramos que son letras
+        if ((e.keyCode < 65 || (e.keyCode > 95 && e.keyCode < 106)) && ((e.keyCode > 122 || e.keyCode < 129) || (e.keyCode > 165 || e.keyCode < 181))) {
+            e.preventDefault();
+        }
+    });
+
+    $("#last_name").keyup(function(e) {
+        var last_name = $("#last_name").val();
+
+        if (!re.test(last_name)) {
+            $('#opcapellido').css('opacity', '1');
+            $('.color-effect-3').css('border-color', '#FF1D25');
+        } else if (last_name.length > 2) {
+            $('#opcapellido').css('opacity', '0');
+            $('.color-effect-3').css('border-color', '#39B54A');
+        }
+    });
+
+
+    //TIPO DE DOCUMENTO
+    $('select#tipo_documento').on('change', function() {
+        $('#opcrazonsocial').css('opacity', '0');
+        $('#opctipodocumento').css('opacity', '0');
+
+        $('.color-effect-4').css('border-color', '#39B54A');
+        $('.color-effect-5').css('border-color', '#ADADAD');
+        $('#rut_w2l').css('border-color', '#ADADAD');
+
+        $('#rut_w2l').val('');
+        $("#razon_social").val('');
+
+        document.getElementById("rut_w2l").disabled = false;
+
+        if ($('#tipo_documento option:selected').val() == 'RUC') {
+            document.getElementById("razon_social").disabled = false;
+        } else {
+            document.getElementById("razon_social").disabled = true;
+        }
+    });
+
+    //RAZÓN SOCIAL
+    $("#razon_social").keyup(function(e) {
+        var razon_social = $("#razon_social").val();
+
+        if (!reruc.test(razon_social)) {
+            $('#opcrazonsocial').css('opacity', '1');
+            $('.color-effect-5').css('border-color', '#FF1D25');
+        } else if (razon_social.length > 2) {
+            $('#opcrazonsocial').css('opacity', '0');
+            $('.color-effect-5').css('border-color', '#39B54A');
+        }
+
+        // Permite: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190, 32]) !== -1 ||
+            // Permite: Ctrl+A
+            (e.keyCode == 65 && e.ctrlKey === true) ||
+            // Permite: home, end, left, right
+            (e.keyCode >= 35 && e.keyCode <= 39)) {
+            // solo permitir lo que no este dentro de estas condiciones es un return false
+            return;
+        }
+    });
+
+    //NÚMERO DE DOCUMENTO
+    $("#rut_w2l").keyup(function(e) {
+        var numero_documento = $("#rut_w2l").val();
+        var tipo_documento = $("#tipo_documento").val();
+        var flag = false;
+        //alert(tipo_documento);
+        if (tipo_documento == 'DNI') {
+            $("#rut_w2l").attr('maxlength', '8');
+            $("tipoDocumento").attr('value', tipo_documento);
+
+            if (numero_documento.length == 8) {
+                flag = true;
+            }
+        } else if (tipo_documento == 'RUC') {
+            $("#rut_w2l").attr('maxlength', '11');
+            $("tipoDocumento").attr('value', tipo_documento);
+
+            if (numero_documento.length == 11) {
+                flag = true
+            }
+        } else if (tipo_documento == 'Pasaporte' || tipo_documento == 'Carnet de Extranjería') {
+            $("#rut_w2l").attr('maxlength', '12');
+            $("tipoDocumento").attr('value', tipo_documento);
+
+            if (numero_documento.length == 12) {
+                flag = true;
+            }
+        }
+
+        if (flag) {
+            $('#opcdni').css('opacity', '0');
+            $('.color-effect-6').css('border-color', '#39B54A');
+        } else {
+            $('#opcdni').css('opacity', '1');
+            $('.color-effect-6').css('border-color', '#FF1D25');
+        }
+
+        // Permite: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+            // Permite: Ctrl+A
+            (e.keyCode == 65 && e.ctrlKey === true) ||
+            // Permite: home, end, left, right
+            (e.keyCode >= 35 && e.keyCode <= 39)) {
+            // solo permitir lo que no este dentro de estas condiciones es un return false
+            return;
+        }
+        // Aseguramos que son numeros
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+    });
+
+    //TELÉFONO
+    $("#telefono").keyup(function(e) {
+        var telefono = $("#telefono").val();
+
+        if (!/^(9)\d{8}$/.test(telefono)) {
+            $('#opctelefono').css('opacity', '1');
+            $('.color-effect-7').css('border-color', '#FF1D25');
+        } else if (telefono.length == 9) {
+            $('#opctelefono').css('opacity', '0');
+            $('.color-effect-7').css('border-color', '#39B54A');
+        }
+
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+            // Permite: Ctrl+A
+            (e.keyCode == 65 && e.ctrlKey === true) ||
+            // Permite: home, end, left, right
+            (e.keyCode >= 35 && e.keyCode <= 39)) {
+            // solo permitir lo que no este dentro de estas condiciones es un return false
+            return;
+        }
+        // Aseguramos que son numeros
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+    });
+
+    //CORREO ELECTRÓNICO
+    $("#correo").keyup(function(e) {
+        var correo = $("#correo").val();
+
+        if (validateEmail(correo)) {
+            $('#opccorreo').css('opacity', '0');
+            $('.color-effect-8').css('border-color', '#39B54A');
+        } else {
+            $('#opccorreo').css('opacity', '1');
+            $('.color-effect-8').css('border-color', '#FF1D25');
+        }
+    });
+
+    //Filtro de Selecciona version
+    $("input[name='aprobacionPersonales']").click(function() {
+        var datospersonales = $("input[name='aprobacionPersonales']:checked").val();
+
+    });
+    $("input[name='clausula']").click(function() {
+        var terminoclausula = $("input[name='clausula']:checked").val();
+
+    });
+
+    function validateEmail(email) {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
+
+    //Filtro de Selecciona version
+    $('select#version').on('change', function() {
+        var version = $(this).val();
+        var codigosap = $('select#version option:checked').attr('data-sap');
+        $('#opcversion').css('opacity', '0');
+        $('.color-effect-10').css('border-color', '#39B54A');
+        $("#aparecer").css('opacity', '1');
+    });
+
+    var contador = 0;
+
+    //FILTRO DE TIENDAS
+    $('select#iSalon').on('change', function() {
+        tienda_val = $(this).val();
+        $('#opctienda').css('opacity', '0');
+        $('.color-effect-9').css('border-color', '#39B54A');
+    });
+
+    $("#EnviarForm").click(function(e) {
+
+        $('#EnviarForm').prop('disabled', true);
+        var marca = $('#marca').val();
+        var marca_sf = marca;
+        //Citroen
+        if (marca == 'CITROËN') {
+            marca_sf = 'CITROEN';
+        }
+        var modelo = $("#modelo").val();
+        var nombre = $("#first_name").val();
+        var version = $('select#version').val();
+        var codigosap = $('select#version option:checked').attr('data-sap');
+        var apellido = $("#last_name").val();
+        var tipo_documento = $('#tipo_documento option:selected').val();
+        var razon_social = $("#razon_social").val();
+        var numero_documento = $("#rut_w2l").val();
+        var telefono = $("#telefono").val();
+        var correo = $("#correo").val();
+        tienda_val = $("#iSalon option:selected").val();
+        var tienda_direccion = $('#iSalon option:checked').text();
+        var tienda_nombre = $('#iSalon option:checked').attr('data-tienda');
+        var tienda_distrito = $('#iSalon option:checked').attr('data-distrito');
+        var provincia = $('#iSalon option:checked').attr('data-provincia');
+        var datospersonalesenvio = $("input[name='aprobacionPersonales']:checked").val();
+        var terminos = $("input[name='clausula']:checked").val();
+        var flag = true;
+
+        //MODELO
+        if (modelo == 0) {
+            $('#opcmodelo').css('opacity', '1');
+            $('.color-effect-1').css('border-color', '#FF1D25');
+            flag = false;
+        }
+
+        if (version == null || version == '') {
+            $('#opcversion').css('opacity', '1');
+            $('.color-effect-10').css('border-color', '#FF1D25');
+            flag = false;
+        }
+
+        //NOMBRE
+        if (nombre.length < 2) {
+            $('#opcnombre').css('opacity', '1');
+            $('.color-effect-2').css('border-color', '#FF1D25');
+            flag = false;
+        }
+
+        //APELLIDOS
+        if (apellido.length < 1) {
+            $('#opcapellido').css('opacity', '1');
+            $('.color-effect-3').css('border-color', '#FF1D25');
+            flag = false;
+        }
+
+        //TIPO DOCUMENTO
+        if (tipo_documento == 0) {
+            $('#opctipodocumento').css('opacity', '1');
+            $('.color-effect-4').css('border-color', '#FF1D25');
+            flag = false;
+        }
+
+        if (tipo_documento == 'RUC') {
+            if (razon_social.length < 2) {
+                $('#opcrazonsocial').css('opacity', '1');
+                $('.color-effect-5').css('border-color', '#FF1D25');
+                flag = false;
+            }
+
+            if (numero_documento.length < 11) {
+                $('#opcdni').css('opacity', '1');
+                $('.color-effect-6').css('border-color', '#FF1D25');
+                flag = false;
+            }
+        }
+
+        if (tipo_documento == 'DNI') {
+            if (numero_documento.length < 8) {
+                $('#opcdni').css('opacity', '1');
+                $('.color-effect-6').css('border-color', '#FF1D25');
+                flag = false;
+            }
+        }
+
+        if (tipo_documento == 'Pasaporte' || tipo_documento == 'Carnet de Extranjería') {
+            if (numero_documento.length < 12) {
+                $('#opcdni').css('opacity', '1');
+                $('.color-effect-6').css('border-color', '#FF1D25');
+            }
+        }
+
+        //CELULAR
+        if (!/^(9)\d{8}$/.test(telefono)) {
+            $('#opctelefono').css('opacity', '1');
+            $('.color-effect-7').css('border-color', '#FF1D25');
+            flag = false;
+        }
+
+        //CORREO
+        if (!validateEmail(correo)) {
+            $('#opccorreo').css('opacity', '1');
+            $('.color-effect-8').css('border-color', '#FF1D25');
+            flag = false;
+        }
+
+        //TIENDA
+        if (tienda_val == 0) {
+            $('#opctienda').css('opacity', '1');
+            $('.color-effect-9').css('border-color', '#FF1D25');
+            flag = false;
+        }
+
+        //TÉRMINOS Y CONDICIONES
+        if (terminos == undefined || datospersonalesenvio == undefined) {
+            $("#rpta2").text("Debe seleccionar alguna de las opciones de nuestros Términos y condiciones.");
+            flag = false;
+        } else {
+            $("#rpta2").text(" ");
+            terminos = terminos + datospersonalesenvio;
+        }
+
+        //RE-CAPTCHA V2
+        var captcha = 0;
+        var response = grecaptcha.getResponse();
+
+        if (response == 0) {
+            //reCaptcha not verified
+            captcha = 0;
+        } else {
+            //reCaptch verified
+            captcha = 1;
+        }
+
+        if (captcha == 0) {
+            $("#rptacaptcha").css('display', 'block');
+            flag = false;
+        }
+
+        //VALIDACIONES
+        if (!flag) {
+            //Error en los datos del formulario
+            $('#EnviarForm').prop('disabled', false);
+            return false;
+        } else {
+            contador++;
+
+            if (contador == 1) {
+                /* ga('send', {
+                    hitType: 'event',
+                    eventCategory: 'Suscripcion',
+                    eventAction: 'click boton',
+                    eventLabel: '<?php echo strtoupper($marcaid) . " " . $modelo ?>'
+                });
+                */
+                //Enviar datos para SalesForce
+
+                post_data_cms = {
+                    'id_w2l': 1,
+                    'rut_w2l': numero_documento,
+                    'first_name': nombre,
+                    'last_name': apellido,
+                    'fone1_w2l': telefono,
+                    'tipo_documento': tipo_documento,
+                    'razon_social': razon_social,
+                    'email': correo,
+                    'state': provincia,
+                    'url1_w2l': 'https://derco.com.pe/catalogo-derco/',
+                    'url2_w2l': 'https://derco.com.pe/',
+                    'brand_w2l': 'DERCO',
+                    'model_w2l': modelo,
+                    'marca2': marca,
+                    'version_w2l': version,
+                    'sap_w2l': codigosap,
+                    'price_w2l': '',
+                    'local_w2l': tienda_nombre,
+                    'distrito': tienda_distrito,
+                    'direccion': tienda_direccion,
+                    'cod_origen2_w2l': '001',
+                    'store': tienda_val,
+                    'terms': terminos
+                }
+
+                $.ajax({
+                    url: "https://cotizadorderco.com/client",
+                    type: "POST",
+                    data: post_data_cms,
+                    beforeSend: function(xhr, settings) {
+
+                    },
+                    success: function(data, status) {
+                        post_data = {
+                            'marca': marca_sf,
+                            'modelo': modelo,
+                            'first_name': nombre,
+                            'last_name': apellido,
+                            'tipo_documento': tipo_documento,
+                            'razon_social': razon_social,
+                            'version': version,
+                            'codigosap': codigosap,
+                            'numero_documento': numero_documento,
+                            'celular': telefono,
+                            'correo': correo,
+                            'provincia': provincia,
+                            'tienda': tienda_val,
+                            'terminos': terminos
+                        };
+
+                        $.ajax({
+                            type: "POST",
+                            url: "send-data.php",
+                            crossDomain: true,
+                            data: post_data,
+                            beforeSend: function(xhr, settings) {
+
+                            },
+                            success: function(data, status) {
+                                //Ajax post data to E-MAIL
+                                post_email_data = {
+                                    'source': 'DERCO',
+                                    'marca': marca,
+                                    'modelo': modelo,
+                                    'first_name': nombre,
+                                    'last_name': apellido,
+                                    'tipo_documento': tipo_documento,
+                                    'razon_social': razon_social,
+                                    'numero_documento': numero_documento,
+                                    'celular': telefono,
+                                    'correo': correo,
+                                    'provincia': provincia,
+                                    'tienda': tienda_val,
+                                    'tienda_nombre': tienda_nombre,
+                                    'terminos': terminos
+                                };
+
+                                //console.log(post_email_data);
+
+                                $.ajax({
+                                    type: "POST",
+                                    url: "enviar-correo.php",
+                                    crossDomain: true,
+                                    data: post_email_data,
+                                    beforeSend: function(xhr, settings) {
+
+                                    },
+                                    success: function(data, status) {
+                                        post_analytics = {
+                                            'source': 'DERCO',
+                                            'marca': marca,
+                                            'modelo': modelo,
+                                            'version': version,
+                                            'first_name': nombre,
+                                            'last_name': apellido,
+                                            'tipo_documento': tipo_documento,
+                                            'razon_social': razon_social,
+                                            'numero_documento': numero_documento,
+                                            'celular': telefono,
+                                            'correo': correo,
+                                            'utm_source': '<?php echo $utm_source; ?>',
+                                            'utm_medium': '<?php echo $utm_medium; ?>',
+                                            'utm_campaign': '<?php echo $utm_campaign; ?>',
+                                        };
+                                        //  window.location.href="https://derco.com.pe/catalogo-derco/gracias.php?marca="+post_analytics.marca+"&modelo="+post_analytics.modelo+"&version="+post_analytics.version+"&first_name="+post_analytics.first_name+"&last_name="+post_analytics.last_name+"&tipo_documento="+post_analytics.tipo_documento+"&razon_social="+post_analytics.razon_social+"&numero_documento="+post_analytics.numero_documento+"&celular="+post_analytics.celular+"&correo="+post_analytics.correo+"&utm_source="+post_analytics.utm_source+"&utm_medium="+post_analytics.utm_medium+"&utm_campaign="+post_analytics.utm_campaign;
+                                        window.location.href = "https://derco.com.pe";
+                                    },
+                                    error: function(jqXHR, exception, response) {
+                                        console.log('Error correo');
+                                    }
+                                });
+
+                            },
+                            error: function(jqXHR, exception, response) {
+                                console.log('Error salesforce');
+                            }
+                        });
+
+
+                    },
+                    error: function(jqXHR, exception, response) {
+
+                    }
+                });
+            }
+        }
+    });
+</script>
