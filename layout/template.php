@@ -19,8 +19,7 @@
 </head>
 <body id="backgroundImage">
   <?php include $path['layout'].'header.php'; ?>
-  <?php include $path['layout'].'main.php'; ?>
+  <?php include '../models/inicio.php'?>
   <?php include $path['layout'].'footer.php'; ?>
-  <script src="app/js/app.js"></script>
 </body>
 </html>

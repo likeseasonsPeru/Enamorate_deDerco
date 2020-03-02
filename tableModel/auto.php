@@ -1,5 +1,7 @@
 <?php
 
+include_once 'EntidadBase.php';
+
 class Auto extends EntidadBase{
 
     private $ID;
@@ -9,7 +11,7 @@ class Auto extends EntidadBase{
     private $date;
 
     public function __construct(){
-        $table="precios_landing_campañaverano2020";  // <- tabla de los models
+        $table='autos2017';  // <- tabla de los models
         parent::__construct($table);
     }
 
