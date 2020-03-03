@@ -45,6 +45,6 @@
     </div>
     </section>
     <div class="padin marg">
-        <a  class="col-12 fk-btn" href="cuarto.php">DESCUBRELO AQUÍ</a>
+        <a class="col-12 fk-btn" href="cuarto.php">DESCUBRELO AQUÍ</a>
     </div> 
 </div>
