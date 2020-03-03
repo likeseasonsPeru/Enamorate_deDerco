@@ -1,6 +1,6 @@
 <?php
 
-include_once 'config/conexion.php';
+require_once '../config/conexion.php';
 
 class EntidadBase extends Conexion{
     private $table;
@@ -59,11 +59,11 @@ class EntidadBase extends Conexion{
     public function ejecutarSql($query){
         $query=$this->db()->query($query);
         if($query==true){
-            if($query->num_rows>1){
-                while($row = $query->fetchAll()) {
+            if($query->rowCount()>1){
+                 while($row = $query->fetchAll()) {
                    $resultSet[]=$row;
-                }
-            }elseif($query->num_rows==1){
+                }  
+            }elseif($query->rowCount()==1){
                 if($row = $query->fetchAll()) {
                     $resultSet=$row;
                 }
