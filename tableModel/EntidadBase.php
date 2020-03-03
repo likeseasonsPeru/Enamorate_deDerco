@@ -1,6 +1,6 @@
 <?php
 
-require_once '../config/conexion.php';
+include_once dirname(__DIR__).'../config/conexion.php';
 
 class EntidadBase extends Conexion{
     private $table;

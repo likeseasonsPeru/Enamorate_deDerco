@@ -2,6 +2,9 @@
 
 $modelo = 'NEW C3';
 $marca = 'Citroën';
+
+$marca = $_GET['marca'];
+$modelo = $_GET['modelo'];
 //$marcaid = '';
 
 // Utms

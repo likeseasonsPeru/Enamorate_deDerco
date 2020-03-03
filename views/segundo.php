@@ -61,48 +61,45 @@ $telefono = $_POST['telefono'];
     var perfil = '';
     $('#btnEsforzado').click(function() {
       perfil = 'esforzado';
-      alert(perfil);
     });
 
     $('#btnFamilion').click(function() {
       perfil = 'familion';
-      alert(perfil);
     });
 
     $('#btnEmprendedor').click(function() {
       perfil = 'emprendedor';
-      alert(perfil);
     });
 
     $('#btnNuevoadulto').click(function() {
       perfil = 'nuevoadulto';
-      alert(perfil);
+
     });
 
 
     $('.btnSeguir').click(function() {
-      
+
       let min = <?php echo $minimo; ?>;
       let max = <?php echo $maximo; ?>;
-      let email = <?php echo $email; ?>;
+      let email = '<?php echo $email; ?>';
       let telefono = <?php echo $telefono; ?>;
 
       if (perfil == '') {
         alert('Seleccione un perfil');
       } else {
         $.ajax({
-          url: 'views/filtro.php',
+          url: 'filtro.php',
           type: 'POST',
           data: {
             min,
             max,
             email,
-            cell,
+            telefono,
             perfil
           },
           datatype: 'html',
-          success: function() {
-            console.log('Todo bien');
+          success: function(datahtml) {
+            $('.contenedor').html(datahtml);
           },
           error: function() {
             console.log('Algo salió mal');

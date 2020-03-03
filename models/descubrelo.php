@@ -1,20 +1,20 @@
 <?php
 
 include_once '../tableModel/auto.php';
-/* 
+
 $perfil = $_POST['perfil'];
 $pres_min = $_POST['min'];
 $pres_max = $_POST['max'];
 $email = $_POST['email'];
-$cell = $_POST['cell'];
+$cell = $_POST['telefono'];
 
- */
-
+ 
+/* 
 $perfil = 'esforzado';
 $pres_min = 10000;
 $pres_max = 15000;
 $email = 'alex@gmail.com';
-$cell = '987456321';
+$cell = '987456321'; */
 
 if ($perfil != null && $email != null && $pres_min != null && $pres_max != null && $email != null && $cell != null) {
    /*  $user_model = new User();
