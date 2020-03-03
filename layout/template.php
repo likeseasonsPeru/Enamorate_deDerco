@@ -6,7 +6,7 @@
     <meta name="keywords" content="Portal de Crecimiento - Lindley" >
     <link rel="shortcut icon" href="./app/img/favicon.png" type="image/x-icon">
     <meta name="description" content="Portal de Crecimiento - Lindley" >
-    <title>Landing Natura</title>
+    <title>Enamorate Derco</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     <link rel="stylesheet" href="app/css/bootstrap.min.css"/>
@@ -15,7 +15,7 @@
     <script src="app/js/jquery.js"></script>
     <script src="app/js/bootstrap.min.js"></script>
     <script src="app/js/functions.js"></script>
-    
+
 </head>
 <body>
   <?php include $path['layout'].'header.php'; ?>

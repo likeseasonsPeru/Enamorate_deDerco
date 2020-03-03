@@ -171,6 +171,71 @@ body{
   margin-top: 45px;
   width: 100%;
 }
+.espacioTop{
+  margin-top: 150px;
+}
+.espacioPregunta{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.centerInputs{
+  margin: auto;
+}
+.labelForm{
+  color: #e80707;
+}
+.inputForms{
+  width: 100%;
+  border-radius: 25px;
+  border: 1px solid black;
+  padding: 5px;
+  margin-bottom: 15px;
+  max-width: 480px;
+  outline: none;
+}
+.espacioBtns{
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.btnSeguir{
+  color: white;
+  border: 1px solid #e80707;
+  border-radius: 25px;
+  padding: 10px 30px;
+  background-color: #e80707;
+  font-size: 18px;
+  outline: none;
+  transition: 0.6s all;
+}
+.btnSeguir:hover,.btnSeguir:focus{
+  color: #e80707;
+  border: 1px solid #e80707;
+  border-radius: 25px;
+  padding: 10px 30px;
+  background-color: white;
+  font-size: 18px;
+  outline: none;
+  transition: 0.6s all;
+}
+#modalFirstDatos{
+  background-color: rgba(0,0,0,.6);
+  padding-top: 80px;
+}
+.modal-body{
+  padding: 45px;
+}
+.imgTipo{
+  width: 100%;
+  margin: auto;
+}
+
+.btnTipoSelect{
+  padding: 0px;
+  margin-top: 25px;
+  background-color: transparent;
+  border:0px;
+}
 
 /*Responsive*/
 

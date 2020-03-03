@@ -1,6 +1,5 @@
 <?php
-
-require_once 'config.php';
+include_once dirname(__FILE__).'/config.php';
 
 // api
 
