@@ -43,12 +43,12 @@
     <div class="filtros-title text-center">
       <p class="filtros-title-white">MARCAS</p>
     </div>
-    <div class="marcas-select">
-      <select name="marcas" id="buscar-marcas">
+    <div class="marcas-select text-center">
+      <select name="marcas" id="buscar-marcas" class="p-2">
         <option value="todas">Todas las marcas</option>
         <option value="suzuki">Suzuki</option>
         <option value="renault">Renault</option>
-        <option value="mazada">Mazda</option>
+        <option value="mazda">Mazda</option>
         <option value="citroen">Citroen</option>
         <option value="ds">DS</option>
         <option value="greatwall">Great Wall</option>

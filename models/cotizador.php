@@ -1,7 +1,6 @@
 <?php
 
-$modelo = 'NEW C3';
-$marca = 'Citroën';
+include_once dirname(__DIR__) . '../tableModel/tienda.php';
 
 $marca = $_GET['marca'];
 $modelo = $_GET['modelo'];
@@ -162,36 +161,66 @@ for ($m = 0; $m < $numModelos; $m++) {
 
 // Offices
 
-$urlOffice = 'https://cotizadorderco.com/offices-brands/' . $alias;
-$cURLConnection3 = curl_init();
-curl_setopt($cURLConnection3, CURLOPT_SSL_VERIFYHOST, FALSE);
-curl_setopt($cURLConnection3, CURLOPT_SSL_VERIFYPEER, FALSE);
-curl_setopt($cURLConnection3, CURLOPT_URL, $urlOffice);
-curl_setopt($cURLConnection3, CURLOPT_RETURNTRANSFER, true);
-$objoffices = curl_exec($cURLConnection3);
-$jsonOffices = objeto_a_json($objoffices);
-curl_close($cURLConnection3);
-$arrayOffices = json_decode($jsonOffices, true);
-$numOffices = count($arrayOffices);
-
 $opcionOffice = '';
 $html_lima = '';
 $html_provincia = '';
 
-for ($i = 0; $i < $numOffices; $i++) {
+if ($alias == 'suzuki' || $alias == 'mazda') {
+    $tienda_model = new Tienda();
+    $tienda_marca = $tienda_model->ejecutarSql("SELECT * FROM tiendas_derco WHERE estado='1'");
+    // $tienda_marca_arr = explode(',', $tienda_marca);
 
-    $codigo_sap = $arrayOffices[$i]['codigo_sap'];
-    $distrito = $arrayOffices[$i]['district'];
-    $tienda = $arrayOffices[$i]['name'];
-    $direccion = $arrayOffices[$i]['address'];
-    $provincia = $arrayOffices[$i]['department'];
+    foreach ($tienda_marca as $tiendas) {
+        foreach ($tiendas as $newTienda) {
+            $tienda_marca_arr = explode(',', $newTienda['marca']);
+            $search_array = array_search($marca_tienda, $tienda_marca_arr);
+            if ($search_array !== false) {
+                $codigo_sap = $newTienda['codigo_sap'];
+                $codigo_distrito = $newTienda['codigo_distrito'];
+                $tienda = $newTienda['tienda'];
+                $direccion = $newTienda['direccion'];
+                $provincia = $newTienda['provincia'];
 
-    if ($provincia == 'Lima') {
-        $html_lima .= '<option value="' . $codigo_sap . '" data-distrito="' . $distrito . '" data-provincia="' . $provincia . '" data-tienda="' . $tienda . '">' . $direccion . '</option>';
-    } else {
-        $html_provincia .= '<option value="' . $codigo_sap . '" data-distrito="' . $distrito . '" data-provincia="' . $provincia . '" data-tienda="' . $tienda . '">' . $direccion . '</option>';
+                if ($provincia == 'LIMA') {
+                    $html_lima .= '<option value="' . $codigo_sap . '" data-distrito="' . $codigo_distrito . '" data-provincia="' . $provincia . '" data-tienda="' . $tienda . '">' . $direccion . '</option>';
+                } else {
+                    $html_provincia .= '<option value="' . $codigo_sap . '" data-distrito="' . $codigo_distrito . '" data-provincia="' . $provincia . '" data-tienda="' . $tienda . '">' . $direccion . '</option>';
+                }
+            }
+        }
+    }
+    
+    //$numOffices = count($search_array);
+
+} else {
+
+    $urlOffice = 'https://cotizadorderco.com/offices-brands/' . $alias;
+    $cURLConnection3 = curl_init();
+    curl_setopt($cURLConnection3, CURLOPT_SSL_VERIFYHOST, FALSE);
+    curl_setopt($cURLConnection3, CURLOPT_SSL_VERIFYPEER, FALSE);
+    curl_setopt($cURLConnection3, CURLOPT_URL, $urlOffice);
+    curl_setopt($cURLConnection3, CURLOPT_RETURNTRANSFER, true);
+    $objoffices = curl_exec($cURLConnection3);
+    $jsonOffices = objeto_a_json($objoffices);
+    curl_close($cURLConnection3);
+    $arrayOffices = json_decode($jsonOffices, true);
+    $numOffices = count($arrayOffices);
+
+    for ($i = 0; $i < $numOffices; $i++) {
+        $codigo_sap = $arrayOffices[$i]['codigo_sap'];
+        $distrito = $arrayOffices[$i]['district'];
+        $tienda = $arrayOffices[$i]['name'];
+        $direccion = $arrayOffices[$i]['address'];
+        $provincia = $arrayOffices[$i]['department'];
+
+        if ($provincia == 'Lima') {
+            $html_lima .= '<option value="' . $codigo_sap . '" data-distrito="' . $distrito . '" data-provincia="' . $provincia . '" data-tienda="' . $tienda . '">' . $direccion . '</option>';
+        } else {
+            $html_provincia .= '<option value="' . $codigo_sap . '" data-distrito="' . $distrito . '" data-provincia="' . $provincia . '" data-tienda="' . $tienda . '">' . $direccion . '</option>';
+        }
     }
 }
+
 
 ?>
 
@@ -213,8 +242,8 @@ for ($i = 0; $i < $numOffices; $i++) {
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-   <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 
 

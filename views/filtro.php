@@ -85,9 +85,7 @@ if ($marca) {
 }
 
 //Validamos el modelo
-if ($tipo_auto) {
-    $arr_tipoauto = [];
-    $arr_tipoauto = explode(",", $tipo_auto);
+if ($tipo_auto != 'todas') {
     $i = 0;
     foreach ($tipo_auto as $value) {
 
@@ -133,6 +131,8 @@ $auto_model = new Auto();
     } else if ($perfil == 'familion') {
         $query = "SELECT * FROM autos2017 where (tipo_auto = 'suv' or  tipo_auto= 'van') and dolares between '$pres_min' and '$pres_max';";
     } */
+
+var_dump($query);
 $autos = $auto_model->ejecutarSql($query);
 $autos_pag = '';
 $count = 0;
@@ -154,7 +154,7 @@ if ($autos[0] != null) {
             $autos_pag .= '<p class="text-left textoGeneral">' . $auto['marca'] . '</p></div>';
             $autos_pag .= '<div class="row">';
             $autos_pag .= '<a class="col-lg-6">VER MÁS</a>';
-            $autos_pag .= '<a class="col-lg-6 href="cotizador.php?modelo=' . $auto['modelo'] . '&marca=' . $auto['marca'] . '">COTIZAR</a></div></div></div>';
+            $autos_pag .= '<a class="col-lg-6" href="models/cotizador.php?modelo=' . $auto['modelo'] . '&marca=' . $auto['marca'].'">COTIZAR</a></div></div></div>';
         }
         //  }
     }
@@ -174,7 +174,7 @@ if ($autos == null || $count == 0) {
     <div class="container text-center">
         <div class="row">
             <?php echo $autos_pag ?>
-            <!-- <div class="col-4 col-md-6 col-lg-4 fixPad card-border">
+           <!--  <div class="col-4 col-md-6 col-lg-4 fixPad card-border">
                 <div class="col-4 cardB">
                     <div class="col-12">
                         <h1 class="precio-card right">
@@ -194,11 +194,11 @@ if ($autos == null || $count == 0) {
                     </div>
 
                     <div class="row">
-                        <a class="col-lg-6" href="models/cotizador.php?marca=">VER MÁS</a>
-                        <a class="col-lg-6">COTIZAR</a>
+                        <a class="col-lg-6">VER MÁS</a>
+                        <a class="col-lg-6" href="models/cotizador.php?marca=">COTIZAR</a>
                     </div>
                 </div>
-            </div>
+            </div> --> <!--
             <div class="col-4 col-md-6 col-lg-4 fixPad card-border">
                 <div class="col-4 cardB">
                     <div class="col-12">
@@ -274,7 +274,7 @@ if ($autos == null || $count == 0) {
 <!-- </div> -->
 
 <script type="text/javascript">
-    var buscar_modelo = [];
+    /* var buscar_modelo = [];
 
     $(document).ready(function() {
 
@@ -299,5 +299,5 @@ if ($autos == null || $count == 0) {
             console.log(buscar_modelo);
         });
 
-    })
+    }) */
 </script>
