@@ -1,6 +1,10 @@
 <?php
 
+// for dev
 include_once dirname(__DIR__).'../config/conexion.php';
+
+// for produccion
+//include_once dirname(__FILE__).'../../config/conexion.php';
 
 class EntidadBase extends Conexion{
     private $table;

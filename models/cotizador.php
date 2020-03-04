@@ -1,6 +1,10 @@
 <?php
 
+// for dev
 include_once dirname(__DIR__) . '../tableModel/tienda.php';
+
+// for produccion
+//include_once dirname(__FILE__).'../../tableModel/tienda.php';
 
 $marca = $_GET['marca'];
 $modelo = $_GET['modelo'];

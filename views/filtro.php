@@ -1,6 +1,11 @@
 <?php
 
+// for dev
 include_once dirname(__DIR__) . '../tableModel/auto.php';
+
+// for production
+//include_once dirname(__FILE__).'../../tableModel/auto.php';
+
 
 //$perfil = $_POST['perfil'];
 $min = $_POST['min'];
@@ -132,7 +137,6 @@ $auto_model = new Auto();
         $query = "SELECT * FROM autos2017 where (tipo_auto = 'suv' or  tipo_auto= 'van') and dolares between '$pres_min' and '$pres_max';";
     } */
 
-var_dump($query);
 $autos = $auto_model->ejecutarSql($query);
 $autos_pag = '';
 $count = 0;
