@@ -1,28 +1,29 @@
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner col-12">
-    <div class="carousel-item active">
-      <img src="app/img/picture1.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="app/img/picture2.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="app/img/picture3.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="app/img/picture4.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="app/img/picture5.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="app/img/picture6.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="app/img/picture7.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="app/img/picture8.jpg" class="d-block w-100" alt="...">
+<div id="contenedor" class="container">
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner col-12">
+      <div class="carousel-item active">
+        <img src="app/img/picture1.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="app/img/picture2.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="app/img/picture3.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="app/img/picture4.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="app/img/picture5.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="app/img/picture6.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="app/img/picture7.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="app/img/picture8.jpg" class="d-block w-100" alt="...">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -34,12 +35,10 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-
-<div id="contenedor" class="container">
-  <div class="col-md-12 bg-grayderco text-center">
+  <div class="row col-12 col-sm-12 col-md-4 bg-grayderco text-left mgTop bgTop">
     <p class="filtros-head">Filtros de Búsqueda</p>
   </div>
-  <div class="col-md-12 bg-derco">
+  <!--<div class="col-md-12 bg-derco">
     <div class="filtros-title text-center">
       <p class="filtros-title-white">MARCAS</p>
     </div>
@@ -57,9 +56,95 @@
         <option value="changan">Changan</option>
       </select>
     </div>
-  </div>
-  <div class="row col-12 text-center contInicioMd marg mgt">
-    <div class="col-md-12 bg-grayderco np espacioPregunta">
+  </div>-->
+  <div class="row col-12 text-center contInicioMd marg mgt ">
+    <div class="col-12 col-sm-12 col-md-12 col-xl-4 text-center bg-white precioInputs">
+      <div class="col-12 np espacioPregunta text-left pdTb">
+        <h5 class="filtros-title-gray pdTb">PRECIO</h5>
+      </div>
+      <!--<div class="row">
+        <div class="rango-precio">
+            <label for="inputMin" class="col control-label">Desde $</label>
+            <div class="col">
+              <input type="text" class="form-control" id="inputMin" placeholder="Min." onkeypress="return isNumber(event)">
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="rango-precio">
+            <label for="inputMax" class="col control-label">Hasta $</label>
+            <div class="col">
+              <input type="text" class="form-control" id="inputMax" placeholder="Max." onkeypress="return isNumber(event)">
+            </div>
+        </div>
+      </div> -->
+      <div class="min">
+        <div class="rango-precio">
+          <label for="inputMin" class="pdRight negrita">Desde $</label>
+          <input type="text" class="text-center" id="inputMin" placeholder="Min." onkeypress="return insNumber(event)"></input>
+        </div>
+      </div>
+      <div class="max">
+        <div class="rango-precio">
+          <label for="inputMin" class="pdRight negrita">Hasta $</label>
+          <input type="text" class="text-center" id="inputMax" placeholder="Max." onkeypress="return insNumber(event)"></input>
+        </div>
+      </div>
+    </div> 
+    <div class="col-12 col-sm-12 col-md-12 col-xl-4 text center bg-gray centerInputs">
+      <div class="col-md-12 bg-grayderco np espacioPregunta">
+        <div class="filtros-title" id="titulo-modelos-filtro">
+          <p class="filtros-title-gray">MODELOS</p>
+        </div>
+        <div id="hatchback" class="modelo-select marg">
+          <i class="fa fa-angle-right" aria-hidden="true"></i> Hatchback
+          <div class="checkbox-modelo"></div>
+        </div>
+
+        <div id="sedan" class="modelo-select">
+          <i class="fa fa-angle-right" aria-hidden="true"></i> Sedán
+          <div class="checkbox-modelo"></div>
+        </div>
+
+        <div id="suv" class="modelo-select">
+          <i class="fa fa-angle-right" aria-hidden="true"></i> SUV
+          <div class="checkbox-modelo"></div>
+        </div>
+
+        <div id="pickup" class="modelo-select">
+          <i class="fa fa-angle-right" aria-hidden="true"></i> Pickup
+          <div class="checkbox-modelo"></div>
+        </div>
+
+        <div id="multiproposito" class="modelo-select">
+          <i class="fa fa-angle-right" aria-hidden="true"></i> Multipropósito
+          <div class="checkbox-modelo"></div>
+        </div>
+
+        <div id="van" class="modelo-select">
+          <i class="fa fa-angle-right" aria-hidden="true"></i> Van Pasajeros
+          <div class="checkbox-modelo"></div>
+        </div>
+
+        <div id="panel" class="modelo-select">
+          <i class="fa fa-angle-right" aria-hidden="true"></i> Panel
+          <div class="checkbox-modelo"></div>
+        </div>
+
+        <div id="deportivos" class="modelo-select">
+          <i class="fa fa-angle-right" aria-hidden="true"></i> Deportivos
+          <div class="checkbox-modelo"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-6 col-xl-3">
+      <div class="col-12 espacioBtns">
+        <button id="btnModal" class="btnSeguir" type="button" name="button">
+          BUSCAR
+        </button>
+      </div>
+    </div>
+    <!--<div class="col-md-12 bg-grayderco np espacioPregunta">
       <div class="filtros-title" id="titulo-modelos-filtro">
         <p class="filtros-title-gray">MODELOS</p>
       </div>
@@ -103,7 +188,12 @@
         <div class="checkbox-modelo"></div>
       </div>
     </div>
-    <div class="row col-12 text-center">
+    -->
+
+
+    
+
+    <!--<div class="row col-12 text-center">
       <div class="col-12 np espacioPregunta">
         <h2>¿Cúal es tu presupuesto?</h2>
       </div>
@@ -121,7 +211,8 @@
           Confirmar
         </button>
       </div>
-    </div>
+    </div> 
+    -->
   </div>
 
   <!-- Modal -->
