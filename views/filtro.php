@@ -13,6 +13,7 @@ $max = $_POST['max'];
 $marca = $_POST['marca'];
 $tipo_auto = $_POST['tipo'];
 
+
 /*
 $min = 10000;
 $max = 20000;
@@ -150,7 +151,7 @@ if ($autos[0] != null) {
             $autos_pag .= '<div class="col-4 col-md-6 col-lg-4 fixPad card-border">';
             $autos_pag .= '<div class="col-4 cardB">';
             $autos_pag .= '<div class="col-12">';
-            $autos_pag .= '<h1 class="precio-card right">' . $auto['dolares'] . '</h1>';
+            $autos_pag .= '<h1 class="precio-card right">Desde ' . $auto['dolares'] . '$</h1>';
             $autos_pag .= '</div><div class="col-12">';
             $autos_pag .= '<img class="imgResponsive" src="' . $thumbnail . '" alt=""></div>';
             $autos_pag .= '<div class="col-12">';
@@ -178,31 +179,34 @@ if ($autos == null || $count == 0) {
     <div class="container text-center">
         <div class="row">
             <?php echo $autos_pag ?>
-           <!--  <div class="col-4 col-md-6 col-lg-4 fixPad card-border">
+            <!-- <div class="col-4 col-md-6 col-lg-4 fixPad card-border">
                 <div class="col-4 cardB">
                     <div class="col-12">
-                        <h1 class="precio-card right">
-                            $19000
-                        </h1>
+                        <p class="modelo topTitle">New alto</p>
+                        <h2 class="precio-card right">
+                        Desde USD 14,990 o $19000
+                        </h3>
+                        <p class="año">Año modelo 2020</p>
                     </div>
                     <div class="col-12">
                         <img class="imgResponsive" src="app/img/3sporthome.jpg" alt="">
                     </div>
                     <div class="col-12">
-                        <p class="text-left textoGeneral">
-                            Swift Sport
-                        </p>
-                        <p class="text-left textoGeneral">
-                            Suzuki
+                        <p class="text-left textoGeneral detalles">
+                            Tracción: 2WD 
+                            <br>
+                            Transmisión: AT/MT
                         </p>
                     </div>
 
-                    <div class="row">
-                        <a class="col-lg-6">VER MÁS</a>
-                        <a class="col-lg-6" href="models/cotizador.php?marca=">COTIZAR</a>
-                    </div>
+                    <div class="row spaceBtns">
+                        <button class="col-5 centerInputs card-button">Ver más</button>
+                        <button class="col-5 centerInputs card-button">Cotizar</button> -->
+                        <!--a class="col-lg-6">VER MÁS</a-->
+                        <!--a class="col-lg-6" href="models/cotizador.php?marca=">COTIZAR</a-->
+                  <!--   </div>
                 </div>
-            </div> --> <!--
+            </div> -->  <!--
             <div class="col-4 col-md-6 col-lg-4 fixPad card-border">
                 <div class="col-4 cardB">
                     <div class="col-12">

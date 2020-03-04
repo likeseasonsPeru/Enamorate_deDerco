@@ -6,6 +6,7 @@ body{
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
+  background-color: #c1c0c0;
 }
 .paddingPage{
   width: 100%;
@@ -186,7 +187,6 @@ body{
 }
 .inputForms{
   width: 100%;
-  border-radius: 25px;
   border: 1px solid black;
   padding: 5px;
   margin-bottom: 15px;
@@ -200,10 +200,10 @@ body{
 
 .btnSeguir{
   color: white;
-  border: 1px solid #e80707;
+  border: 1px solid #707276;
   border-radius: 25px;
   padding: 10px 30px;
-  background-color: #e80707;
+  background-color: #707276;
   font-size: 18px;
   outline: none;
   transition: 0.6s all;
@@ -357,13 +357,16 @@ body{
 }
 
 .cardB{
-  border: 1px solid black;
+  background-color: white;
   padding: 5px 20px;
   margin-top: 15px;
   max-width: 380px;
   margin: auto;
 }
 
+.carB:hover{
+  border: 5px solid red;
+}
 @media(min-width: 320px){
   .fixPad{
       padding: 5px 0px;
@@ -464,6 +467,10 @@ margin-top: 30px;
   background-color: #c1c0c0;
   text-align: left;
 }
+
+.bg-gray{
+  background-color: #707276;
+}
 .modelo-select {
   color:#707276;
   /*margin-top: 15px;*/
@@ -529,4 +536,69 @@ margin-top: 30px;
 
 .mgt{
   margin-bottom: 30px;
+}
+
+.mgTop{
+  margin-top: 15px;
+}
+
+.bgTop{
+  background-color: #990704;
+}
+.mgSides{
+  margin: 5px 20px;
+}
+
+.npl{
+  padding-left: 0;
+}
+
+.rango-precio {
+  margin-top: 30px;
+}
+
+.rango-precio label {
+  padding-top: 7px;
+}
+
+.pdTb{
+  padding: 10px 0px;
+}
+
+.pdRight{
+  padding-right: 25px;
+}
+
+.pdSides{
+  margin: 30px 0px;
+}
+
+.precioInputs{
+  margin: inherit;
+  margin-left: 5px;
+  margin-right: 5px; 
+}
+
+.negrita{
+  font-weight: bold;
+}
+
+.card-button{
+  border-radius: 25px;
+  background-color: white;
+  border: 1px solid black;
+  font-size: 12px;
+  letter-spacing: 2.0px;
+  font-weight: bold;
+  padding: 8px 15px 7px 15px;
+}
+
+.card-button:hover{
+  background-color: red;
+  color: white;
+  transition: background-color .2s linear, color .2s linear, border-color .2s linear;
+    transition-property: background-color, color, border-color;
+    transition-duration: 0.2s, 0.2s, 0.2s;
+    transition-timing-function: linear, linear, linear;
+    transition-delay: 0s, 0s, 0s;
 }

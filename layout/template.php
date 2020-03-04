@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang=en-US>
 <head>
-    <meta name="content_type"  content="text/html;" http-equiv="content-type" charset="utf-8">
     <meta charset="UTF-8">
     <meta lang="es">
     <meta name="keywords" content="Landing Derco - 2020" >
     <meta name="description" content="Camapaña Derco - 2020" >
+    <meta name="content_type"  content="text/html;" http-equiv="content-type" charset="utf-8">
     <title>Enamorate Derco</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
