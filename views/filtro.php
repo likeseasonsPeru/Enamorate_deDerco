@@ -158,7 +158,7 @@ if ($autos[0] != null) {
             $autos_pag .= '<p class="text-left textoGeneral">' . $auto['marca'] . '</p></div>';
             $autos_pag .= '<div class="row">';
             $autos_pag .= '<a class="col-lg-6">VER MÁS</a>';
-            $autos_pag .= '<a class="col-lg-6" href="models/cotizador.php?modelo=' . $auto['modelo'] . '&marca=' . $auto['marca'].'">COTIZAR</a></div></div></div>';
+            $autos_pag .= '<a class="col-lg-6" href="models/cotizador.php?modelo=' . $auto['alias_modelo'] . '&marca=' . $auto['marca'].'">COTIZAR</a></div></div></div>';
         }
         //  }
     }
