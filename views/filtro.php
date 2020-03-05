@@ -7,7 +7,7 @@ include_once dirname(__DIR__) . '../tableModel/auto.php';
 //include_once dirname(__FILE__).'../../tableModel/auto.php';
 
 
-//$perfil = $_POST['perfil'];
+$perfil = $_POST['perfil'];
 $min = $_POST['min'];
 $max = $_POST['max'];
 $marca = $_POST['marca'];
@@ -127,17 +127,18 @@ if ($min != '' || $max != '') {
 
 $auto_model = new Auto();
 
-/*
+if ($perfil != null && $_POST['min'] != null){
     if ($perfil == 'emprendedor') {
-        $query = "SELECT * FROM autos2017 where (tipo_auto = 'van' or  tipo_auto= 'sedan' or  tipo_auto= 'suv') and dolares between '$pres_min' and '$pres_max';";
+        $query = "SELECT * FROM autos2017 where (tipo_auto = 'van' or  tipo_auto= 'sedan' or  tipo_auto= 'suv') and dolares between '$min' and '$max' ORDER BY dolares;";
     } else if ($perfil == 'esforzado') {
-        $query = "SELECT * FROM autos2017 where (tipo_auto= 'sedan' or  tipo_auto= 'suv') and dolares between '$pres_min' and '$pres_max';";
+        $query = "SELECT * FROM autos2017 where (tipo_auto= 'sedan' or  tipo_auto= 'suv') and dolares between '$min' and '$max' ORDER BY dolares;";
     } else if ($perfil == 'nuevo adulto') {
-        $query = "SELECT * FROM autos2017 where (tipo_auto = 'hatchback' or  tipo_auto= 'sedan' or  tipo_auto= 'suv') and dolares between '$pres_min' and '$pres_max';";
+        $query = "SELECT * FROM autos2017 where (tipo_auto = 'hatchback' or  tipo_auto= 'sedan' or  tipo_auto= 'suv') and dolares between '$min' and '$max' ORDER BY dolares;";
     } else if ($perfil == 'familion') {
-        $query = "SELECT * FROM autos2017 where (tipo_auto = 'suv' or  tipo_auto= 'van') and dolares between '$pres_min' and '$pres_max';";
-    } */
-
+        $query = "SELECT * FROM autos2017 where (tipo_auto = 'suv' or  tipo_auto= 'van') and dolares between '$min' and '$max' ORDER BY dolares;";
+    } 
+}
+    
 $autos = $auto_model->ejecutarSql($query);
 $autos_pag = '';
 $count = 0;

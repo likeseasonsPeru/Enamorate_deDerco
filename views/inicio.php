@@ -2,42 +2,45 @@
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner col-12">
       <div class="carousel-item active">
-        <img src="app/img/picture1.jpg" class="d-block w-100" alt="...">
+        <img src="app/img/Picture1.jpg" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="app/img/picture2.jpg" class="d-block w-100" alt="...">
+        <img src="app/img/Picture2.jpg" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="app/img/picture3.jpg" class="d-block w-100" alt="...">
+        <img src="app/img/Picture3.jpg" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="app/img/picture4.jpg" class="d-block w-100" alt="...">
+        <img src="app/img/Picture4.jpg" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="app/img/picture5.jpg" class="d-block w-100" alt="...">
+        <img src="app/img/Picture5.jpg" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="app/img/picture6.jpg" class="d-block w-100" alt="...">
+        <img src="app/img/Picture6.jpg" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="app/img/picture7.jpg" class="d-block w-100" alt="...">
+        <img src="app/img/Picture7.jpg" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="app/img/picture8.jpg" class="d-block w-100" alt="...">
+        <img src="app/img/Picture8.jpg" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  <div class="text-center">
+    <div class="row col-12 col-sm-12 col-md-4 bg-grayderco text-center mgTop bgTop">
+      <p class="filtros-head">Filtros de Búsqueda</p>
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-  <div class="row col-12 col-sm-12 col-md-4 bg-grayderco text-left mgTop bgTop">
-    <p class="filtros-head">Filtros de Búsqueda</p>
-  </div>
+
   <!--<div class="col-md-12 bg-derco">
     <div class="filtros-title text-center">
       <p class="filtros-title-white">MARCAS</p>
@@ -90,9 +93,10 @@
           <input type="text" class="text-center" id="inputMax" placeholder="Max." onkeypress="return insNumber(event)"></input>
         </div>
       </div>
-    </div> 
+    </div>
+
     <div class="col-12 col-sm-12 col-md-12 col-xl-4 text center bg-gray centerInputs">
-      <div class="col-md-12 bg-grayderco np espacioPregunta">
+      <!-- <div class="col-md-12 bg-grayderco np espacioPregunta">
         <div class="filtros-title" id="titulo-modelos-filtro">
           <p class="filtros-title-gray">Categorias</p>
         </div>
@@ -134,6 +138,40 @@
         <div id="deportivos" class="modelo-select">
           <i class="fa fa-angle-right" aria-hidden="true"></i> Deportivos
           <div class="checkbox-modelo"></div>
+        </div>
+      </div> -->
+      <!-- <div class="col-md-12 bg-derco">
+        <div class="filtros-title text-center">
+          <p class="filtros-title-white">MARCAS</p>
+        </div>
+        <div class="marcas-select text-center">
+          <select name="marcas" id="buscar-marcas" class="p-2">
+            <option value="todas">Todas las marcas</option>
+            <option value="suzuki">Suzuki</option>
+            <option value="renault">Renault</option>
+            <option value="mazda">Mazda</option>
+            <option value="citroen">Citroen</option>
+            <option value="ds">DS</option>
+            <option value="greatwall">Great Wall</option>
+            <option value="haval">Haval</option>
+            <option value="jac">Jac Motors</option>
+            <option value="changan">Changan</option>
+          </select>
+        </div>
+      </div> -->
+
+      <div class="col-md-12 bg-derco">
+        <div class="filtros-title">
+          <p class="filtros-title-white">Catagorias</p>
+        </div>
+        <div class="marcas-select">
+          <select name="marcas" id="buscar-categorias">
+            <!-- <option value="todas">Todos</option> -->
+            <option value="emprendedor">Comerciales</option>
+            <option value="familion">Autos Familiares</option>
+            <option value="nuevo adulto">Estilo de vida</option>
+            <option value="esforzado">Mi primer auto</option>
+          </select>
         </div>
       </div>
     </div>
@@ -191,7 +229,7 @@
     -->
 
 
-    
+
 
     <!--<div class="row col-12 text-center">
       <div class="col-12 np espacioPregunta">
@@ -244,7 +282,7 @@
 
   <script type="text/javascript">
     $(document).ready(function() {
-
+      let perfil = 'emprendedor';
       let min = '';
       let max = '';
       let marca = 'Todas las marcas';
@@ -311,8 +349,12 @@
         tipo = buscar_modelo;
       });
 
-      $('#buscar-marcas').change(function() {
+     /*  $('#buscar-marcas').change(function() {
         marca = $('#buscar-marcas option:selected').val();
+      } */
+
+      $('#buscar-categorias').change(function() {
+        perfil = $('#buscar-categorias option:selected').val();
       })
 
       $('#btnModal').click(function() {
@@ -320,6 +362,7 @@
           url: 'filtro.php',
           type: 'POST',
           data: {
+            perfil,
             max,
             min,
             marca,
