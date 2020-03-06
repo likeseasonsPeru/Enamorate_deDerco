@@ -1,5 +1,18 @@
+<div class="fusion-header border-top border-bottom bg-white" style="height: 117px; overflow: visible; top: 0px;">
+    <div class="fusion-row" style="padding-top: 0px; padding-bottom: 0px;">
+        <div class="fusion-logo" data-margin-top="0px" data-margin-bottom="0px" style="margin-top: 0px; margin-bottom: 0px;">
+            <a class="fusion-logo-link" href="https://derco.com.pe">
+                <img src="https://derco.com.pe/wp-content/uploads/2016/09/Derco.gif" srcset="https://derco.com.pe/wp-content/uploads/2016/09/Derco.gif 1x, https://derco.com.pe/wp-content/uploads/2016/09/Derco-retina.gif 2x" width="116" height="116" style="max-height=116px; height: 116px;" alt="DERCO PERÚ | Respalda y Garantiza Logo" retina_logo_url="https://derco.com.pe/wp-content/uploads/2016/09/Derco-retina.gif" class="fusion-standard-logo lazyloading" data-was-processed="true data-logo-height="116" data-logo-width="116">  
+                <!--img src="https://derco.com.pe/wp-content/uploads/2017/06/logo-mobile.jpg" srcset="https://derco.com.pe/wp-content/uploads/2017/06/logo-mobile.jpg 1x, https://derco.com.pe/wp-content/uploads/2017/06/logo-mobile-retina.jpg 2x" width="60" height="60" style="max-height:60px;height:auto;" alt="DERCO PERÚ | Respalda y Garantiza Logo" retina_logo_url="https://derco.com.pe/wp-content/uploads/2017/06/logo-mobile-retina.jpg" class="fusion-mobile-logo"--> 
+                </a>
+        </div>
+    </div>
+</div>
 <div id="contenedor" class="container">
-  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="row col-6">
+    <img src="app/img/Dercoportunidades-banner.jpg" class="img-banner">
+  </div>
+  <!--div id="carouselExampleControls" class="row carousel slide" data-ride="carousel">
     <div class="carousel-inner col-12">
       <div class="carousel-item active">
         <img src="app/img/Picture1.jpg" class="d-block w-100" alt="...">
@@ -34,12 +47,13 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
-  </div>
-  <div class="text-center">
-    <div class="row col-12 col-sm-12 col-md-4 bg-grayderco text-center mgTop bgTop">
-      <p class="filtros-head">Filtros de Búsqueda</p>
+  </div-->
+  <div class="contenedor-principal">
+    <div class="row filtro-container">
+      <div class="col-12 col-sm-12 col-md-12 bg-grayderco2 text-center bgTop">
+        <p class="filtros-head">Filtros de Búsqueda</p>
+      </div>
     </div>
-  </div>
 
   <!--<div class="col-md-12 bg-derco">
     <div class="filtros-title text-center">
@@ -60,10 +74,10 @@
       </select>
     </div>
   </div>-->
-  <div class="row col-12 text-center contInicioMd marg mgt ">
-    <div class="col-12 col-sm-12 col-md-12 col-xl-4 text-center bg-white precioInputs">
-      <div class="col-12 np espacioPregunta text-left pdTb">
-        <h5 class="filtros-title-gray pdTb">PRECIO</h5>
+  <div class="row col-12 text-center mgt">
+    <div class="col-12 col-sm-12 col-md-4 col-lg-5 col-xl-4 text-center precioInputs">
+      <div class="col-12 np espacioPregunta pdTb">
+        <h5 class="filtros-title-white">PRECIO</h5>
       </div>
       <!--<div class="row">
         <div class="rango-precio">
@@ -83,19 +97,21 @@
       </div> -->
       <div class="min">
         <div class="rango-precio">
-          <label for="inputMin" class="pdRight negrita">Desde $</label>
-          <input type="text" class="text-center" id="inputMin" placeholder="Min." onkeypress="return insNumber(event)"></input>
+          <label for="inputMin" class="pdRight negrita text-white">Desde $</label>
+          <input type="text" class="text-center col-5" id="inputMin" placeholder="Min." onkeypress="return insNumber(event)" style="
+    border-radius: 25px;"></input>
         </div>
       </div>
       <div class="max">
         <div class="rango-precio">
-          <label for="inputMin" class="pdRight negrita">Hasta $</label>
-          <input type="text" class="text-center" id="inputMax" placeholder="Max." onkeypress="return insNumber(event)"></input>
+          <label for="inputMin" class="pdRight negrita text-white">Hasta $</label>
+          <input type="text" class="text-center mgpinput col-5" id="inputMax" placeholder="Max." onkeypress="return insNumber(event)" style="
+    border-radius: 25px;"></input>
         </div>
       </div>
     </div>
 
-    <div class="col-12 col-sm-12 col-md-12 col-xl-4 text center bg-gray centerInputs">
+    <div class="col-12 col-sm-12 col-md-4 col-md-6 col-xl-4 text center precioInputs2">
       <!-- <div class="col-md-12 bg-grayderco np espacioPregunta">
         <div class="filtros-title" id="titulo-modelos-filtro">
           <p class="filtros-title-gray">Categorias</p>
@@ -160,12 +176,12 @@
         </div>
       </div> -->
 
-      <div class="col-md-12 bg-derco">
+      <div class="col-md-12 bg-derco2">
         <div class="filtros-title">
-          <p class="filtros-title-white">Catagorias</p>
+          <p class="filtros-title-white">Categorias</p>
         </div>
-        <div class="marcas-select">
-          <select name="marcas" id="buscar-categorias">
+        <div class="marcas-select padin2">
+          <select name="marcas" id="buscar-categorias" class="col-8">
             <!-- <option value="todas">Todos</option> -->
             <option value="emprendedor">Comerciales</option>
             <option value="familion">Autos Familiares</option>
@@ -175,9 +191,9 @@
         </div>
       </div>
     </div>
-    <div class="col-12 col-sm-12 col-md-6 col-xl-3">
+    <div class="col-12 col-sm-12 col-md-12 col-xl-3">
       <div class="col-12 espacioBtns">
-        <button id="btnModal" class="btnSeguir" type="button" name="button">
+        <button id="btnModal" class="btnSeguir2 "type="button" name="button">
           BUSCAR
         </button>
       </div>
@@ -251,6 +267,7 @@
       </div>
     </div> 
     -->
+  </div>
   </div>
 
   <!-- Modal -->

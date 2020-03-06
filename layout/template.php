@@ -11,6 +11,8 @@
     <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     <link rel="stylesheet" href="app/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="app/fonts/stylesheet.css"/>
+    <link rel="stylesheet" href="app/css/style_modelo_ingenia.css"/>
+    <link rel="stylesheet" href="app/css/style_modelo.css"/>
     <link rel="stylesheet" href="app/css/style.css"/>
     <script src="app/js/jquery.js"></script>
     <script src="app/js/bootstrap.min.js"></script>

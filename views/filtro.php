@@ -179,8 +179,8 @@ if ($autos == null || $count == 0) {
     <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h2>
     <div class="container text-center">
         <div class="row">
-            <?php echo $autos_pag ?>
-            <!-- <div class="col-4 col-md-6 col-lg-4 fixPad card-border">
+            <!--?php echo $autos_pag ?-->
+            <!--div class="col-4 col-md-6 col-lg-4 fixPad card-border">
                 <div class="col-4 cardB">
                     <div class="col-12">
                         <p class="modelo topTitle">New alto</p>
@@ -202,12 +202,106 @@ if ($autos == null || $count == 0) {
 
                     <div class="row spaceBtns">
                         <button class="col-5 centerInputs card-button">Ver más</button>
-                        <button class="col-5 centerInputs card-button">Cotizar</button> -->
+                        <button class="col-5 centerInputs card-button">Cotizar</button>
                         <!--a class="col-lg-6">VER MÁS</a-->
-                        <!--a class="col-lg-6" href="models/cotizador.php?marca=">COTIZAR</a-->
-                  <!--   </div>
+                        <!--a class="col-lg-6" href="models/cotizador.php?marca=">COTIZAR</a
+                   </div>
                 </div>
-            </div> -->  <!--
+            </div-->
+
+            <!--Card Derco-->
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-30 text-center sm-padding">
+                <div id="suzuki" class="modelo pd-filtro card-filtro" data-marca="suzuki" data-modelo="new-alto">
+                    <div class="datos">
+                        <h3 class="titulo-carro">
+                            "NEW ALTO"
+                            <span style="font-size: 14px; vertical-align: top; font-family: Arial;">**</span>
+                        </h3>
+                    <p class="precio-carro">Desde USD 7,190 o </p>
+                    <p class="precio-carro">S/. 24,446</p>
+                    <p class="información-basica">Año Modelo 2020</p>
+                    </div>
+                    <div clas="img-auto">
+                        <img src="app/img/3sporthome.jpg" class="img-filtro">
+                    </div>
+                    <p class="informacion-basica">
+                        <br>
+                        "Tracción: 2WD | Transimisión MT"
+                    </p>
+                    <button class="bt-transparente">VER DETALLE</button>
+                    <button class="bt-transparente">COTIZAR</button>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-4  col-lg-3 col-xl-3 mt-30 text-center sm-padding">
+                <div id="suzuki" class="modelo pd-filtro card-filtro" data-marca="suzuki" data-modelo="new-alto">
+                    <div class="datos">
+                        <h3 class="titulo-carro">
+                            "NEW ALTO"
+                            <span style="font-size: 14px; vertical-align: top; font-family: Arial;">**</span>
+                        </h3>
+                    <p class="precio-carro">Desde USD 7,190 o </p>
+                    <p class="precio-carro">S/. 24,446</p>
+                    <p class="información-basica">Año Modelo 2020</p>
+                    </div>
+                    <div clas="img-auto">
+                        <img src="app/img/3sporthome.jpg" class="img-filtro">
+                    </div>
+                    <p class="informacion-basica">
+                        <br>
+                        "Tracción: 2WD | Transimisión MT"
+                    </p>
+                    <button class="bt-transparente">VER DETALLE</button>
+                    <button class="bt-transparente">COTIZAR</button>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-4  col-lg-3 col-xl-3 mt-30 text-center sm-padding">
+                <div id="suzuki" class="modelo pd-filtro card-filtro" data-marca="suzuki" data-modelo="new-alto">
+                    <div class="datos">
+                        <h3 class="titulo-carro">
+                            "NEW ALTO"
+                            <span style="font-size: 14px; vertical-align: top; font-family: Arial;">**</span>
+                        </h3>
+                    <p class="precio-carro">Desde USD 7,190 o </p>
+                    <p class="precio-carro">S/. 24,446</p>
+                    <p class="información-basica">Año Modelo 2020</p>
+                    </div>
+                    <div clas="img-auto">
+                        <img src="app/img/3sporthome.jpg" class="img-filtro">
+                    </div>
+                    <p class="informacion-basica">
+                        <br>
+                        "Tracción: 2WD | Transimisión MT"
+                    </p>
+                    <button class="bt-transparente">VER DETALLE</button>
+                    <button class="bt-transparente">COTIZAR</button>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-30 text-center sm-padding">
+                <div id="suzuki" class="modelo pd-filtro card-filtro" data-marca="suzuki" data-modelo="new-alto">
+                    <div class="datos">
+                        <h3 class="titulo-carro">
+                            "NEW ALTO"
+                            <span style="font-size: 14px; vertical-align: top; font-family: Arial;">**</span>
+                        </h3>
+                    <p class="precio-carro">Desde USD 7,190 o </p>
+                    <p class="precio-carro">S/. 24,446</p>
+                    <p class="información-basica">Año Modelo 2020</p>
+                    </div>
+                    <div clas="img-auto">
+                        <img src="app/img/3sporthome.jpg" class="img-filtro">
+                    </div>
+                    <p class="informacion-basica">
+                        <br>
+                        "Tracción: 2WD | Transimisión MT"
+                    </p>
+                    <button class="bt-transparente">VER DETALLE</button>
+                    <button class="bt-transparente">COTIZAR</button>
+                </div>
+            </div>
+            <!--
             <div class="col-4 col-md-6 col-lg-4 fixPad card-border">
                 <div class="col-4 cardB">
                     <div class="col-12">
