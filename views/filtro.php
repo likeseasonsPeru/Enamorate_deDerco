@@ -128,7 +128,7 @@ if ($perfil != null) {
     } else if ($perfil == 'nuevo adulto') {
         $query = "SELECT * FROM autos2017 where (modelo= 'CS35 PLUS' or  modelo= 'CS55' or modelo= 'NEW C3' or  alias_modelo= 'new-c4-cactus' or  modelo='C5 AIRCROSS' or modelo= 'H3' or modelo= 'NEW H2' or modelo='H6 Sport' or modelo='S2' or modelo='S3' or modelo='GRAND S3' or modelo = 'BT-50' or modelo='CX-3' or modelo='CX-30' or modelo='MAZDA 2 SPORT' or modelo='MX-5' or modelo='MAZDA 3 SEDAN' or modelo='MAZDA 3 SPORT' or modelo='MAZDA 6 SEDAN' or modelo='MX5 RF' or modelo='KWID' or modelo='BALENO' or modelo='GRAND VITARA' or modelo='JIMNY' or modelo='ALL NEW SWIFT' or modelo='SWIFT SEDAN' or modelo='NEW VITARA') ";
     } else if ($perfil == 'familion') {
-        $query = "SELECT * FROM autos2017 where (modelo = CS35 PLUS'' or  modelo= 'CS55' or modelo='CX70' or modelo='HONOR S' or alias_modelo= 'new-c4-cactus' or modelo='C5 AIRCROSS' or modelo='H3' or modelo='H6 Sport' or modelo='NEW H6' or modelo='GRAND S3' or modelo='CX-30' or modelo='CX-5' or modelo='CX-9' or modelo='Duster' or modelo='Koleos' or modelo='ERTIGA' or modelo='GRAND NOMADE' or modelo='S-CROSS')";
+        $query = "SELECT * FROM autos2017 where (modelo = 'CS35 PLUS' or  modelo= 'CS55' or modelo='CX70' or modelo='HONOR S' or alias_modelo= 'new-c4-cactus' or modelo='C5 AIRCROSS' or modelo='H3' or modelo='H6 Sport' or modelo='NEW H6' or modelo='GRAND S3' or modelo='CX-30' or modelo='CX-5' or modelo='CX-9' or modelo='Duster' or modelo='Koleos' or modelo='ERTIGA' or modelo='GRAND NOMADE' or modelo='S-CROSS')";
     }
 }
 
@@ -186,7 +186,7 @@ if ($autos[0] != null) {
             */
 
 
-            $autos_pag .= '<div class="col-xs-6 col-sm-6 col-md-4 mt-30 text-center sm-padding">';
+            $autos_pag .= '<div class="col-xs-12 col-sm-6 col-md-4 mt-30 text-center sm-padding">';
             $autos_pag .= '<div id="' . $auto['alias_marca'] . '" class="modelo" data-marca="' . $auto['alias_marca'] . '" data-modelo="' . $auto['alias_modelo'] . '">';
             $autos_pag .= '<div class="datos">';
             $autos_pag .= '<h3 class="titulo-carro">' . $auto['modelo'] . '<span style="font-size: 14px;vertical-align: top; font-family: Arial;"> **</span></h3>';
@@ -197,7 +197,7 @@ if ($autos[0] != null) {
                 $autos_pag .= '<p class="precio-carro" style="font-size: 12px;">Precio Preventa</p>';
             }
             $autos_pag .= '</div>';
-            $autos_pag .= '<div class="img-auto"><img src="' . $thumbnail . '" class="img-responsive" /></div>';
+            $autos_pag .= '<div class="img-auto"><img src="' . $thumbnail . '" class="img-filtro" /></div>';
             $autos_pag .= '<p class="informacion-basica"><!--Año: 2016--><br>' . $auto['resumen'] . '</p>';
 
             $autos_pag .= '<form action="'.$auto['alias_modelo'].'/'.$auto['marca'].'" method="POST">';

@@ -821,9 +821,41 @@ margin-top: 30px;
 
 /*Mediaqueries imagen filtrada de auto*/
 
+/*Mediaqueries imagen filtrada de auto*/
+
 .img-filtro{
-  max-width: 180px;
+  max-width: 280px;
 }
+
+@media(max-width: 1199px){
+  .img-filtro{
+    max-width: 250px;
+  }
+}
+
+@media(max-width: 991px){
+  .img-filtro{
+    max-width: 190px;
+  }
+}
+
+@media(max-width: 767px){
+  .img-filtro{
+    max-width: 208px;
+  }
+}
+@media(max-width: 575px){
+  .img-filtro{
+    max-width: 263px;
+  }
+}
+
+@media(max-width: 332px){
+  .img-filtro{
+    max-width: 248px  ;
+  }
+}
+
 
 .pd-filtro{
   padding: 10px 10px 40px 10px;

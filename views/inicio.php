@@ -2,9 +2,9 @@
     <div class="fusion-row" style="padding-top: 0px; padding-bottom: 0px;">
         <div class="fusion-logo" data-margin-top="0px" data-margin-bottom="0px" style="margin-top: 0px; margin-bottom: 0px;">
             <a class="fusion-logo-link" href="https://derco.com.pe">
-                <img src="https://derco.com.pe/wp-content/uploads/2016/09/Derco.gif" srcset="https://derco.com.pe/wp-content/uploads/2016/09/Derco.gif 1x, https://derco.com.pe/wp-content/uploads/2016/09/Derco-retina.gif 2x" width="116" height="116" style="max-height=116px; height: 116px;" alt="DERCO PERÚ | Respalda y Garantiza Logo" retina_logo_url="https://derco.com.pe/wp-content/uploads/2016/09/Derco-retina.gif" class="fusion-standard-logo lazyloading" data-was-processed="true data-logo-height="116" data-logo-width="116">  
                 <!--img src="https://derco.com.pe/wp-content/uploads/2017/06/logo-mobile.jpg" srcset="https://derco.com.pe/wp-content/uploads/2017/06/logo-mobile.jpg 1x, https://derco.com.pe/wp-content/uploads/2017/06/logo-mobile-retina.jpg 2x" width="60" height="60" style="max-height:60px;height:auto;" alt="DERCO PERÚ | Respalda y Garantiza Logo" retina_logo_url="https://derco.com.pe/wp-content/uploads/2017/06/logo-mobile-retina.jpg" class="fusion-mobile-logo"--> 
-                </a>
+                <img src="https://derco.com.pe/wp-content/uploads/2016/09/Derco.gif" srcset="https://derco.com.pe/wp-content/uploads/2016/09/Derco.gif 1x, https://derco.com.pe/wp-content/uploads/2016/09/Derco-retina.gif 2x" width="116" height="116" style="max-height: 116px; height: 116px;" alt="DERCO PERÚ | Respalda y Garantiza Logo" retina_logo_url="https://derco.com.pe/wp-content/uploads/2016/09/Derco-retina.gif" class="fusion-standard-logo lazyloading" data-was-processed="true data-logo-height="116" data-logo-width="116">  
+              </a>
         </div>
     </div>
 </div>
@@ -181,7 +181,7 @@
           <p class="filtros-title-white">Categorias</p>
         </div>
         <div class="marcas-select padin2">
-          <select name="marcas" id="buscar-categorias" class="col-8">
+          <select name="marcas" id="buscar-categorias" class="col-12">
             <!-- <option value="todas">Todos</option> -->
             <option value="emprendedor">Comerciales (Vans/Pick Up/Taxi)</option>
             <option value="familion">Autos Familiares</option>
