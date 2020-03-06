@@ -197,7 +197,7 @@ if ($autos[0] != null) {
                 $autos_pag .= '<p class="precio-carro" style="font-size: 12px;">Precio Preventa</p>';
             }
             $autos_pag .= '</div>';
-            $autos_pag .= '<div class="img-auto"><img src="' . $thumbnail . '" class="img-responsive" /></div>';
+            $autos_pag .= '<div class="img-auto"><img src="' . $thumbnail . '" class="img-filtro" /></div>';
             $autos_pag .= '<p class="informacion-basica"><!--Año: 2016--><br>' . $auto['resumen'] . '</p>';
             $autos_pag .= '<a class="bt-transparente" href="'. $auto['alias_modelo'] . '/' . $auto['marca'] . '">VER DETALLE</a>';
             $autos_pag .= '<a class="bt-transparente" href="'. $auto['alias_modelo'] . '/' . $auto['marca'] . '">COTIZAR</a>';
