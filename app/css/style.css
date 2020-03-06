@@ -741,24 +741,6 @@ margin-top: 30px;
   transition: 0.6s all;
 }
 
-.bt-transparente {
-  background-color: #fff;
-  font-size:12px;
-  font-weight: bold;
-  letter-spacing: 2.0px;
-  padding: 8px 15px 7px 15px;
-  border: 1px solid #545558;
-  border-radius: 100px;
-  border-color: #545558;
-  margin: 25px auto 0px auto;
-  color: #545558;
-
-  -webkit-transition: background-color .2s linear, color .2s linear, border-color .2s linear;
-  -moz-transition: background-color .2s linear, color .2s linear, border-color .2s linear;
-  -o-transition: background-color .2s linear, color .2s linear, border-color .2s linear;
-  transition: background-color .2s linear, color .2s linear, border-color .2s linear;
-}
-
 .img-banner{
   max-width: 1110px;
 }
@@ -827,5 +809,15 @@ margin-top: 30px;
 @media(max-width: 1200){
   .card-filtro{
     height: 385px;
+  }
+}
+
+.bt-transparente-pd{
+  padding: 5px;
+}
+
+@media(min-width: 100){
+  .bt-transparente-pd{
+    padding: 5px;
   }
 }

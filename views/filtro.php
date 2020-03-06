@@ -210,7 +210,7 @@ if ($autos == null || $count == 0) {
             </div-->
 
             <!--Card Derco-->
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-30 text-center sm-padding">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-20 mb-20 text-center sm-padding">
                 <div id="suzuki" class="modelo pd-filtro card-filtro" data-marca="suzuki" data-modelo="new-alto">
                     <div class="datos">
                         <h3 class="titulo-carro">
@@ -228,12 +228,12 @@ if ($autos == null || $count == 0) {
                         <br>
                         "Tracción: 2WD | Transimisión MT"
                     </p>
-                    <button class="bt-transparente">VER DETALLE</button>
-                    <button class="bt-transparente">COTIZAR</button>
+                    <button class="bt-transparente bt-transparente-pd">VER DETALLE</button>
+                    <button class="bt-transparente bt-transparente-pd">COTIZAR</button>
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-6 col-md-4  col-lg-3 col-xl-3 mt-30 text-center sm-padding">
+            <div class="col-xs-12 col-sm-6 col-md-4  col-lg-3 col-xl-3 mt-20 mb-20 text-center sm-padding">
                 <div id="suzuki" class="modelo pd-filtro card-filtro" data-marca="suzuki" data-modelo="new-alto">
                     <div class="datos">
                         <h3 class="titulo-carro">
@@ -251,12 +251,12 @@ if ($autos == null || $count == 0) {
                         <br>
                         "Tracción: 2WD | Transimisión MT"
                     </p>
-                    <button class="bt-transparente">VER DETALLE</button>
-                    <button class="bt-transparente">COTIZAR</button>
+                    <button class="bt-transparente bt-transparente-pd">VER DETALLE</button>
+                    <button class="bt-transparente bt-transparente-pd">COTIZAR</button>
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-6 col-md-4  col-lg-3 col-xl-3 mt-30 text-center sm-padding">
+            <div class="col-xs-12 col-sm-6 col-md-4  col-lg-3 col-xl-3 mt-20 mb-20 text-center sm-padding">
                 <div id="suzuki" class="modelo pd-filtro card-filtro" data-marca="suzuki" data-modelo="new-alto">
                     <div class="datos">
                         <h3 class="titulo-carro">
@@ -274,12 +274,12 @@ if ($autos == null || $count == 0) {
                         <br>
                         "Tracción: 2WD | Transimisión MT"
                     </p>
-                    <button class="bt-transparente">VER DETALLE</button>
-                    <button class="bt-transparente">COTIZAR</button>
+                    <button class="bt-transparente bt-transparente-pd">VER DETALLE</button>
+                    <button class="bt-transparente bt-transparente-pd">COTIZAR</button>
                 </div>
             </div>
 
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-30 text-center sm-padding">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-20 mb-20 text-center sm-padding">
                 <div id="suzuki" class="modelo pd-filtro card-filtro" data-marca="suzuki" data-modelo="new-alto">
                     <div class="datos">
                         <h3 class="titulo-carro">
@@ -297,8 +297,8 @@ if ($autos == null || $count == 0) {
                         <br>
                         "Tracción: 2WD | Transimisión MT"
                     </p>
-                    <button class="bt-transparente">VER DETALLE</button>
-                    <button class="bt-transparente">COTIZAR</button>
+                    <button class="bt-transparente bt-transparente-pd">VER DETALLE</button>
+                    <button class="bt-transparente bt-transparente-pd">COTIZAR</button>
                 </div>
             </div>
             <!--
