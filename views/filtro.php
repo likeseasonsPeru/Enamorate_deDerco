@@ -126,9 +126,9 @@ if ($perfil != null) {
     } else if ($perfil == 'esforzado') {
         $query = "SELECT * FROM autos2017 where (modelo= 'CS15' or  modelo= 'C-ELYSÉE' or modelo= 'NEW C3' or  alias_modelo= 'new-c4-cactus' or  modelo='NEW M4' or modelo= 'NEW H2' or modelo= 'J4' or modelo='S2' or modelo='MAZDA 2 SEDAN' or modelo='NEW ALTO' or modelo='CELERIO' or modelo = 'NEW DZIRE')";
     } else if ($perfil == 'nuevo adulto') {
-        $query = "SELECT * FROM autos2017 where (modelo= 'CS35 PLUS' or  modelo= 'CS55' or modelo= 'NEW C3' or  alias_modelo= 'new-c4-cactus' or  modelo='C5 AIRCROSS' or modelo= 'H3' or modelo= 'NEW H2' or modelo='H6 Sport' or modelo='S2' or modelo='S3' or modelo='GRAND S3' or modelo = 'BT-50' or modelo='CX-3' or modelo='CX-30' or modelo='MAZDA 2 SPORT' or modelo='MX-5' or modelo='MAZDA 3 SEDAN' or modelo='MAZDA 3 SPORT' or modelo='MAZDA 6 SEDAN' or modelo='MX5 RF' or modelo='KWID' or modelo='BALENO' or modelo='GRAND VITARA' or modelo='JIMNY' or modelo='SWIFT SEDAN' or modelo='NEW VITARA') ";
+        $query = "SELECT * FROM autos2017 where (modelo= 'CS35 PLUS' or  modelo= 'CS55' or modelo= 'NEW C3' or  alias_modelo= 'new-c4-cactus' or  modelo='C5 AIRCROSS' or modelo= 'H3' or modelo= 'NEW H2' or modelo='H6 Sport' or modelo='S2' or modelo='S3' or modelo='GRAND S3' or modelo = 'BT-50' or modelo='CX-3' or modelo='CX-30' or modelo='MAZDA 2 SPORT' or modelo='MX-5' or modelo='MAZDA 3 SEDAN' or modelo='MAZDA 3 SPORT' or modelo='MAZDA 6 SEDAN' or modelo='MX5 RF' or modelo='KWID' or modelo='BALENO' or modelo='GRAND VITARA' or modelo='JIMNY' or modelo='ALL NEW SWIFT' or modelo='SWIFT SEDAN' or modelo='NEW VITARA') ";
     } else if ($perfil == 'familion') {
-        $query = "SELECT * FROM autos2017 where (modelo = 'suv' or  modelo= 'van')";
+        $query = "SELECT * FROM autos2017 where (modelo = CS35 PLUS'' or  modelo= 'CS55' or modelo='CX70' or modelo='HONOR S' or alias_modelo= 'new-c4-cactus' or modelo='C5 AIRCROSS' or modelo='H3' or modelo='H6 Sport' or modelo='NEW H6' or modelo='GRAND S3' or modelo='CX-30' or modelo='CX-5' or modelo='CX-9' or modelo='Duster' or modelo='Koleos' or modelo='ERTIGA' or modelo='GRAND NOMADE' or modelo='S-CROSS')";
     }
 }
 
@@ -199,8 +199,14 @@ if ($autos[0] != null) {
             $autos_pag .= '</div>';
             $autos_pag .= '<div class="img-auto"><img src="' . $thumbnail . '" class="img-responsive" /></div>';
             $autos_pag .= '<p class="informacion-basica"><!--Año: 2016--><br>' . $auto['resumen'] . '</p>';
-            $autos_pag .= '<a class="bt-transparente" href="'. $auto['alias_modelo'] . '/' . $auto['marca'] . '">VER DETALLE</a>';
-            $autos_pag .= '<a class="bt-transparente" href="'. $auto['alias_modelo'] . '/' . $auto['marca'] . '">COTIZAR</a>';
+
+            $autos_pag .= '<form action="'.$auto['alias_modelo'].'/'.$auto['marca'].'" method="POST">';
+            $autos_pag .= '<input type="hidden" name="perfil" value="">';
+            $autos_pag .= '<input type="hidden" name="min" value="">';
+            $autos_pag .= '<input type="hidden" name="max" value="">';
+            $autos_pag .= '<input type="submit" class="bt-transparente" value="VER DETALLES"/></form>';
+         // $autos_pag .= '<a class="bt-transparente" href="'. $auto['alias_modelo'] . '/' . $auto['marca'] . '">VER DETALLE</a>';
+          //$autos_pag .= '<a class="bt-transparente" href="'. $auto['alias_modelo'] . '/' . $auto['marca'] . '">COTIZAR</a>';
             $autos_pag .= '</div>';
             $autos_pag .= '</div>';
         }
@@ -224,7 +230,12 @@ $autos_pag .= '</div>';
     <h2 id="selecciona" class="titulo-autos text-center">Seleccione un modelo</h2>
         <div class="row">
             <?php echo $autos_pag ?>
-
+            <!-- <form action="" method="POST">
+                <input type="hidden" name="perfil" value="">
+                <input type="hidden" name="min" value="">
+                <input type="hidden" name="max" value="">
+                <input type="submit" class="bt-transparente">VER DETALLE</input>
+            </form> -->
 
             <!--div class="col-4 col-md-6 col-lg-4 fixPad card-border">
                 <div class="col-4 cardB">
