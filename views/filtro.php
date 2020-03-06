@@ -186,7 +186,7 @@ if ($autos[0] != null) {
             */
 
 
-            $autos_pag .= '<div class="col-xs-6 col-sm-6 col-md-4 mt-30 text-center sm-padding">';
+            $autos_pag .= '<div class="col-xs-12 col-sm-6 col-md-4 mt-30 text-center sm-padding">';
             $autos_pag .= '<div id="' . $auto['alias_marca'] . '" class="modelo" data-marca="' . $auto['alias_marca'] . '" data-modelo="' . $auto['alias_modelo'] . '">';
             $autos_pag .= '<div class="datos">';
             $autos_pag .= '<h3 class="titulo-carro">' . $auto['modelo'] . '<span style="font-size: 14px;vertical-align: top; font-family: Arial;"> **</span></h3>';
