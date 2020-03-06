@@ -183,7 +183,7 @@ if ($autos[0] != null) {
             */
 
 
-            $autos_pag .= '<div class="col-xs-6 col-sm-6 col-md-4 mt-30 text-center sm-padding">';
+            $autos_pag .= '<div class="col-xs-12 col-sm-6 col-md-4 mt-30 text-center sm-padding">';
             $autos_pag .= '<div id="' . $auto['alias_marca'] . '" class="modelo" data-marca="' . $auto['alias_marca'] . '" data-modelo="' . $auto['alias_modelo'] . '">';
             $autos_pag .= '<div class="datos">';
             $autos_pag .= '<h3 class="titulo-carro">' . $auto['modelo'] . '<span style="font-size: 14px;vertical-align: top; font-family: Arial;"> **</span></h3>';
@@ -194,7 +194,7 @@ if ($autos[0] != null) {
                 $autos_pag .= '<p class="precio-carro" style="font-size: 12px;">Precio Preventa</p>';
             }
             $autos_pag .= '</div>';
-            $autos_pag .= '<div class="img-auto"><img src="' . $thumbnail . '" class="img-responsive" /></div>';
+            $autos_pag .= '<div class="img-auto"><img src="' . $thumbnail . '" class="img-filtro" /></div>';
             $autos_pag .= '<p class="informacion-basica"><!--Año: 2016--><br>' . $auto['resumen'] . '</p>';
             $autos_pag .= '<a class="bt-transparente" href="models/cotizador.php?modelo=' . $auto['alias_modelo'] . '&marca=' . $auto['marca'] . '">VER DETALLE</a>';
             $autos_pag .= '</div>';
