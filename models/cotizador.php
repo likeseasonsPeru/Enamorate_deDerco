@@ -12,7 +12,7 @@ include_once dirname(__DIR__) . '../tableModel/tipo_cambio.php';
 
 //   Tipo de cambio
 
-$cambio_model = new Tienda();
+$cambio_model = new Cambio();
 $cambio = $cambio_model->ejecutarSql("SELECT * FROM tipo_cambio");
 $tipo_cambio = floatval($cambio[0]['tipo_cambio']);
 
@@ -31,7 +31,7 @@ $utm_medium = '';
 if (isset($_GET['utm_source'])) {
     $utm_source = $_GET['utm_source'];
 } else {
-    $utm_source = 'Web Derco';
+    $utm_source = 'DercoOportunidades';
 }
 if (isset($_GET['utm_campaign'])) {
     $utm_campaign = $_GET['utm_campaign'];
@@ -41,13 +41,12 @@ if (isset($_GET['utm_campaign'])) {
 if (isset($_GET['utm_medium'])) {
     $utm_medium = $_GET['utm_medium'];
 } else {
-    $utm_medium = 'Web Derco';
+    $utm_medium = 'DercoOportunidades';
 }
 
 // autos 
 
 $auto_model = new Auto();
-var_dump($modelo);
 $autos_marca = $auto_model->ejecutarSql("SELECT * FROM autos2017 WHERE alias_modelo='$modelo'");
 
 
@@ -356,8 +355,6 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
 }
 
 // for production
-include '../globals/includes/header-alt.php';
-
 
 ?>
 
@@ -385,7 +382,6 @@ include '../globals/includes/header-alt.php';
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <?php include '../globals/includes/menu-alt.php';?>
 </head>
 
 

@@ -547,6 +547,10 @@ margin-top: 30px;
   height:35px;
 }
 
+.modelo .img-responsive {
+  margin: 0 auto;
+}
+
 /*.modelo-select:hover .checkbox-modelo,
 .modelo-select:focus .checkbox-modelo{
   background-color: #dc241f;
@@ -603,6 +607,9 @@ margin-top: 30px;
   border-bottom: 3px solid #545558;
 }
 
+.marcas .img-responsive {
+  margin: 0 auto;
+}
 
 .marcas-select select {
   color: #545558;
@@ -703,6 +710,26 @@ margin-top: 30px;
 
 .precioInputs2{
   margin: 26px 10px;
+}
+
+.titulo-autos:before {
+  margin-left: -53%;
+  text-align: right;
+  padding-left: 10px;
+}
+
+.titulo-autos:before, .titulo-autos:after {
+  position: absolute;
+  top: 51%;
+  overflow: hidden;
+  width: 50%;
+  height: 1px;
+  content: '\a0';
+  background-color: #adadaf;
+}
+
+.titulo-autos:after {
+  margin-left: 3%;
 }
 
 @media(min-width: 1199){
@@ -819,5 +846,25 @@ margin-top: 30px;
 @media(min-width: 100){
   .bt-transparente-pd{
     padding: 5px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .sm-padding {
+      margin-top: 10px !important;
+      padding: 0 5px;
+  }
+
+  .fondo-logo .img-responsive {
+      padding: 0 15%;
+  }
+
+  .bt-transparente {
+      letter-spacing: 0px;
+      font-size: 10px;
+  }
+
+  .marcas {
+      min-height: 245px;
   }
 }

@@ -2,9 +2,17 @@
 
 // for dev
 include_once dirname(__DIR__) . '../tableModel/auto.php';
+include_once dirname(__DIR__) . '../tableModel/tipo_cambio.php';
 
 // for production
 //include_once dirname(__FILE__).'../../tableModel/auto.php';
+//include_once dirname(__FILE__).'../../tableModel/tipo_cambio.php';
+
+//   Tipo de cambio
+
+$cambio_model = new Cambio();
+$cambio = $cambio_model->ejecutarSql("SELECT * FROM tipo_cambio");
+$tipo_cambio = floatval($cambio[0]['tipo_cambio']);
 
 
 $perfil = $_POST['perfil'];
@@ -127,7 +135,7 @@ if ($min != '' || $max != '') {
 
 $auto_model = new Auto();
 
-if ($perfil != null && $_POST['min'] != null){
+if ($perfil != null && $_POST['min'] != null) {
     if ($perfil == 'emprendedor') {
         $query = "SELECT * FROM autos2017 where (tipo_auto = 'van' or  tipo_auto= 'sedan' or  tipo_auto= 'suv') and dolares between '$min' and '$max' ORDER BY dolares;";
     } else if ($perfil == 'esforzado') {
@@ -136,9 +144,9 @@ if ($perfil != null && $_POST['min'] != null){
         $query = "SELECT * FROM autos2017 where (tipo_auto = 'hatchback' or  tipo_auto= 'sedan' or  tipo_auto= 'suv') and dolares between '$min' and '$max' ORDER BY dolares;";
     } else if ($perfil == 'familion') {
         $query = "SELECT * FROM autos2017 where (tipo_auto = 'suv' or  tipo_auto= 'van') and dolares between '$min' and '$max' ORDER BY dolares;";
-    } 
+    }
 }
-    
+
 $autos = $auto_model->ejecutarSql($query);
 $autos_pag = '';
 $count = 0;
@@ -149,6 +157,17 @@ if ($autos[0] != null) {
         foreach ($autos2 as $auto) {
             $count++;
             $thumbnail = $base_path . '/assets/modelos/281x180/' . $auto['alias_marca'] . '/' . $auto['foto_principal'];
+            $dolares = $auto['dolares'];
+            $soles = $dolares * $tipo_cambio;
+
+            if ($dolares == 0) {
+                $dolares = '<span style="font-size:14px;">Precio no disponible</span>';
+            } else {
+                //Separador y Símbolo de Dólar
+                $dolares = 'USD ' . number_format($dolares);
+                $soles = 'S/ ' . number_format($soles);
+            }
+            /*
             $autos_pag .= '<div class="col-4 col-md-6 col-lg-4 fixPad card-border">';
             $autos_pag .= '<div class="col-4 cardB">';
             $autos_pag .= '<div class="col-12">';
@@ -161,6 +180,25 @@ if ($autos[0] != null) {
             $autos_pag .= '<div class="row">';
             $autos_pag .= '<a class="col-lg-6">VER MÁS</a>';
             $autos_pag .= '<a class="col-lg-6" href="models/cotizador.php?modelo=' . $auto['alias_modelo'] . '&marca=' . $auto['marca'].'">COTIZAR</a></div></div></div>';
+            */
+
+
+            $autos_pag .= '<div class="col-xs-6 col-sm-6 col-md-4 mt-30 text-center sm-padding">';
+            $autos_pag .= '<div id="' . $auto['alias_marca'] . '" class="modelo" data-marca="' . $auto['alias_marca'] . '" data-modelo="' . $auto['alias_modelo'] . '">';
+            $autos_pag .= '<div class="datos">';
+            $autos_pag .= '<h3 class="titulo-carro">' . $auto['modelo'] . '<span style="font-size: 14px;vertical-align: top; font-family: Arial;"> **</span></h3>';
+            $autos_pag .= '<p class="precio-carro">' . 'Desde ' . $dolares . ' o ' . '</p>';
+            $autos_pag .= '<p class="precio-carro">' . $soles . '</p>';
+            $autos_pag .= '<p class="informacion-basica">Año Módelo ' . $auto['Precio_anio'] . '</p>';
+            if ($auto['preventa'] == 'si') {
+                $autos_pag .= '<p class="precio-carro" style="font-size: 12px;">Precio Preventa</p>';
+            }
+            $autos_pag .= '</div>';
+            $autos_pag .= '<div class="img-auto"><img src="' . $thumbnail . '" class="img-responsive" /></div>';
+            $autos_pag .= '<p class="informacion-basica"><!--Año: 2016--><br>' . $auto['resumen'] . '</p>';
+            $autos_pag .= '<a class="bt-transparente" href="models/cotizador.php?modelo=' . $auto['alias_modelo'] . '&marca=' . $auto['marca'] . '">VER DETALLE</a>';
+            $autos_pag .= '</div>';
+            $autos_pag .= '</div>';
         }
         //  }
     }
@@ -169,17 +207,21 @@ if ($autos == null || $count == 0) {
     $autos_pag = '<div class="col-sm-12 col-md-12 mt-30 text-center"><p style="font-size: 16px; color: #dc241f;font-weight: bold;">No se encontraron resultados de tu búsqueda.</p></div>';
 }
 
+$autos_pag .= '</div>';
+
 
 ?>
 
 
 <!-- <div id="contenedor"> -->
 <div class="col-12 text-center">
-    <h1>TENEMOS LO QUE NECESITAS</h1>
-    <h2>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h2>
+    <h1 class="titulo-autos text-center">TENEMOS LO QUE NECESITAS</h1>
     <div class="container text-center">
+    <h2 id="selecciona" class="titulo-autos text-center">Seleccione un modelo</h2>
         <div class="row">
-            <!--?php echo $autos_pag ?-->
+            <?php echo $autos_pag ?>
+
+
             <!--div class="col-4 col-md-6 col-lg-4 fixPad card-border">
                 <div class="col-4 cardB">
                     <div class="col-12">
@@ -204,68 +246,25 @@ if ($autos == null || $count == 0) {
                         <button class="col-5 centerInputs card-button">Ver más</button>
                         <button class="col-5 centerInputs card-button">Cotizar</button>
                         <!--a class="col-lg-6">VER MÁS</a-->
-                        <!--a class="col-lg-6" href="models/cotizador.php?marca=">COTIZAR</a
+            <!--a class="col-lg-6" href="models/cotizador.php?marca=">COTIZAR</a
                    </div>
                 </div>
             </div-->
 
             <!--Card Derco-->
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-20 mb-20 text-center sm-padding">
-                <div id="suzuki" class="modelo pd-filtro card-filtro" data-marca="suzuki" data-modelo="new-alto">
-                    <div class="datos">
-                        <h3 class="titulo-carro">
-                            "NEW ALTO"
-                            <span style="font-size: 14px; vertical-align: top; font-family: Arial;">**</span>
-                        </h3>
-                    <p class="precio-carro">Desde USD 7,190 o </p>
-                    <p class="precio-carro">S/. 24,446</p>
-                    <p class="información-basica">Año Modelo 2020</p>
-                    </div>
-                    <div clas="img-auto">
-                        <img src="app/img/3sporthome.jpg" class="img-filtro">
-                    </div>
-                    <p class="informacion-basica">
-                        <br>
-                        "Tracción: 2WD | Transimisión MT"
-                    </p>
-                    <button class="bt-transparente bt-transparente-pd">VER DETALLE</button>
-                    <button class="bt-transparente bt-transparente-pd">COTIZAR</button>
-                </div>
-            </div>
 
-            <div class="col-xs-12 col-sm-6 col-md-4  col-lg-3 col-xl-3 mt-20 mb-20 text-center sm-padding">
-                <div id="suzuki" class="modelo pd-filtro card-filtro" data-marca="suzuki" data-modelo="new-alto">
-                    <div class="datos">
-                        <h3 class="titulo-carro">
-                            "NEW ALTO"
-                            <span style="font-size: 14px; vertical-align: top; font-family: Arial;">**</span>
-                        </h3>
-                    <p class="precio-carro">Desde USD 7,190 o </p>
-                    <p class="precio-carro">S/. 24,446</p>
-                    <p class="información-basica">Año Modelo 2020</p>
-                    </div>
-                    <div clas="img-auto">
-                        <img src="app/img/3sporthome.jpg" class="img-filtro">
-                    </div>
-                    <p class="informacion-basica">
-                        <br>
-                        "Tracción: 2WD | Transimisión MT"
-                    </p>
-                    <button class="bt-transparente bt-transparente-pd">VER DETALLE</button>
-                    <button class="bt-transparente bt-transparente-pd">COTIZAR</button>
-                </div>
-            </div>
+            <!------------------------------------------->
 
-            <div class="col-xs-12 col-sm-6 col-md-4  col-lg-3 col-xl-3 mt-20 mb-20 text-center sm-padding">
+            <!-- <div class="col-xs-12 col-sm-6 col-md-4  col-lg-3 col-xl-3 mt-20 mb-20 text-center sm-padding">
                 <div id="suzuki" class="modelo pd-filtro card-filtro" data-marca="suzuki" data-modelo="new-alto">
                     <div class="datos">
                         <h3 class="titulo-carro">
                             "NEW ALTO"
                             <span style="font-size: 14px; vertical-align: top; font-family: Arial;">**</span>
                         </h3>
-                    <p class="precio-carro">Desde USD 7,190 o </p>
-                    <p class="precio-carro">S/. 24,446</p>
-                    <p class="información-basica">Año Modelo 2020</p>
+                        <p class="precio-carro">Desde USD 7,190 o </p>
+                        <p class="precio-carro">S/. 24,446</p>
+                        <p class="información-basica">Año Modelo 2020</p>
                     </div>
                     <div clas="img-auto">
                         <img src="app/img/3sporthome.jpg" class="img-filtro">
@@ -277,30 +276,10 @@ if ($autos == null || $count == 0) {
                     <button class="bt-transparente bt-transparente-pd">VER DETALLE</button>
                     <button class="bt-transparente bt-transparente-pd">COTIZAR</button>
                 </div>
-            </div>
+            </div> -->
 
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-20 mb-20 text-center sm-padding">
-                <div id="suzuki" class="modelo pd-filtro card-filtro" data-marca="suzuki" data-modelo="new-alto">
-                    <div class="datos">
-                        <h3 class="titulo-carro">
-                            "NEW ALTO"
-                            <span style="font-size: 14px; vertical-align: top; font-family: Arial;">**</span>
-                        </h3>
-                    <p class="precio-carro">Desde USD 7,190 o </p>
-                    <p class="precio-carro">S/. 24,446</p>
-                    <p class="información-basica">Año Modelo 2020</p>
-                    </div>
-                    <div clas="img-auto">
-                        <img src="app/img/3sporthome.jpg" class="img-filtro">
-                    </div>
-                    <p class="informacion-basica">
-                        <br>
-                        "Tracción: 2WD | Transimisión MT"
-                    </p>
-                    <button class="bt-transparente bt-transparente-pd">VER DETALLE</button>
-                    <button class="bt-transparente bt-transparente-pd">COTIZAR</button>
-                </div>
-            </div>
+            <!------------------------------------------->
+
             <!--
             <div class="col-4 col-md-6 col-lg-4 fixPad card-border">
                 <div class="col-4 cardB">
