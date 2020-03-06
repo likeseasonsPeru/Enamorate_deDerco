@@ -183,7 +183,7 @@
         <div class="marcas-select padin2">
           <select name="marcas" id="buscar-categorias" class="col-8">
             <!-- <option value="todas">Todos</option> -->
-            <option value="emprendedor">Comerciales</option>
+            <option value="emprendedor">Comerciales (Vans/Pick Up/Taxi)</option>
             <option value="familion">Autos Familiares</option>
             <option value="nuevo adulto">Estilo de vida</option>
             <option value="esforzado">Mi primer auto</option>

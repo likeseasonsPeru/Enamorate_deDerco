@@ -116,6 +116,23 @@ if ($tipo_auto != 'todas') {
     $query .= ') ';
 }
 
+
+$auto_model = new Auto();
+
+if ($perfil != null) {
+    
+    if ($perfil == 'emprendedor') {
+        $query = "SELECT * FROM autos2017 where (modelo = 'HONOR S' or  modelo= 'NEW VAN' or  modelo= 'GRAND VAN TURISMO' or modelo='GRAND SUPERVAN' or  modelo= 'M90' or  modelo= 'A500' or  modelo= 'C-ELYSÉE' or  modelo= 'NEW C30' or  modelo= 'WINGLE 5 GASOLINA' or  modelo= 'WINGLE 5 DIESEL' or  modelo= 'WINGLE 7 DIESEL' or modelo='J4' or modelo='REFINE' or modelo='SUNRAY' or modelo='T6' or modelo='X200' or modelo= 'BT-50' or modelo= 'Alaskan' or modelo='Logan' or modelo='Master' or modelo='Oroch' or modelo='APV VAN' or modelo='NEW CIAZ' or modelo='ERTIGA')";
+    } else if ($perfil == 'esforzado') {
+        $query = "SELECT * FROM autos2017 where (modelo= 'CS15' or  modelo= 'C-ELYSÉE' or modelo= 'NEW C3' or  alias_modelo= 'new-c4-cactus' or  modelo='NEW M4' or modelo= 'NEW H2' or modelo= 'J4' or modelo='S2' or modelo='MAZDA 2 SEDAN' or modelo='NEW ALTO' or modelo='CELERIO' or modelo = 'NEW DZIRE')";
+    } else if ($perfil == 'nuevo adulto') {
+        $query = "SELECT * FROM autos2017 where (modelo= 'CS35 PLUS' or  modelo= 'CS55' or modelo= 'NEW C3' or  alias_modelo= 'new-c4-cactus' or  modelo='C5 AIRCROSS' or modelo= 'H3' or modelo= 'NEW H2' or modelo='H6 Sport' or modelo='S2' or modelo='S3' or modelo='GRAND S3' or modelo = 'BT-50' or modelo='CX-3' or modelo='CX-30' or modelo='MAZDA 2 SPORT' or modelo='MX-5' or modelo='MAZDA 3 SEDAN' or modelo='MAZDA 3 SPORT' or modelo='MAZDA 6 SEDAN' or modelo='MX5 RF' or modelo='KWID' or modelo='BALENO' or modelo='GRAND VITARA' or modelo='JIMNY' or modelo='SWIFT SEDAN' or modelo='NEW VITARA') ";
+    } else if ($perfil == 'familion') {
+        $query = "SELECT * FROM autos2017 where (modelo = 'suv' or  modelo= 'van')";
+    }
+}
+
+
 //Validamos el precio minimo
 if ($min) {
     $query .= ' AND dolares>="' . $min . '"';
@@ -128,23 +145,9 @@ if ($max) {
 
 //Orden
 if ($min != '' || $max != '') {
-    $query .= ' AND estado="1" ORDER BY dolares ASC';
+    $query .= ' AND estado="1" ORDER BY dolares ASC;';
 } else {
-    $query .= ' AND estado="1" ORDER BY id, dolares ASC';
-}
-
-$auto_model = new Auto();
-
-if ($perfil != null && $_POST['min'] != null) {
-    if ($perfil == 'emprendedor') {
-        $query = "SELECT * FROM autos2017 where (tipo_auto = 'van' or  tipo_auto= 'sedan' or  tipo_auto= 'suv') and dolares between '$min' and '$max' ORDER BY dolares;";
-    } else if ($perfil == 'esforzado') {
-        $query = "SELECT * FROM autos2017 where (tipo_auto= 'sedan' or  tipo_auto= 'suv') and dolares between '$min' and '$max' ORDER BY dolares;";
-    } else if ($perfil == 'nuevo adulto') {
-        $query = "SELECT * FROM autos2017 where (tipo_auto = 'hatchback' or  tipo_auto= 'sedan' or  tipo_auto= 'suv') and dolares between '$min' and '$max' ORDER BY dolares;";
-    } else if ($perfil == 'familion') {
-        $query = "SELECT * FROM autos2017 where (tipo_auto = 'suv' or  tipo_auto= 'van') and dolares between '$min' and '$max' ORDER BY dolares;";
-    }
+    $query .= ' AND estado="1" ORDER BY id, dolares ASC;';
 }
 
 $autos = $auto_model->ejecutarSql($query);
@@ -196,7 +199,8 @@ if ($autos[0] != null) {
             $autos_pag .= '</div>';
             $autos_pag .= '<div class="img-auto"><img src="' . $thumbnail . '" class="img-responsive" /></div>';
             $autos_pag .= '<p class="informacion-basica"><!--Año: 2016--><br>' . $auto['resumen'] . '</p>';
-            $autos_pag .= '<a class="bt-transparente" href="models/cotizador.php?modelo=' . $auto['alias_modelo'] . '&marca=' . $auto['marca'] . '">VER DETALLE</a>';
+            $autos_pag .= '<a class="bt-transparente" href="'. $auto['alias_modelo'] . '/' . $auto['marca'] . '">VER DETALLE</a>';
+            $autos_pag .= '<a class="bt-transparente" href="'. $auto['alias_modelo'] . '/' . $auto['marca'] . '">COTIZAR</a>';
             $autos_pag .= '</div>';
             $autos_pag .= '</div>';
         }

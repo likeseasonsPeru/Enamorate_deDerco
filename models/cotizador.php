@@ -21,6 +21,7 @@ $modelo = $_GET['modelo'];
 //$marcaid = '';
 
 $base_path = 'https://derco.com.pe/catalogo-derco';
+$real_path = 'https://derco.com.pe/dercoportunidades';
 $site_url = 'catalogo-derco';
 
 // Utms
@@ -368,14 +369,14 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
     <meta name="content_type"  content="text/html;" http-equiv="content-type" charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <link rel="stylesheet" href="../app/css/bootstrap.css" />
-    <link rel="stylesheet" href="../app/fonts/stylesheet.css" />
-    <link rel="stylesheet" href="../app/css/style.css" />
-    <link rel="stylesheet" href="../app/css/style_modelo.css" />
-    <link rel="stylesheet" href="../app/css/style_modelo_ingenia.css" />
+    <link rel="stylesheet" href="<?php echo $real_path?>/app/css/bootstrap.css" />
+    <link rel="stylesheet" href="<?php echo $real_path?>/app/fonts/stylesheet.css" />
+    <link rel="stylesheet" href="<?php echo $real_path?>/app/css/style.css" />
+    <link rel="stylesheet" href="<?php echo $real_path?>/app/css/style_modelo.css" />
+    <link rel="stylesheet" href="<?php echo $real_path?>/app/css/style_modelo_ingenia.css" />
     <link rel="stylesheet" type="text/css" href="https://derco.com.pe/globals/css/avada/avada-inline-2018.css?v=2">
-    <script src="../app/js/jquery.js"></script>
-    <script src="../app/js/bootstrap.min.js"></script>
+    <script src="<?php echo $real_path?>/app/js/jquery.js"></script>
+    <script src="<?php echo $real_path?>/app/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
