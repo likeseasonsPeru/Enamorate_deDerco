@@ -1,4 +1,68 @@
-/*General*/
+@font-face {
+  font-family: 'Hind Siliguri';
+  font-style: normal;
+  font-weight: 300;
+  src: url('https://derco.com.pe/wp-content/extras/fonts/hind-siliguri-v2-latin-300.eot'); /* IE9 Compat Modes */
+  src: local('Hind Siliguri Light'), local('HindSiliguri-Light'),
+  url('https://derco.com.pe/wp-content/extras/fonts/hind-siliguri-v2-latin-300.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('https://derco.com.pe/wp-content/extras/fonts/hind-siliguri-v2-latin-300.woff2') format('woff2'), /* Super Modern Browsers */
+  url('https://derco.com.pe/wp-content/extras/fonts/hind-siliguri-v2-latin-300.woff') format('woff'), /* Modern Browsers */
+  url('https://derco.com.pe/wp-content/extras/fonts/hind-siliguri-v2-latin-300.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('https://derco.com.pe/wp-content/extras/fonts/hind-siliguri-v2-latin-300.svg#HindSiliguri') format('svg'); /* Legacy iOS */
+}
+/* hind-siliguri-500 - latin */
+@font-face {
+  font-family: 'Hind Siliguri';
+  font-style: normal;
+  font-weight: 500;
+  src: url('https://derco.com.pe/wp-content/extras/fonts/hind-siliguri-v2-latin-500.eot'); /* IE9 Compat Modes */
+  src: local('Hind Siliguri Medium'), local('HindSiliguri-Medium'),
+  url('https://derco.com.pe/wp-content/extras/fonts/hind-siliguri-v2-latin-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('https://derco.com.pe/wp-content/extras/fonts/hind-siliguri-v2-latin-500.woff2') format('woff2'), /* Super Modern Browsers */
+  url('https://derco.com.pe/wp-content/extras/fonts/hind-siliguri-v2-latin-500.woff') format('woff'), /* Modern Browsers */
+  url('https://derco.com.pe/wp-content/extras/fonts/hind-siliguri-v2-latin-500.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('https://derco.com.pe/wp-content/extras/fonts/hind-siliguri-v2-latin-500.svg#HindSiliguri') format('svg'); /* Legacy iOS */
+}
+/* hind-siliguri-600 - latin */
+@font-face {
+  font-family: 'Hind Siliguri';
+  font-style: normal;
+  font-weight: 600;
+  src: url('https://derco.com.pe/wp-content/extras/fonts/hind-siliguri-v2-latin-600.eot'); /* IE9 Compat Modes */
+  src: local('Hind Siliguri SemiBold'), local('HindSiliguri-SemiBold'),
+  url('https://derco.com.pe/wp-content/extras/fonts/hind-siliguri-v2-latin-600.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('https://derco.com.pe/wp-content/extras/fonts/hind-siliguri-v2-latin-600.woff2') format('woff2'), /* Super Modern Browsers */
+  url('https://derco.com.pe/wp-content/extras/fonts/hind-siliguri-v2-latin-600.woff') format('woff'), /* Modern Browsers */
+  url('https://derco.com.pe/wp-content/extras/fonts/hind-siliguri-v2-latin-600.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('https://derco.com.pe/wp-content/extras/fonts/hind-siliguri-v2-latin-600.svg#HindSiliguri') format('svg'); /* Legacy iOS */
+}
+/* hind-siliguri-regular - latin */
+@font-face {
+  font-family: 'Hind Siliguri';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://derco.com.pe/wp-content/extras/fonts/hind-siliguri-v2-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Hind Siliguri'), local('HindSiliguri-Regular'),
+  url('https://derco.com.pe/wp-content/extras/fonts/hind-siliguri-v2-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('https://derco.com.pe/wp-content/extras/fonts/hind-siliguri-v2-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+  url('https://derco.com.pe/wp-content/extras/fonts/hind-siliguri-v2-latin-regular.woff') format('woff'), /* Modern Browsers */
+  url('https://derco.com.pe/wp-content/extras/fonts/hind-siliguri-v2-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('https://derco.com.pe/wp-content/extras/fonts/hind-siliguri-v2-latin-regular.svg#HindSiliguri') format('svg'); /* Legacy iOS */
+}
+/* hind-siliguri-700 - latin */
+@font-face {
+  font-family: 'Hind Siliguri';
+  font-style: normal;
+  font-weight: 700;
+  src: url('https://derco.com.pe/wp-content/extras/fonts/hind-siliguri-v2-latin-700.eot'); /* IE9 Compat Modes */
+  src: local('Hind Siliguri Bold'), local('HindSiliguri-Bold'),
+  url('https://derco.com.pe/wp-content/extras/fonts/hind-siliguri-v2-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('https://derco.com.pe/wp-content/extras/fonts/hind-siliguri-v2-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+  url('https://derco.com.pe/wp-content/extras/fonts/hind-siliguri-v2-latin-700.woff') format('woff'), /* Modern Browsers */
+  url('https://derco.com.pe/wp-content/extras/fonts/hind-siliguri-v2-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('https://derco.com.pe/wp-content/extras/fonts/hind-siliguri-v2-latin-700.svg#HindSiliguri') format('svg'); /* Legacy iOS */
+}
+
 .np{
   padding-left: 0px;
   padding-right: 0px;
@@ -6,19 +70,15 @@
 body{
   margin: 0;
   padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #c1c0c0;
 }
 .paddingPage{
   width: 100%;
   padding-left: 75px;
   padding-right: 75px
 }
-.text-center{
-  text-align: center;
-}
-.img-responsive{
-  display: grid;
-  margin:auto;
-}
+
 .contenedor-datos{
   opacity: 1;
   transition: 1s all;
@@ -171,6 +231,70 @@ body{
   margin-top: 45px;
   width: 100%;
 }
+.espacioTop{
+  margin-top: 150px;
+}
+.espacioPregunta{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.centerInputs{
+  margin: auto;
+}
+.labelForm{
+  color: #e80707;
+}
+.inputForms{
+  width: 100%;
+  border: 1px solid black;
+  padding: 5px;
+  margin-bottom: 15px;
+  max-width: 480px;
+  outline: none;
+}
+.espacioBtns{
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.btnSeguir{
+  color: white;
+  border: 1px solid #707276;
+  border-radius: 25px;
+  padding: 10px 30px;
+  background-color: #707276;
+  font-size: 18px;
+  outline: none;
+  transition: 0.6s all;
+}
+.btnSeguir:hover,.btnSeguir:focus{
+  color: #e80707;
+  border: 1px solid #e80707;
+  border-radius: 25px;
+  padding: 10px 30px;
+  background-color: white;
+  font-size: 18px;
+  outline: none;
+  transition: 0.6s all;
+}
+#modalFirstDatos{
+  background-color: rgba(0,0,0,.6);
+  padding-top: 80px;
+}
+.modal-body{
+  padding: 45px;
+}
+.imgTipo{
+  width: 100%;
+  margin: auto;
+}
+
+.btnTipoSelect{
+  padding: 0px;
+  margin-top: 25px;
+  background-color: transparent;
+  border:0px;
+}
 
 /*Responsive*/
 
@@ -252,5 +376,495 @@ body{
     width: 100%;
     padding-left: 150px;
     padding-right: 150px
+  }
+}
+
+.content{
+  text-align: center;
+}
+
+.np{
+  padding-left: 0;
+  padding-right: 0;
+}
+.sectionBanner{
+  background-color: #232323;
+}
+
+.sinpadding div {
+  color: white;
+  padding: 10px 0px;
+  border: 1px solid salmon;
+  font-weight: 600;
+  font-size: 32px;
+  letter-spacing: 10px;
+}
+
+.titulo{
+  color: black;
+  font-family: 'helvetica_medium', 'Open sans';
+}
+.textoGeneral{
+  color: black;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 16px;
+}
+.imgResponsive{
+  width: 100%;
+  margin: auto;
+}
+
+.cardB{
+  background-color: white;
+  padding: 5px 20px;
+  margin-top: 15px;
+  max-width: 380px;
+  margin: auto;
+}
+
+.carB:hover{
+  border: 5px solid red;
+}
+@media(min-width: 320px){
+  .fixPad{
+      padding: 5px 0px;
+  }
+}
+
+@media(min-width: 768px){
+  .fixPad{
+      padding: 5px 10px;
+  }
+}
+@media(min-width: 1024px){
+  .fixPad{
+      padding: 5px 15px;
+  }
+}
+
+.car-border{
+  border: 2px solid red;
+  margin: 0px 10px;
+}
+
+.fk-btn{
+  width: 5%;
+  border:1px solid black;
+  border-radius: 15px;
+  margin-top: 40px;
+}
+
+.padin{
+  margin: auto;
+}
+
+.paginador-area{
+  padding: auto;
+}
+
+.marg{
+margin-top: 30px;
+}
+
+.fo{
+  font-family: Hind Siliguri, Arial, Helvetica, sans-serif;
+}
+
+
+.ig{
+  background-color: white;
+}
+
+.ig:hover{
+  cursor: pointer;
+}
+
+.precio-card{
+  color: black;
+  font-family: 'helvetica_medium', 'Open sans';
+  font-size: xx-large;
+}
+
+@media(min-width: 1200px){
+  .precio-card{
+    font-size: xx-large;
+  }
+}
+
+@media(max-width: 960){
+  .precio-card{
+      font-size: large;
+  }
+}
+
+@media(max-width: 720px){
+  .precio-card{
+      font-size: medium;
+  }
+}
+
+@media(max-width: 576px){
+  .precio-card{
+      font-size: small;
+  }
+}
+
+.contInicioTop{
+  background-color: red;
+}
+
+.contInicioTop2{
+  background-color: #990704;
+}
+.contInicioMd{
+ background-color: #c1c0c0;
+}
+
+.bg-grayderco{
+  padding: 30px;
+  background-color: #c1c0c0;
+  text-align: left;
+}
+
+.bg-grayderco2{
+  padding: 25px;
+  text-align: left;
+}
+
+.bg-derco {
+  background-color: #dc241f;
+  padding: 30px;
+}
+
+.bg-gray{
+  background-color: #707276;
+}
+.modelo-select {
+  color:#707276;
+  /*margin-top: 15px;*/
+  cursor: pointer;
+  height:35px;
+}
+
+.modelo .img-responsive {
+  margin: 0 auto;
+}
+
+/*.modelo-select:hover .checkbox-modelo,
+.modelo-select:focus .checkbox-modelo{
+  background-color: #dc241f;
+  border-color: #dc241f;
+}*/
+
+.checkbox-modelo-selected-color {
+  color: #dc241f;
+}
+
+.checkbox-modelo-selected {
+  background-color: #dc241f;
+  border-color: #dc241f !important;
+}
+
+.checkbox-modelo {
+  float: right;
+  width: 13px;
+  height: 13px;
+  border:2px solid #707276;
+  margin-top: 1px;
+
+  -webkit-transition: background-color .2s linear, border-color .2s linear;
+  -moz-transition: background-color .2s linear, border-color .2s linear;
+  -o-transition: background-color .2s linear, border-color .2s linear;
+  transition: background-color .2s linear, border-color .2s linear;
+}
+
+.filtros-head {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+  padding:0 !important;
+  margin:0 !important;
+}
+
+.filtros-title, .filtros-title-gray {
+  font-size:18px;
+  text-transform: uppercase;
+  margin:0;
+}
+
+.filtros-title-white {
+  color: #fff;
+  margin:0 !important;
+  padding: 0 0 10px 0 !important;
+  border-bottom: 3px solid #fff;
+}
+
+.filtros-title-gray {
+  color: #545558;
+  margin:0 !important;
+  padding: 0 0 10px 0 !important;
+  border-bottom: 3px solid #545558;
+}
+
+.marcas .img-responsive {
+  margin: 0 auto;
+}
+
+.marcas-select select {
+  color: #545558;
+  margin-top: 15px;
+  padding: 0px 15px;
+  width: 65%;
+  height: 35px;
+  background-color: #fff !important;
+  border: 1px solid #d6d6d6 !important;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  background: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='24' height='24' viewBox='0 0 24 24'><path fill='#444' d='M7.406 7.828l4.594 4.594 4.594-4.594 1.406 1.406-6 6-6-6z'></path></svg>");
+  background-position: 100% 50%;
+  background-repeat: no-repeat;
+}
+
+.mgt{
+  margin-bottom: 30px;
+}
+
+.mgTop{
+  margin-top: 15px;
+}
+
+.bgTop{
+  background-color: #990704;
+}
+.mgSides{
+  margin: 5px 20px;
+}
+
+.npl{
+  padding-left: 0;
+}
+
+.rango-precio {
+  margin-top: 30px;
+}
+
+.rango-precio label {
+  padding-top: 7px;
+}
+
+.pdTb{
+  padding: 10px 0px;
+}
+
+.pdRight{
+  padding-right: 25px;
+}
+
+.pdSides{
+  margin: 30px 0px;
+}
+
+.precioInputs{
+  margin: 0px 23px 23px 23px;
+ /* margin-left: 5px;
+  margin-right: 5px;*/ 
+}
+
+.negrita{
+  font-weight: bold;
+}
+
+.card-button{
+  border-radius: 25px;
+  background-color: white;
+  border: 1px solid black;
+  font-size: 12px;
+  letter-spacing: 2.0px;
+  font-weight: bold;
+  padding: 8px 15px 7px 15px;
+}
+
+.card-button:hover{
+  background-color: red;
+  color: white;
+  transition: background-color .2s linear, color .2s linear, border-color .2s linear;
+    transition-property: background-color, color, border-color;
+    transition-duration: 0.2s, 0.2s, 0.2s;
+    transition-timing-function: linear, linear, linear;
+    transition-delay: 0s, 0s, 0s;
+}
+
+.contenedor-principal{
+  background-color: #dc241f;
+}
+
+.filtro-container{
+  margin: 20px 0px 0px 0px;
+    /*padding: 23px 3px;*/
+}
+
+.mgpinput{
+  margin-bottom: 10px;
+}
+
+.precioInputs2{
+  margin: 26px 10px;
+}
+
+.titulo-autos:before {
+  margin-left: -53%;
+  text-align: right;
+  padding-left: 10px;
+}
+
+.titulo-autos:before, .titulo-autos:after {
+  position: absolute;
+  top: 51%;
+  overflow: hidden;
+  width: 50%;
+  height: 1px;
+  content: '\a0';
+  background-color: #adadaf;
+}
+
+.titulo-autos:after {
+  margin-left: 3%;
+}
+
+@media(min-width: 1199){
+  .precioInputs{
+    margin: 23px 13px;
+  }
+}
+
+.bg-derco2{
+  padding: 0px 30px;
+}
+
+.padin2{
+  margin: 27px 20px;
+}
+
+.btnSeguir2{
+  color: white;
+  border: 1px solid #990704;
+  border-radius: 25px;
+  padding: 10px 30px;
+  background-color: #990704;
+  font-size: 18px;
+  outline: none;
+  transition: 0.6s all;
+  margin: 50px 10px;
+}
+.btnSeguir2:hover,.btnSeguir2:focus{
+  color: #990704;
+  border: 1px solid #990704;
+  border-radius: 25px;
+  padding: 10px 30px;
+  background-color: white;
+  font-size: 18px;
+  outline: none;
+  transition: 0.6s all;
+}
+
+.img-banner{
+  max-width: 1110px;
+}
+
+@media(max-width: 1199px){
+  .img-banner{
+    max-width: 931px;
+  }
+}
+
+@media(max-width: 991px){
+  .img-banner{
+    max-width: 691px;
+  }
+}
+
+@media(max-width: 767px){
+  .img-banner{
+    max-width: 511px;
+  }
+}
+@media(max-width: 575px){
+  .img-banner{
+    max-width: 544px;
+  }
+}
+
+@media(min-width: 410px) and (max-width: 574px){
+  .img-banner{
+    max-width: 384px;
+  }
+}
+
+@media(min-width: 374px) and (max-width: 409px){
+  .img-banner{
+    max-width: 345px;
+  }
+}
+
+@media(min-width: 358px) and (max-width: 373px){
+  .img-banner{
+    max-width: 330px;
+  }
+}
+
+@media(max-width: 321px) and (max-width: 357px){
+  .img-banner{
+    max-width: 289px;
+  }
+}
+
+/*Mediaqueries imagen filtrada de auto*/
+
+.img-filtro{
+  max-width: 180px;
+}
+
+.pd-filtro{
+  padding: 10px 10px 40px 10px;
+}
+
+.card-filtro{
+  /*height: 441px; */
+  box-sizing: content-box;
+}
+@media(max-width: 1200){
+  .card-filtro{
+    height: 385px;
+  }
+}
+
+.bt-transparente-pd{
+  padding: 5px;
+}
+
+@media(min-width: 100){
+  .bt-transparente-pd{
+    padding: 5px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .sm-padding {
+      margin-top: 10px !important;
+      padding: 0 5px;
+  }
+
+  .fondo-logo .img-responsive {
+      padding: 0 15%;
+  }
+
+  .bt-transparente {
+      letter-spacing: 0px;
+      font-size: 10px;
+  }
+
+  .marcas {
+      min-height: 245px;
   }
 }

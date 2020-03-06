@@ -1086,7 +1086,7 @@ html {
     font-size: 14px;
     line-height: 1.42857143;
     color: #333;
-    background-color: #fff;
+    background-color: white;
   }
   input,
   button,
@@ -6242,7 +6242,7 @@ html {
   }
   .carousel-inner {
     position: relative;
-    width: 100%;
+    width: 80%;
     overflow: hidden;
   }
   .carousel-inner > .item {
