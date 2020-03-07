@@ -200,11 +200,17 @@ if ($autos[0] != null) {
             $autos_pag .= '<div class="img-auto"><img src="' . $thumbnail . '" class="img-filtro" /></div>';
             $autos_pag .= '<p class="informacion-basica"><!--Año: 2016--><br>' . $auto['resumen'] . '</p>';
 
+           // $autos_pag .= '<form action="models/cotizador.php?modelo='.$auto['alias_modelo'].'&marca='.$auto['marca'].'" method="POST">';
+            $autos_pag .= '<form action="'.$auto['alias_modelo'].'/'.$auto['marca'].'" method="POST">';
+            $autos_pag .= '<input type="hidden" name="perfil" value="'.$perfil.'">';
+            $autos_pag .= '<input type="hidden" name="min" value="'.$min.'">';
+            $autos_pag .= '<input type="hidden" name="max" value="'.$max.'">';
+            $autos_pag .= '<input type="submit" class="bt-transparente" value="VER DETALLES"/></form>';
             $autos_pag .= '<form action="'.$auto['alias_modelo'].'/'.$auto['marca'].'" method="POST">';
             $autos_pag .= '<input type="hidden" name="perfil" value="">';
             $autos_pag .= '<input type="hidden" name="min" value="">';
             $autos_pag .= '<input type="hidden" name="max" value="">';
-            $autos_pag .= '<input type="submit" class="bt-transparente" value="VER DETALLES"/></form>';
+            $autos_pag .= '<input type="submit" class="bt-transparente" value="COTIZAR"/></form>';
          // $autos_pag .= '<a class="bt-transparente" href="'. $auto['alias_modelo'] . '/' . $auto['marca'] . '">VER DETALLE</a>';
           //$autos_pag .= '<a class="bt-transparente" href="'. $auto['alias_modelo'] . '/' . $auto['marca'] . '">COTIZAR</a>';
             $autos_pag .= '</div>';

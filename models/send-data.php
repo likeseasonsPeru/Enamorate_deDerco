@@ -4,17 +4,23 @@ header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
 //header('Access-Control-Max-Age: 1000');
 //header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
 
+// for dev
+include_once dirname(__DIR__) . '../tableModel/user.php';
+
+// for production
+//include_once dirname(__FILE__).'../../tableModel/user.php';
+
 if($_POST)
 {
     //check if its an ajax request, exit if not
-    if(!isset($_SERVER['HTTP_X_REQUESTED_WITH']) AND strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest') {
+    /* if(!isset($_SERVER['HTTP_X_REQUESTED_WITH']) AND strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest') {
 
         $output = json_encode(array( //create JSON data
             'type'=>'error',
             'text' => 'Se debe enviar un AJAX POST'
         ));
         die($output); //exit script outputting json data
-    }
+    } */
 
     date_default_timezone_set('America/Lima');
 
@@ -79,6 +85,33 @@ if($_POST)
     $codigosap = $_POST['codigosap'];
     $version = $_POST['version']; //Versión modelo aún no definido porque no hay verisones (18.10.2018)
 
+    $perfil = $_POST['perfil'];
+    $pres_min = $_POST['pres_min'];
+    $pres_max = $_POST['pres_max'];
+
+     // ---------------------- guardado en base de datos ------------
+    
+     $user_model = new User($modelo, $version, $first_name, $last_name, $tipo_documento, $razon_social, $numero_documento, $celular, $correo, $local,  $perfil, $pres_min, $pres_max, $state);
+     /* $query = "INSERT INTO registro_derco_oportunidades (nombres, apellidos, tipo_doc, razon, numero_doc, celular, correo, tienda, perfil, precio_min, precio_max, modelo, versio, provincia)
+     VALUES('".$first_name."',
+            '".$last_name."',
+            '".$tipo_documento."',
+            '".$razon_social."',
+            '".$numero_documento."',
+            '".$celular."',
+            '".$correo."',
+            '".$local."',
+            '".$perfil."',
+            '".$pres_min."',
+            '".$pres_max."',
+            '".$modelo."',
+            '".$version."',
+            '".$state."');"; */
+     $saved = $user_model->save();
+     
+
+ //----------------------------------------------------------
+
     //Parche 31.07 largo 40 caracteres.
     $count_nombre = strlen($first_name);
     if($count_nombre > 40){ $first_name = substr($first_name, 0, 40);  }
@@ -104,5 +137,6 @@ if($_POST)
     $output = json_encode(array('type'=>'correcto'));
 
     die($output);
+    
 }
 ?>

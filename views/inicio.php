@@ -10,7 +10,7 @@
 </div>
 <div id="contenedor" class="container">
   <div class="row col-6">
-    <img src="app/img/Dercoportunidades-banner.jpg" class="img-banner">
+    <img src="app/img/Banner-landing.jpg" class="img-banner">
   </div>
   <!--div id="carouselExampleControls" class="row carousel slide" data-ride="carousel">
     <div class="carousel-inner col-12">

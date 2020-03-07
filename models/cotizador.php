@@ -4,11 +4,13 @@
 include_once dirname(__DIR__) . '../tableModel/auto.php';
 include_once dirname(__DIR__) . '../tableModel/tienda.php';
 include_once dirname(__DIR__) . '../tableModel/tipo_cambio.php';
+include_once dirname(__DIR__) . '../tableModel/user.php';
 
 // for produccion
 //include_once dirname(__FILE__).'../../tableModel/tienda.php';
 //include_once dirname(__FILE__).'../../tableModel/tipo_cambio.php';
 //include_once dirname(__FILE__).'../../tableModel/auto.php';
+//include_once dirname(__FILE__).'../../tableModel/user.php';
 
 //   Tipo de cambio
 
@@ -19,6 +21,23 @@ $tipo_cambio = floatval($cambio[0]['tipo_cambio']);
 $marca = $_GET['marca'];
 $modelo = $_GET['modelo'];
 //$marcaid = '';
+
+$perfil = $_POST['perfil'];
+$pres_min = $_POST['min'];
+$pres_max = $_POST['max'];
+
+
+if (!isset($perfil)) {
+    $perfil = '';
+}
+
+if (!isset($pres_min) || $pres_min == '') {
+    $pres_min = '0';
+}
+
+if (!isset($pres_max) || $pres_max == '') {
+    $pres_max = '0';
+}
 
 $base_path = 'https://derco.com.pe/catalogo-derco';
 $real_path = 'https://derco.com.pe/dercoportunidades';
@@ -52,108 +71,108 @@ $autos_marca = $auto_model->ejecutarSql("SELECT * FROM autos2017 WHERE alias_mod
 
 
 foreach ($autos_marca as $auto) {
-    
-        $color_techo = '';
-        $html_techo = '';
 
-        $marca = $auto['marca'];
-        $modelo = $auto['modelo'];
-        $foto_principal = $auto['foto_principal'];
-        $alt_img = $auto['alt_img'];
-        $meta_descripcion = $auto['meta_descripcion'];
-        $meta_titulo = $auto['meta_titulo'];
-        $color_auto = $auto['color_auto'];
-        $color_techo = $auto['color_techo'];
-        $foto_fondo = $auto['foto_fondo'];
-        $informacion_basica = htmlspecialchars($auto['informacion_basica'],ENT_COMPAT,'ISO-8859-1', true);
-        //var_dump($informacion_basica);
-        $ficha_tecnica = htmlspecialchars($auto['ficha_tecnica'], ENT_COMPAT,'ISO-8859-1', true);
-        //var_dump($ficha_tecnica);
+    $color_techo = '';
+    $html_techo = '';
 
-        $dolares = $auto['dolares'];
-        $precio_anio = $auto['Precio_anio'];
-        $preventa = $auto['preventa'];
-        $autopdf = $auto['auto_pdf'];
+    $marca = $auto['marca'];
+    $modelo = $auto['modelo'];
+    $foto_principal = $auto['foto_principal'];
+    $alt_img = $auto['alt_img'];
+    $meta_descripcion = $auto['meta_descripcion'];
+    $meta_titulo = $auto['meta_titulo'];
+    $color_auto = $auto['color_auto'];
+    $color_techo = $auto['color_techo'];
+    $foto_fondo = $auto['foto_fondo'];
+    $informacion_basica = htmlspecialchars($auto['informacion_basica'], ENT_COMPAT, 'ISO-8859-1', true);
+    //var_dump($informacion_basica);
+    $ficha_tecnica = htmlspecialchars($auto['ficha_tecnica'], ENT_COMPAT, 'ISO-8859-1', true);
+    //var_dump($ficha_tecnica);
+
+    $dolares = $auto['dolares'];
+    $precio_anio = $auto['Precio_anio'];
+    $preventa = $auto['preventa'];
+    $autopdf = $auto['auto_pdf'];
 
 
-        // Logotipo y Foto ....
-        switch ($marca) {
-            case 'Suzuki':
-                $logo = 'logosuzuki.png';
-                $alias = 'suzuki';
-                $marca_sap = 'SUZUKI';
-                $marca_tienda = $marca_sap;
-                break;
+    // Logotipo y Foto ....
+    switch ($marca) {
+        case 'Suzuki':
+            $logo = 'logosuzuki.png';
+            $alias = 'suzuki';
+            $marca_sap = 'SUZUKI';
+            $marca_tienda = $marca_sap;
+            break;
 
-            case 'Citroën':
-                $logo = 'logocitroen.png';
-                $alias = 'citroen';
-                $marca_sap = 'CITROËN';
-                $marca_tienda = 'CITROEN';
-                break;
+        case 'Citroën':
+            $logo = 'logocitroen.png';
+            $alias = 'citroen';
+            $marca_sap = 'CITROËN';
+            $marca_tienda = 'CITROEN';
+            break;
 
-            case 'DS':
-                $logo = 'logo-ds-big.png';
-                $alias = 'ds';
-                $marca_sap = 'DS';
-                $marca_tienda = $marca_sap;
-                break;
+        case 'DS':
+            $logo = 'logo-ds-big.png';
+            $alias = 'ds';
+            $marca_sap = 'DS';
+            $marca_tienda = $marca_sap;
+            break;
 
-            case 'Mazda':
-                $logo = 'logomazda.png';
-                $alias = 'mazda';
-                $marca_sap = 'MAZDA';
-                $marca_tienda = $marca_sap;
+        case 'Mazda':
+            $logo = 'logomazda.png';
+            $alias = 'mazda';
+            $marca_sap = 'MAZDA';
+            $marca_tienda = $marca_sap;
 
-                break;
+            break;
 
-            case 'Great wall':
-                $logo = 'logogreatwall.png';
-                $alias = 'great-wall';
-                $marca_sap = 'GREAT WALL';
-                $marca_tienda = $marca_sap;
-                break;
+        case 'Great wall':
+            $logo = 'logogreatwall.png';
+            $alias = 'great-wall';
+            $marca_sap = 'GREAT WALL';
+            $marca_tienda = $marca_sap;
+            break;
 
-            case 'Haval':
-                $logo = 'logohaval.png';
-                $alias = 'haval';
-                $marca_sap = 'HAVAL';
-                $marca_tienda = $marca_sap;
-                break;
+        case 'Haval':
+            $logo = 'logohaval.png';
+            $alias = 'haval';
+            $marca_sap = 'HAVAL';
+            $marca_tienda = $marca_sap;
+            break;
 
-            case 'Foton':
-                $logo = 'logofoton.png';
-                $alias = 'foton';
-                $marca_sap = 'FOTON';
-                $marca_tienda = $marca_sap;
-                break;
+        case 'Foton':
+            $logo = 'logofoton.png';
+            $alias = 'foton';
+            $marca_sap = 'FOTON';
+            $marca_tienda = $marca_sap;
+            break;
 
-            case 'Jac':
-                $logo = 'logojac.png';
-                $alias = 'jac';
-                $marca_sap = 'JAC';
-                $marca_tienda = $marca_sap;
-                break;
+        case 'Jac':
+            $logo = 'logojac.png';
+            $alias = 'jac';
+            $marca_sap = 'JAC';
+            $marca_tienda = $marca_sap;
+            break;
 
-            case 'Changan':
-                $logo = 'logochangan.png';
-                $alias = 'changan';
-                $marca_sap = 'CHANGAN';
-                $marca_tienda = $marca_sap;
-                break;
+        case 'Changan':
+            $logo = 'logochangan.png';
+            $alias = 'changan';
+            $marca_sap = 'CHANGAN';
+            $marca_tienda = $marca_sap;
+            break;
 
-            case 'Renault':
-                $logo = 'logorenault.png';
-                $alias = 'renault';
-                $marca_sap = 'RENAULT';
-                $marca_tienda = $marca_sap;
-                break;
-        }
+        case 'Renault':
+            $logo = 'logorenault.png';
+            $alias = 'renault';
+            $marca_sap = 'RENAULT';
+            $marca_tienda = $marca_sap;
+            break;
+    }
 
-        if ($autopdf != '') {
-            $desaparecer = 'desaparecer';
-            $aparecer = 'aparecer';
-            $ficha_tecnicaBloque = '
+    if ($autopdf != '') {
+        $desaparecer = 'desaparecer';
+        $aparecer = 'aparecer';
+        $ficha_tecnicaBloque = '
     <div class="fusion-builder-row fusion-row desaparecerPDF' . $aparecer . '">
         <div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1" style="margin-top:0px;margin-bottom:0px;">
             <div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url="">
@@ -167,17 +186,17 @@ foreach ($autos_marca as $auto) {
         </div>
     </div>
      ';
-        } else {
-            $desaparecer = '';
-            $aparecer = '';
-            $ficha_tecnicaBloque = '
+    } else {
+        $desaparecer = '';
+        $aparecer = '';
+        $ficha_tecnicaBloque = '
             <div class="fusion-fullwidth fullwidth-box fusion-parallax-none nonhundred-percent-fullwidth " style="background-color: rgba(255,255,255,0);background-image: url("' . $base_path . '/assets/modelos/fondos/default1.jpg");background-position: center center;background-repeat: no-repeat;padding-top:5%;padding-right:30px;padding-bottom:5%;padding-left:30px;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;background-attachment:none;">
             <div class="fusion-builder-row fusion-row ' . $desaparecer . '">
                 <div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1" style="margin-top:0px;margin-bottom:0px;">
                     <div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url="">
         <div class="contenttablescroll">
         <table class="table table-responsive table-bordered custom-table bordernone tabletecnicacr" width="100%">
-        ' . html_entity_decode($ficha_tecnica). '
+        ' . html_entity_decode($ficha_tecnica) . '
         </table>
         </div>
                         <div class="fusion-clearfix"></div>
@@ -186,50 +205,50 @@ foreach ($autos_marca as $auto) {
             </div>
             </div>
             ';
-        }
+    }
 
-        //Ruta de foto
-        $foto_principal = $base_path . '/assets/modelos/1000x600/' . $alias . '/' . $foto_principal;
+    //Ruta de foto
+    $foto_principal = $base_path . '/assets/modelos/1000x600/' . $alias . '/' . $foto_principal;
 
-        $soles = $dolares * $tipo_cambio;
+    $soles = $dolares * $tipo_cambio;
 
-        //Separador y Símbolo de Dólar
-        if ($dolares == 0) {
-            $html_precio_cabecera = 'Precio no disponible';
-            $html_precio_cotizador = 'Precio no disponible';
-        } else {
-            $dolares = 'USD ' . number_format($dolares);
-            $soles = 'S/ ' . number_format($soles);
+    //Separador y Símbolo de Dólar
+    if ($dolares == 0) {
+        $html_precio_cabecera = 'Precio no disponible';
+        $html_precio_cotizador = 'Precio no disponible';
+    } else {
+        $dolares = 'USD ' . number_format($dolares);
+        $soles = 'S/ ' . number_format($soles);
 
-            $html_precio_cabecera = 'Desde ' . $dolares . '(*) o ' . $soles . '(**)  ';
-            $html_precio_cotizador = 'Desde ' . $dolares . '(*) o ' . $soles . '(**)';
-            $texto_precio_anio = '(*) Versión básica Año Módelo ' . $precio_anio;
-            $texto_cambioreferencial = '(**) TC 3.4 referencial sujeto a cambios por fluctuaciones de mercado.';
-        }
+        $html_precio_cabecera = 'Desde ' . $dolares . '(*) o ' . $soles . '(**)  ';
+        $html_precio_cotizador = 'Desde ' . $dolares . '(*) o ' . $soles . '(**)';
+        $texto_precio_anio = '(*) Versión básica Año Módelo ' . $precio_anio;
+        $texto_cambioreferencial = '(**) TC 3.4 referencial sujeto a cambios por fluctuaciones de mercado.';
+    }
 
-        //Colores
-        $html_color_auto = '';
-        if ($color_auto != '') {
-            $html_color_auto .= '<div class="col-md-12 text-left mt-30">';
-            $html_color_auto .= '<p style="font-size:22px;color:#707276;">Colores</p>';
-            $html_color_auto .= '<img src="' . $base_path . '/assets/modelos/colores/' . $color_auto . '" class="img-responsive"/>';
-            $html_color_auto .= '</div>';
-        }
+    //Colores
+    $html_color_auto = '';
+    if ($color_auto != '') {
+        $html_color_auto .= '<div class="col-md-12 text-left mt-30">';
+        $html_color_auto .= '<p style="font-size:22px;color:#707276;">Colores</p>';
+        $html_color_auto .= '<img src="' . $base_path . '/assets/modelos/colores/' . $color_auto . '" class="img-responsive"/>';
+        $html_color_auto .= '</div>';
+    }
 
-        //Colores Techo
-       // $html_techo= '';
-        if ($color_techo != '') {
-            $html_techo .= '<div class="col-md-12 text-left mt-30">';
-            $html_techo .= '<p style="font-size:22px;color:#707276;">Colores de Techo</p>';
-            $html_techo .= '<img src="' . $base_path . '/assets/modelos/colores/' . $color_techo . '" class="img-responsive"/>';
-            $html_techo .= '</div>';
-        }
-        //Preventa
-        if ($preventa == 'si') {
-            $html_precio_cabecera = 'Precio Preventa: Desde ' . $dolares . ' <span style="color:#000;">/</span> ' . $soles;
-            $html_precio_preventa = '*Sólo hasta el 15 de Junio.';
-            $html_precio_preventa_cot = '**Precio Preventa: Sólo hasta el 15 de Junio.';
-        }
+    //Colores Techo
+    // $html_techo= '';
+    if ($color_techo != '') {
+        $html_techo .= '<div class="col-md-12 text-left mt-30">';
+        $html_techo .= '<p style="font-size:22px;color:#707276;">Colores de Techo</p>';
+        $html_techo .= '<img src="' . $base_path . '/assets/modelos/colores/' . $color_techo . '" class="img-responsive"/>';
+        $html_techo .= '</div>';
+    }
+    //Preventa
+    if ($preventa == 'si') {
+        $html_precio_cabecera = 'Precio Preventa: Desde ' . $dolares . ' <span style="color:#000;">/</span> ' . $soles;
+        $html_precio_preventa = '*Sólo hasta el 15 de Junio.';
+        $html_precio_preventa_cot = '**Precio Preventa: Sólo hasta el 15 de Junio.';
+    }
 }
 
 
@@ -366,17 +385,17 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
     <link rel="shortcut icon" href="./app/img/favicon.png" type="image/x-icon">
     <meta name="description" content="Campaña Derco - Lindley">
     <title>Landing campaña derco</title>
-    <meta name="content_type"  content="text/html;" http-equiv="content-type" charset="utf-8">
+    <meta name="content_type" content="text/html;" http-equiv="content-type" charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <link rel="stylesheet" href="<?php echo $real_path?>/app/css/bootstrap.css" />
-    <link rel="stylesheet" href="<?php echo $real_path?>/app/fonts/stylesheet.css" />
-    <link rel="stylesheet" href="<?php echo $real_path?>/app/css/style.css" />
-    <link rel="stylesheet" href="<?php echo $real_path?>/app/css/style_modelo.css" />
-    <link rel="stylesheet" href="<?php echo $real_path?>/app/css/style_modelo_ingenia.css" />
+    <link rel="stylesheet" href="<?php echo $real_path ?>/app/css/bootstrap.css" />
+    <link rel="stylesheet" href="<?php echo $real_path ?>/app/fonts/stylesheet.css" />
+    <link rel="stylesheet" href="<?php echo $real_path ?>/app/css/style.css" />
+    <link rel="stylesheet" href="<?php echo $real_path ?>/app/css/style_modelo.css" />
+    <link rel="stylesheet" href="<?php echo $real_path ?>/app/css/style_modelo_ingenia.css" />
     <link rel="stylesheet" type="text/css" href="https://derco.com.pe/globals/css/avada/avada-inline-2018.css?v=2">
-    <script src="<?php echo $real_path?>/app/js/jquery.js"></script>
-    <script src="<?php echo $real_path?>/app/js/bootstrap.min.js"></script>
+    <script src="<?php echo $real_path ?>/app/js/jquery.js"></script>
+    <script src="<?php echo $real_path ?>/app/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
@@ -414,7 +433,7 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
                         <p class="titulo-modelo"><?php echo $modelo; ?></p>
                         <p class="titulo-precio"><?php echo $html_precio_cabecera; ?></p>
                         <p class="titulo-anio">
-                           <!--  <?php echo $html_precio; ?>
+                            <!--  <?php echo $html_precio; ?>
                             <?php echo $html_precio_preventa; ?>
                             <?php echo $texto_precio_anio; ?> -->
 
@@ -464,6 +483,10 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
                 <div class="form-datos">
                     <div class="col-xs-12">
                         <div id="frmcontactenos">
+                            <input type="hidden" id='inputperfil' value="<?php echo $perfil;?>">
+                            <input type="hidden" id='inputprecmin' value="<?php echo $pres_min;?>">
+                            <input type="hidden" id='inputprecmax' value="<?php echo $pres_max;?>">
+                            
                             <div class="col-xs-12 col-sm-6 col-xs-offset-0 col-sm-offset-3 np espacio-inputs">
                                 <div class="form-group" style="display:none;">
                                     <label>Marca:</label>
@@ -707,8 +730,14 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
 </div>
 
 <script type='text/javascript'>
+    // datos de paso
+
     var re = new RegExp("^[A-Za-záéíóúÁÉÍÓÚÑñ ]+$");
     var reruc = new RegExp("^[A-Za-záéíóúÁÉÍÓÚÑñ -.&0123456789]+$");
+
+    var perfil = $('#inputperfil').val()
+    var pres_min = $('#inputprecmin').val();
+    var pres_max = $('#inputprecmax').val();                               
     //NOMBRES
     $("#first_name").keydown(function(e) {
         // Permite: backspace, delete, tab, escape, enter and .
@@ -964,6 +993,7 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
         var provincia = $('#iSalon option:checked').attr('data-provincia');
         var datospersonalesenvio = $("input[name='aprobacionPersonales']:checked").val();
         var terminos = $("input[name='clausula']:checked").val();
+
         var flag = true;
 
         //MODELO
@@ -1142,20 +1172,28 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
                             'correo': correo,
                             'provincia': provincia,
                             'tienda': tienda_val,
-                            'terminos': terminos
+                            'terminos': terminos,
+                            // variables de paso
+                            'perfil': perfil,
+                            'pres_min': pres_min,
+                            'pres_max': pres_max
                         };
 
                         $.ajax({
                             type: "POST",
-                            url: "send-data.php",
+                            url: "send-data",
                             crossDomain: true,
                             data: post_data,
+                            dataType: 'html',
                             beforeSend: function(xhr, settings) {
 
                             },
                             success: function(data, status) {
                                 //Ajax post data to E-MAIL
-                                post_email_data = {
+
+                                console.log(data);
+
+                                /* post_email_data = {
                                     'source': 'DERCO',
                                     'marca': marca,
                                     'modelo': modelo,
@@ -1176,7 +1214,7 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
 
                                 $.ajax({
                                     type: "POST",
-                                    url: "enviar-correo.php",
+                                    url: "enviar-correo",
                                     crossDomain: true,
                                     data: post_email_data,
                                     beforeSend: function(xhr, settings) {
@@ -1205,7 +1243,7 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
                                     error: function(jqXHR, exception, response) {
                                         console.log('Error correo');
                                     }
-                                });
+                                }); */
 
                             },
                             error: function(jqXHR, exception, response) {
@@ -1225,55 +1263,48 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
 </script>
 
 <script type="text/javascript">
-	jQuery(document).ready(function()
-	{
-		jQuery(".HeaderTableModel").bind("click", function()
-		{
-			jQuery(".opencoll").fadeOut();
-			jQuery(".uncollapseficha").removeClass("uncollapseficha");
-			jQuery(this).addClass("uncollapseficha");
+    jQuery(document).ready(function() {
+        jQuery(".HeaderTableModel").bind("click", function() {
+            jQuery(".opencoll").fadeOut();
+            jQuery(".uncollapseficha").removeClass("uncollapseficha");
+            jQuery(this).addClass("uncollapseficha");
 
-			jQuery(this).parent().next().fadeIn();
-		});
-		jQuery(".HeaderTableModel:first").trigger("click");
+            jQuery(this).parent().next().fadeIn();
+        });
+        jQuery(".HeaderTableModel:first").trigger("click");
 
-		if(jQuery(".fontSizeMovil:eq(2)").html().length > 2 && jQuery(".fontSizeMovil:eq(2)").html().length < 6)
-		{
-			jQuery(".fontSizeMovil:eq(2)").addClass("fontSizeThreeTransmision");
-		}
-		if(jQuery(".fontSizeMovil:eq(2)").html().length > 5)
-		{
-			jQuery(".fontSizeMovil:eq(2)").addClass("fontSizeThreeTransmision2");
-		}
+        if (jQuery(".fontSizeMovil:eq(2)").html().length > 2 && jQuery(".fontSizeMovil:eq(2)").html().length < 6) {
+            jQuery(".fontSizeMovil:eq(2)").addClass("fontSizeThreeTransmision");
+        }
+        if (jQuery(".fontSizeMovil:eq(2)").html().length > 5) {
+            jQuery(".fontSizeMovil:eq(2)").addClass("fontSizeThreeTransmision2");
+        }
 
-		if(jQuery(".fontSizeMovil:eq(0)").html().length > 3)
-		{
-			jQuery(".fontSizeMovil:eq(0)").addClass("fontSizeAros");
-		}
+        if (jQuery(".fontSizeMovil:eq(0)").html().length > 3) {
+            jQuery(".fontSizeMovil:eq(0)").addClass("fontSizeAros");
+        }
 
-		if(jQuery(".borderRightPC:eq(1) .fusion-row div:eq(2) span").html().length > 1 &&
-		jQuery(".borderRightPC:eq(1) .fusion-row div:eq(2) span").html().length < 6
-		)
-		{
-			jQuery(".borderRightPC:eq(1) .fusion-row div:eq(2) span").addClass("fontSizeMotor");
-		}
+        if (jQuery(".borderRightPC:eq(1) .fusion-row div:eq(2) span").html().length > 1 &&
+            jQuery(".borderRightPC:eq(1) .fusion-row div:eq(2) span").html().length < 6
+        ) {
+            jQuery(".borderRightPC:eq(1) .fusion-row div:eq(2) span").addClass("fontSizeMotor");
+        }
 
-		if(jQuery(".borderRightPC:eq(1) .fusion-row div:eq(2) span").html().length > 5)
-		{
-			jQuery(".borderRightPC:eq(1) .fusion-row div:eq(2) span").addClass("fontSizeMotor2");
-		}
+        if (jQuery(".borderRightPC:eq(1) .fusion-row div:eq(2) span").html().length > 5) {
+            jQuery(".borderRightPC:eq(1) .fusion-row div:eq(2) span").addClass("fontSizeMotor2");
+        }
 
-		jQuery(".cuadro-propiedades-movil").animate({opacity:1});
+        jQuery(".cuadro-propiedades-movil").animate({
+            opacity: 1
+        });
 
-	});
+    });
 
-	window.onload = function()
-	{
-		if(jQuery(window).width() < 768)
-		{
-			GetWidthTable = jQuery(".tabletecnicacr").outerWidth();
-			jQuery(".tabletecnicacr").width(GetWidthTable);
+    window.onload = function() {
+        if (jQuery(window).width() < 768) {
+            GetWidthTable = jQuery(".tabletecnicacr").outerWidth();
+            jQuery(".tabletecnicacr").width(GetWidthTable);
 
-		}
-	}
+        }
+    }
 </script>
