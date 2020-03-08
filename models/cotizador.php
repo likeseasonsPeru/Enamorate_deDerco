@@ -417,88 +417,6 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
 
 <div class="post-content">
 
-    <div class="fusion-fullwidth fullwidth-box nonhundred-percent-fullwidth" style='background-color: rgba(255,255,255,0);background-position: center center;background-repeat: no-repeat;padding-bottom:20px;'>
-        <div class="fusion-builder-row fusion-row ">
-            <div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1" style='margin-top:0px;margin-bottom:0px;'>
-                <div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url="">
-                    <div class="col-xs-6 col-md-6">
-                        <img src="<?php echo $base_path; ?>/assets/img/<?php echo $logo; ?>" />
-                    </div>
-                    <div class="col-xs-6 col-md-6 text-right">
-                        <div id="bt-cotizador" class="btn bt-realizacotizacion">
-                            Realizar Cotización
-                        </div>
-                    </div>
-                    <div class="fusion-clearfix"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="fusion-fullwidth fullwidth-box nonhundred-percent-fullwidth" style='background-color: rgba(255,255,255,0);background-position: center center;background-repeat: no-repeat;padding-bottom:20px;'>
-        <div class="fusion-builder-row fusion-row ">
-            <div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1" style='margin-top:0px;margin-bottom:0px;'>
-                <div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url="">
-                    <div class="col-md-8 text-left">
-                        <p class="titulo-modelo"><?php echo $modelo; ?></p>
-                        <p class="titulo-precio"><?php echo $html_precio_cabecera; ?></p>
-                        <p class="titulo-anio">
-                            <!--  <?php echo $html_precio; ?>
-                            <?php echo $html_precio_preventa; ?>
-                            <?php echo $texto_precio_anio; ?> -->
-
-                        </p>
-                        <p class="titulo-anio">
-
-                            <?php echo $texto_cambioreferencial; ?>
-                        </p>
-                        <img src="<?php echo $foto_principal; ?>" alt="alt=" <?php echo $alt_img; ?>"" class="img-responsive" />
-                    </div>
-                    <div class="col-md-4">
-                        <!-- <div class="cuadro-propiedades cuadro-propiedades-movil text-center" style="padding-bottom: 20px;">
-                            <--?php echo html_entity_decode($informacion_basica); --?>
-                        </div> -->
-                        <?php echo $html_color_auto; ?>
-                    </div>
-
-                    <?php echo $html_techo; ?>
-                    <div class="fusion-clearfix"></div>
-                    <p style="font-size: 13px;">(*) Imágenes de los vehículos son referenciales.
-                        Para más información cotiza el vehículo y versión de tu preferencia y/o acércate a la tienda Dercocenter de tu preferencia. <a href="https://derco.com.pe/terminos-y-condiciones-de-la-web-empresas-derco/" target="_self">“Términos y Condiciones”</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <?= $ficha_tecnicaBloque; ?>
-
-    <div class="fusion-fullwidth fullwidth-box nonhundred-percent-fullwidth" style="background-color: rgba(255,255,255,0);background-position: center center;background-repeat: no-repeat;padding-bottom:20px;">
-        <div class="fusion-builder-row fusion-row ">
-            <div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1" style="margin-top:0px;margin-bottom:0px;">
-                <div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url="">
-                    <div class="col-xs-6 col-md-6 mt-20 mb-20 text-right">
-                        <button onclick="shareFacebook()" class="bt-transparente" style="padding:5px 25px;">Compartir <img src="https://derco.com.pe/catalogo-derco/assets/img/icon-face.png" style="vertical-align: middle;"></button>
-                    </div>
-                    <div class="col-xs-6 col-md-6 mt-20 mb-20 text-left">
-                        <button onclick="shareTwitter()" class="bt-transparente" style="padding:5px 25px;">Compartir <img src="https://derco.com.pe/catalogo-derco/assets/img/icon-twiter.png" style="vertical-align: middle;"></button>
-                    </div>
-                    <div class="fusion-clearfix"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="fusion-fullwidth fullwidth-box fusion-parallax-none hundred-percent-fullwidth" style="background-color: rgba(255,255,255,0);background-position: center center;background-repeat: no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;background-attachment:none;border-bottom: 1px solid #eee;">
-        <div class="fusion-builder-row fusion-row ">
-            <div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1" style="margin-top:0px;margin-bottom:0px;">
-                <div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url="">
-                    <div class="fusion-clearfix"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="fusion-fullwidth fullwidth-box fusion-parallax-none nonhundred-percent-fullwidth bg-light-gris" style="background-position: center center;background-repeat: no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;background-attachment:none;padding-top:40px; padding-bottom:40px;">
         <div class="fusion-builder-row fusion-row ">
             <div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1" style="margin-top:0px;margin-bottom:0px;">
@@ -641,7 +559,12 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
                     <div style="margin-top:30px;margin-bottom:30px; padding:0 15px;">
                         <div class="col-xs-12 col-md-12 text-left">
                             <div id="bt-atras2" style="cursor:pointer;margin: 0;padding: 0;">
-                                <i class="fa fa-angle-left" aria-hidden="true" style="color: #dc241f;"></i><a href="../inicio">Volver<a>
+                                <form action="../../filtro" method="POST">
+                                    <input type="hidden" name="perfil" value="<?php echo $perfil; ?>">
+                                    <input type="hidden" name="min" value="<?php echo $pres_min; ?>">
+                                    <input type="hidden" name="max" value="<?php echo $pres_max; ?>">
+                                    <button type="submit" class="btn btn-danger">Volver</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -1307,7 +1230,7 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
                                             'utm_campaign': '<?php echo $utm_campaign; ?>',
                                         };
                                         //  window.location.href="https://derco.com.pe/catalogo-derco/gracias.php?marca="+post_analytics.marca+"&modelo="+post_analytics.modelo+"&version="+post_analytics.version+"&first_name="+post_analytics.first_name+"&last_name="+post_analytics.last_name+"&tipo_documento="+post_analytics.tipo_documento+"&razon_social="+post_analytics.razon_social+"&numero_documento="+post_analytics.numero_documento+"&celular="+post_analytics.celular+"&correo="+post_analytics.correo+"&utm_source="+post_analytics.utm_source+"&utm_medium="+post_analytics.utm_medium+"&utm_campaign="+post_analytics.utm_campaign;
-                                       // window.location.href = "https://derco.com.pe";
+                                        // window.location.href = "https://derco.com.pe";
 
                                     },
                                     error: function(jqXHR, exception, response) {

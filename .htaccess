@@ -1,0 +1,25 @@
+RewriteEngine On
+
+# RewriteRule inicio.php
+RewriteRule ^inicio?$ inicio.php
+
+# RewriteRule inicio.php
+RewriteRule ^/?$ inicio.php
+
+# RewriteRule filtro.php
+RewriteRule ^([A-Za-z0-9-%ë]+)?$ filtro.php
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# RewriteRule send-data.php
+ RewriteRule ^([A-Za-z0-9-%ë]+)/send-data?$ models/send-data.php [QSA,L]
+
+# RewriteRule enviar-correo.php
+ RewriteRule ^([A-Za-z0-9-%ë]+)/enviar-correo?$ models/enviar-correo.php 
+
+# RewriteRule cotizador.php
+RewriteRule ^cotizar/([A-Za-z0-9-%]+)/([A-Za-z0-9%ë]+)?$ models/cotizador.php?modelo=$1&marca=$2 [L,QSA]
+
+# RewriteRule detalles.php
+RewriteRule ^([A-Za-z0-9-%]+)/([A-Za-z0-9%ë]+)?$ models/detalle.php?modelo=$1&marca=$2 [L,QSA]
