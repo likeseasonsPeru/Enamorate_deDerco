@@ -120,7 +120,7 @@ if ($tipo_auto != 'todas') {
 $auto_model = new Auto();
 
 if ($perfil != null) {
-    
+
     if ($perfil == 'emprendedor') {
         $query = "SELECT * FROM autos2017 where (modelo = 'HONOR S' or  modelo= 'NEW VAN' or  modelo= 'GRAND VAN TURISMO' or modelo='GRAND SUPERVAN' or  modelo= 'M90' or  modelo= 'A500' or  modelo= 'C-ELYSÉE' or  modelo= 'NEW C30' or  modelo= 'WINGLE 5 GASOLINA' or  modelo= 'WINGLE 5 DIESEL' or  modelo= 'WINGLE 7 DIESEL' or modelo='J4' or modelo='REFINE' or modelo='SUNRAY' or modelo='T6' or modelo='X200' or modelo= 'BT-50' or modelo= 'Alaskan' or modelo='Logan' or modelo='Master' or modelo='Oroch' or modelo='APV VAN' or modelo='NEW CIAZ' or modelo='ERTIGA')";
     } else if ($perfil == 'esforzado') {
@@ -186,7 +186,7 @@ if ($autos[0] != null) {
             */
 
 
-            $autos_pag .= '<div class="col-xs-12 col-sm-6 col-md-4 mt-30 text-center sm-padding">';
+            $autos_pag .= '<div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 tamModelo mt-30 text-center sm-padding">';
             $autos_pag .= '<div id="' . $auto['alias_marca'] . '" class="modelo" data-marca="' . $auto['alias_marca'] . '" data-modelo="' . $auto['alias_modelo'] . '">';
             $autos_pag .= '<div class="datos">';
             $autos_pag .= '<h3 class="titulo-carro">' . $auto['modelo'] . '<span style="font-size: 14px;vertical-align: top; font-family: Arial;"> **</span></h3>';
@@ -254,7 +254,7 @@ $autos_pag .= '</div>';
 </div>
 
 <!-- <div id="contenedor"> -->
-<div class="col-12 text-center">
+<div class="col-12 text-center np">
     <h1 class="titulo-autos text-center">TENEMOS LO QUE NECESITAS</h1>
     <div class="container text-center">
     <h2 id="selecciona" class="titulo-autos text-center">Seleccione un modelo</h2>
@@ -281,7 +281,7 @@ $autos_pag .= '</div>';
                     </div>
                     <div class="col-12">
                         <p class="text-left textoGeneral detalles">
-                            Tracción: 2WD 
+                            Tracción: 2WD
                             <br>
                             Transmisión: AT/MT
                         </p>
