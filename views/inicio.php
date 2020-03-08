@@ -51,7 +51,7 @@
   <div class="contenedor-principal">
     <div class="row filtro-container">
       <div class="col-12 col-sm-12 col-md-12 bg-grayderco2 text-center bgTop">
-        <p class="filtros-head">Filtros de Búsqueda</p>
+        <p class="filtros-head">FILTROS DE BUSQUEDA</p>
       </div>
     </div>
 

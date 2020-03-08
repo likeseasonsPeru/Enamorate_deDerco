@@ -201,6 +201,7 @@ if ($autos[0] != null) {
             $autos_pag .= '<p class="informacion-basica"><!--Año: 2016--><br>' . $auto['resumen'] . '</p>';
 
            // $autos_pag .= '<form action="models/cotizador.php?modelo='.$auto['alias_modelo'].'&marca='.$auto['marca'].'" method="POST">';
+            $autos_pag .= '<div class="text-center">';
             $autos_pag .= '<form action="'.$auto['alias_modelo'].'/'.$auto['marca'].'" method="POST">';
             $autos_pag .= '<input type="hidden" name="perfil" value="'.$perfil.'">';
             $autos_pag .= '<input type="hidden" name="min" value="'.$min.'">';
@@ -211,6 +212,7 @@ if ($autos[0] != null) {
             $autos_pag .= '<input type="hidden" name="min" value="">';
             $autos_pag .= '<input type="hidden" name="max" value="">';
             $autos_pag .= '<input type="submit" class="bt-transparente" value="COTIZAR"/></form>';
+            $autos_pag .= '</div>';
          // $autos_pag .= '<a class="bt-transparente" href="'. $auto['alias_modelo'] . '/' . $auto['marca'] . '">VER DETALLE</a>';
           //$autos_pag .= '<a class="bt-transparente" href="'. $auto['alias_modelo'] . '/' . $auto['marca'] . '">COTIZAR</a>';
             $autos_pag .= '</div>';
@@ -220,7 +222,14 @@ if ($autos[0] != null) {
     }
 }
 if ($autos == null || $count == 0) {
-    $autos_pag = '<div class="col-sm-12 col-md-12 mt-30 text-center"><p style="font-size: 16px; color: #dc241f;font-weight: bold;">No se encontraron resultados de tu búsqueda.</p></div>';
+    $autos_pag = '<div class="col-sm-12 col-md-12 mt-30 text-center">';
+    $autos_pag.= '<p style="font-size: 16px; color: #dc241f;font-weight: bold;">No se encontraron resultados de tu búsqueda.</p>';
+    $autos_pag.= '<div class="container col-12 col-sm-12 col-md-12 col-xl-3">';
+    $autos_pag.= ' <div class="col-12 espacioBtns">';
+    $autos_pag.=  '<a id="btnModal" class="btnSeguir2 "type="button" name="button" href="inicio">';
+    $autos_pag.= 'VOLVER</a>';
+    $autos_pag.=  '</div></div>';
+    $autos_pag.= '</div>';
 }
 
 $autos_pag .= '</div>';
@@ -228,6 +237,21 @@ $autos_pag .= '</div>';
 
 ?>
 
+<div class="fusion-fullwidth fullwidth-box nonhundred-percent-fullwidth" style="background-color: rgba(255,255,255,0);background-position: center center;background-repeat: no-repeat;padding-bottom:10px;">
+    <div class="fusion-builder-row fusion-row ">
+        <div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1" style="margin-top:0px;margin-bottom:0px;">
+            <div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url="">
+
+                <div style="margin-top:10px;margin-bottom:10px; padding:0 15px;">
+                    <div class="col-xs-6 col-md-6 text-left">
+                        <a href="inicio" target="_self" style="color: #707276;"><i class="fa fa-angle-left" aria-hidden="true" style="color: #db2823;"><</i><span style="font-size: 14px; font-weight: 600;padding-left: 10px;color:#707276;">Volver al inicio</span></a>
+                    </div>
+                </div>
+                <div class="fusion-clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- <div id="contenedor"> -->
 <div class="col-12 text-center">

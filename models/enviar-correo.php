@@ -19,10 +19,11 @@ if($_POST)
     $terminos = $_POST["terminos"];
 
 
-    if($tienda == 30489009){
+    
       //EMAIL
       //$to = 'armando@sabor.pe';
-      $to = 'dercolead@gacsa.pe';
+      //$to = 'dercolead@gacsa.pe';
+      $to = 'ullauri.jeanalex@gmail.com';
       //$to = 'wmunozarellano@gmail.com';
       $subject = '25 Días de Locura';
 
@@ -50,8 +51,8 @@ if($_POST)
       $message .= '</p>';
       $message .= '</body></html>';
 
-     // mail($to, $subject, $message, $headers);
-    }
+      mail($to, $subject, $message, $headers);
+    
 
 }
 ?>

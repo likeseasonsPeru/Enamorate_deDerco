@@ -384,7 +384,7 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
     <meta name="keywords" content="Portal de Crecimiento - Lindley">
     <link rel="shortcut icon" href="./app/img/favicon.png" type="image/x-icon">
     <meta name="description" content="Campaña Derco - Lindley">
-    <title>Landing campaña derco</title>
+    <title>DercoOportunidades</title>
     <meta name="content_type" content="text/html;" http-equiv="content-type" charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -404,6 +404,16 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 
+<div class="fusion-header border-top border-bottom bg-white" style="height: 117px; overflow: visible; top: 0px;">
+    <div class="fusion-row" style="padding-top: 0px; padding-bottom: 0px;">
+        <div class="fusion-logo" data-margin-top="0px" data-margin-bottom="0px" style="margin-top: 0px; margin-bottom: 0px;">
+            <a class="fusion-logo-link" href="https://derco.com.pe">
+                <!--img src="https://derco.com.pe/wp-content/uploads/2017/06/logo-mobile.jpg" srcset="https://derco.com.pe/wp-content/uploads/2017/06/logo-mobile.jpg 1x, https://derco.com.pe/wp-content/uploads/2017/06/logo-mobile-retina.jpg 2x" width="60" height="60" style="max-height:60px;height:auto;" alt="DERCO PERÚ | Respalda y Garantiza Logo" retina_logo_url="https://derco.com.pe/wp-content/uploads/2017/06/logo-mobile-retina.jpg" class="fusion-mobile-logo"-->
+                <img src="https://derco.com.pe/wp-content/uploads/2016/09/Derco.gif" srcset="https://derco.com.pe/wp-content/uploads/2016/09/Derco.gif 1x, https://derco.com.pe/wp-content/uploads/2016/09/Derco-retina.gif 2x" width="116" height="116" style="max-height: 116px; height: 116px;" alt="DERCO PERÚ | Respalda y Garantiza Logo" retina_logo_url="https://derco.com.pe/wp-content/uploads/2016/09/Derco-retina.gif" class="fusion-standard-logo lazyloading" data-was-processed="true data-logo-height=" 116" data-logo-width="116">
+            </a>
+        </div>
+    </div>
+</div>
 
 <div class="post-content">
 
@@ -463,6 +473,22 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
 
     <?= $ficha_tecnicaBloque; ?>
 
+    <div class="fusion-fullwidth fullwidth-box nonhundred-percent-fullwidth" style="background-color: rgba(255,255,255,0);background-position: center center;background-repeat: no-repeat;padding-bottom:20px;">
+        <div class="fusion-builder-row fusion-row ">
+            <div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1" style="margin-top:0px;margin-bottom:0px;">
+                <div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url="">
+                    <div class="col-xs-6 col-md-6 mt-20 mb-20 text-right">
+                        <button onclick="shareFacebook()" class="bt-transparente" style="padding:5px 25px;">Compartir <img src="https://derco.com.pe/catalogo-derco/assets/img/icon-face.png" style="vertical-align: middle;"></button>
+                    </div>
+                    <div class="col-xs-6 col-md-6 mt-20 mb-20 text-left">
+                        <button onclick="shareTwitter()" class="bt-transparente" style="padding:5px 25px;">Compartir <img src="https://derco.com.pe/catalogo-derco/assets/img/icon-twiter.png" style="vertical-align: middle;"></button>
+                    </div>
+                    <div class="fusion-clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="fusion-fullwidth fullwidth-box fusion-parallax-none hundred-percent-fullwidth" style="background-color: rgba(255,255,255,0);background-position: center center;background-repeat: no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;background-attachment:none;border-bottom: 1px solid #eee;">
         <div class="fusion-builder-row fusion-row ">
             <div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1" style="margin-top:0px;margin-bottom:0px;">
@@ -483,10 +509,10 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
                 <div class="form-datos">
                     <div class="col-xs-12">
                         <div id="frmcontactenos">
-                            <input type="hidden" id='inputperfil' value="<?php echo $perfil;?>">
-                            <input type="hidden" id='inputprecmin' value="<?php echo $pres_min;?>">
-                            <input type="hidden" id='inputprecmax' value="<?php echo $pres_max;?>">
-                            
+                            <input type="hidden" id='inputperfil' value="<?php echo $perfil; ?>">
+                            <input type="hidden" id='inputprecmin' value="<?php echo $pres_min; ?>">
+                            <input type="hidden" id='inputprecmax' value="<?php echo $pres_max; ?>">
+
                             <div class="col-xs-12 col-sm-6 col-xs-offset-0 col-sm-offset-3 np espacio-inputs">
                                 <div class="form-group" style="display:none;">
                                     <label>Marca:</label>
@@ -604,6 +630,23 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
                     </div>
                 </div>
                 <div class="fusion-clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fusion-fullwidth fullwidth-box nonhundred-percent-fullwidth" style="background-color: rgba(255,255,255,0);background-position: center center;background-repeat: no-repeat;padding-bottom:20px;">
+        <div class="fusion-builder-row fusion-row ">
+            <div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1" style="margin-top:0px;margin-bottom:0px;">
+                <div class="fusion-column-wrapper" style="backgroud-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url="">
+                    <div style="margin-top:30px;margin-bottom:30px; padding:0 15px;">
+                        <div class="col-xs-12 col-md-12 text-left">
+                            <div id="bt-atras2" style="cursor:pointer;margin: 0;padding: 0;">
+                                <i class="fa fa-angle-left" aria-hidden="true" style="color: #dc241f;"></i><a href="../inicio">Volver<a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fusion-clearfix"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -737,7 +780,7 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
 
     var perfil = $('#inputperfil').val()
     var pres_min = $('#inputprecmin').val();
-    var pres_max = $('#inputprecmax').val();                               
+    var pres_max = $('#inputprecmax').val();
     //NOMBRES
     $("#first_name").keydown(function(e) {
         // Permite: backspace, delete, tab, escape, enter and .
@@ -967,6 +1010,27 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
         $('.color-effect-9').css('border-color', '#39B54A');
     });
 
+    function shareFacebook() {
+        FB.ui({
+            method: 'feed',
+            link: 'https://derco.com.pe/catalogo-derco/',
+            caption: 'Catálogo Derco Perú 2019',
+            description: '<?php echo strtoupper($marca) . ' - ' . $modelo; ?> desde <?php echo $dolares . ' o desde ' . $soles; ?>. Revisa la variedad de modelos que DERCO tiene para ti. ¡Cotiza el tuyo!',
+            picture: 'http://www.derco.com.pe/wp-content/extras/catalogo2017/assets/img/1024x1024.jpg',
+        }, function(response) {});
+    }
+
+    function shareTwitter() {
+        var twtTitle = '<?php echo strtoupper($marca) . ' - ' . $modelo; ?> desde <?php echo $dolares . ' o desde ' . $soles; ?>. ¡Cotiza el tuyo en #DERCO!';
+        var twtUrl = 'https://goo.gl/QRrogA';
+        var maxLength = 140 - (twtUrl.length + 1);
+        if (twtTitle.length > maxLength) {
+            twtTitle = twtTitle.substr(0, (maxLength - 3)) + '...';
+        }
+        var twtLink = 'http://twitter.com/home?status=' + encodeURIComponent(twtTitle + ' ' + twtUrl);
+        window.open(twtLink);
+    }
+
     $("#EnviarForm").click(function(e) {
 
         $('#EnviarForm').prop('disabled', true);
@@ -1189,18 +1253,19 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
 
                             },
                             success: function(data, status) {
+
                                 //Ajax post data to E-MAIL
 
-                                console.log(data);
-
-                                /* post_email_data = {
+                                post_email_data = {
                                     'source': 'DERCO',
                                     'marca': marca,
                                     'modelo': modelo,
+                                    'version': version,
                                     'first_name': nombre,
                                     'last_name': apellido,
                                     'tipo_documento': tipo_documento,
                                     'razon_social': razon_social,
+                                    'codigosap': codigosap,
                                     'numero_documento': numero_documento,
                                     'celular': telefono,
                                     'correo': correo,
@@ -1217,10 +1282,14 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
                                     url: "enviar-correo",
                                     crossDomain: true,
                                     data: post_email_data,
+                                    dataType: 'html',
                                     beforeSend: function(xhr, settings) {
 
                                     },
                                     success: function(data, status) {
+
+                                        console.log(data);
+
                                         post_analytics = {
                                             'source': 'DERCO',
                                             'marca': marca,
@@ -1238,12 +1307,13 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
                                             'utm_campaign': '<?php echo $utm_campaign; ?>',
                                         };
                                         //  window.location.href="https://derco.com.pe/catalogo-derco/gracias.php?marca="+post_analytics.marca+"&modelo="+post_analytics.modelo+"&version="+post_analytics.version+"&first_name="+post_analytics.first_name+"&last_name="+post_analytics.last_name+"&tipo_documento="+post_analytics.tipo_documento+"&razon_social="+post_analytics.razon_social+"&numero_documento="+post_analytics.numero_documento+"&celular="+post_analytics.celular+"&correo="+post_analytics.correo+"&utm_source="+post_analytics.utm_source+"&utm_medium="+post_analytics.utm_medium+"&utm_campaign="+post_analytics.utm_campaign;
-                                        window.location.href = "https://derco.com.pe";
+                                       // window.location.href = "https://derco.com.pe";
+
                                     },
                                     error: function(jqXHR, exception, response) {
                                         console.log('Error correo');
                                     }
-                                }); */
+                                });
 
                             },
                             error: function(jqXHR, exception, response) {
@@ -1307,4 +1377,26 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
 
         }
     }
+</script>
+
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: '524151271078709',
+            xfbml: true,
+            version: 'v2.8'
+        });
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
 </script>
