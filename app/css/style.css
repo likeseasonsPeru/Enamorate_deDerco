@@ -235,8 +235,8 @@ body{
   margin-top: 150px;
 }
 .espacioPregunta{
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom:10px;
 }
 .centerInputs{
   margin: auto;
@@ -296,6 +296,19 @@ body{
   border:0px;
 }
 
+.inputPrecios{
+  padding: 8px 12px;
+}
+.marginTopCategorias{
+  margin-top: 17px;
+}
+.marginSeccion{
+  margin-bottom: 35px;
+}
+.tamModelo{
+  height: 450px;
+}
+
 /*Responsive*/
 
 @media (min-width: 320px) {
@@ -319,6 +332,14 @@ body{
   .espaceMovil{
     margin-top: 20px;
     margin-bottom: 10px;
+  }
+  .marginEspacioPrecios{
+    margin-top: 15px;
+  }
+  .tamModelo{
+    height: 450px;
+    max-width: 320px;
+    margin: auto;
   }
 }
 @media (min-width: 768px) {
@@ -354,8 +375,16 @@ body{
   .backgroundTurno3{
     margin: 25px 0px 0px 0px;
   }
+  .tamModelo{
+    height: 470px;
+    max-width: 100%;
+  }
 }
 @media (min-width: 1200px) {
+  .tamModelo{
+    height: 520px;
+    max-width: 100%;
+  }
   .textSlogan{
     position: absolute;
     text-align: left;
@@ -614,9 +643,11 @@ margin-top: 30px;
 .marcas-select select {
   color: #545558;
   margin-top: 15px;
-  padding: 0px 15px;
-  width: 65%;
-  height: 35px;
+  padding:10px 12px;
+  border-radius: 25px !important;
+  outline: none;
+  width: 100%;
+  max-width: 280px;
   background-color: #fff !important;
   border: 1px solid #d6d6d6 !important;
   -webkit-appearance: none;
@@ -645,9 +676,6 @@ margin-top: 30px;
   padding-left: 0;
 }
 
-.rango-precio {
-  margin-top: 30px;
-}
 
 .rango-precio label {
   padding-top: 7px;
@@ -668,7 +696,7 @@ margin-top: 30px;
 .precioInputs{
   margin: 0px 23px 23px 23px;
  /* margin-left: 5px;
-  margin-right: 5px;*/ 
+  margin-right: 5px;*/
 }
 
 .negrita{
@@ -736,6 +764,9 @@ margin-top: 30px;
   .precioInputs{
     margin: 23px 13px;
   }
+  .marginEspacioPrecios{
+    margin-top: 0px;
+  }
 }
 
 .bg-derco2{
@@ -747,25 +778,26 @@ margin-top: 30px;
 }
 
 .btnSeguir2{
-  color: white;
-  border: 1px solid #990704;
+  color: #e41b17;
+  border: 1px solid white;
   border-radius: 25px;
+  font-size: 16px;
+  letter-spacing: 2px;
+  background-color: white;
   padding: 10px 30px;
-  background-color: #990704;
-  font-size: 18px;
   outline: none;
-  transition: 0.6s all;
+  transition: 0.4s all;
   margin: 50px 10px;
 }
 .btnSeguir2:hover,.btnSeguir2:focus{
-  color: #990704;
-  border: 1px solid #990704;
+  color: white;
+  border: 1px solid white;
   border-radius: 25px;
   padding: 10px 30px;
-  background-color: white;
-  font-size: 18px;
+  background-color: #e41b17;
+  font-size: 16px;
   outline: none;
-  transition: 0.6s all;
+  transition: 0.4s all;
 }
 
 .img-banner{
