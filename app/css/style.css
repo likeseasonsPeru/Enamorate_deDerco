@@ -930,3 +930,16 @@ margin-top: 30px;
       min-height: 245px;
   }
 }
+
+.btnVolver{
+  color: #e41b17;
+    border: 1px solid white;
+    border-radius: 25px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    background-color: white;
+    padding: 10px 30px;
+    outline: none;
+    transition: 0.4s all;
+    margin: 0px 10px;
+}
