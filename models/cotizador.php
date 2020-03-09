@@ -1168,7 +1168,7 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
 
                         $.ajax({
                             type: "POST",
-                            url: "send-data",
+                            url: "../send-data",
                             crossDomain: true,
                             data: post_data,
                             dataType: 'html',
@@ -1202,7 +1202,7 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
 
                                 $.ajax({
                                     type: "POST",
-                                    url: "enviar-correo",
+                                    url: "../enviar-correo",
                                     crossDomain: true,
                                     data: post_email_data,
                                     dataType: 'html',
