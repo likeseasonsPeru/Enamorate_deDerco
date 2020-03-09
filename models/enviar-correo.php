@@ -51,8 +51,7 @@ if($_POST)
       $message .= '</p>';
       $message .= '</body></html>';
 
-      mail($to, $subject, $message, $headers);
-    
+     // mail($to, $subject, $message, $headers);
 
 }
 ?>

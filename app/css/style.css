@@ -339,7 +339,6 @@ body{
   .tamModelo{
     height: 450px;
     max-width: 320px;
-    margin: auto;
   }
 }
 @media (min-width: 768px) {
@@ -642,7 +641,7 @@ margin-top: 30px;
 
 .marcas-select select {
   color: #545558;
-  margin-top: 15px;
+  margin-top: 41px;
   padding:10px 12px;
   border-radius: 25px !important;
   outline: none;
@@ -682,7 +681,7 @@ margin-top: 30px;
 }
 
 .pdTb{
-  padding: 10px 0px;
+  padding: 10px 14px;
 }
 
 .pdRight{
@@ -782,12 +781,11 @@ margin-top: 30px;
   border: 1px solid white;
   border-radius: 25px;
   font-size: 16px;
-  letter-spacing: 2px;
   background-color: white;
   padding: 10px 30px;
   outline: none;
   transition: 0.4s all;
-  margin: 50px 10px;
+  margin: 15px 3px;
 }
 .btnSeguir2:hover,.btnSeguir2:focus{
   color: white;

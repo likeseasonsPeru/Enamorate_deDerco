@@ -81,7 +81,7 @@ if (isset($_POST['perfil'])) {
             </div>
             <div class="max">
               <div class="marginEspacioPrecios">
-                <div for="inputMin" class="pdRight negrita text-white">Hasta $</div>
+                <div for="inputMin" class="pdRight negrita text-white col-12">Hasta $</div>
                 <input type="text" name='max' class="text-center inputPrecios " maxlength="6" id="inputMax" placeholder="Ingrese su rango" onkeypress="return insNumber(event)" style="
     border-radius: 25px;"></input>
               </div>
@@ -94,7 +94,7 @@ if (isset($_POST['perfil'])) {
                 <p class="filtros-title-white">Categorias</p>
               </div>
               <div class="marcas-select">
-                <select class="selectCategorias" name="perfil" id="buscar-categorias" class="col-12">
+                <select class="selectCategorias text-center" name="perfil" id="buscar-categorias" class="col-12">
                   <!-- <option value="todas">Todos</option> -->
                   <option selected="true" disabled="disabled">Seleccione su categoría</option>
                   <option value="emprendedor">Comerciales (Vans/Pick Up/Taxi)</option>

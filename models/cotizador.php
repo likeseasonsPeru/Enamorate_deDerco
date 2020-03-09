@@ -415,8 +415,45 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
     </div>
 </div>
 
+<div class="fusion-fullwidth fullwidth-box nonhundred-percent-fullwidth" style="background-color: rgba(255,255,255,0);background-position: center center; background-repeat: no-repeat;padding-bottom:20px;">
+        <div class="fusion-builder-row fusion-row">
+            <div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1 fusion-one-full fusion-column-first fusion-column-last 1-1" style="margin-top:0px;margin-bottom:0px;">
+                <div class="fusion-column-wrapper" style="background-position:left top;background-repetar:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;">
+                    <div class="col-md-12 mt-40 text-center">
+                        <h2 class="titulo-autos text-center">
+                            "Solicita una cotización"
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="cotizador" class="fusion-fullwidth fullwidth-box fusion-parallax-none nonhundred-percent-fullwidth bg-gris" style="background-position: center center;background-repeat: no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;background-attachment:none;">
+        <div class="fusion-builder-row fusion-row ">
+            <div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1">
+                  <div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url>
+                    <div class="col-md-12 cotizador-titulo-modelo">
+                        <div class="col-md-8 col-xs-12 newtitlemodel">
+                            <h2 class="titlemodelfix"><?php echo $modelo; ?></h2>
+                            <h3 class="col-xs-12 col-md-6"><?php echo $html_precio_cotizador;?></h3>
+                        </div>
+                        <div class="col-md-6 col-xs-12 cotizador-precios cotizadorversionmovil">
+                            <p class="fontSize15">
+                            "
+                            *Precio en base a la versión básica.
+                            "
+                            <br>
+                            </p>
+                        </div>
+                        <div class="col-md-4 col-xs-12 cotizadorccambio text-right">
+                            <h3>Tipo de cambio | <?php echo $tipo_cambio?></h3>
+                        </div>
+                    </div>
+                  </div>  
+            </div>
+        </div>
+    </div>
 <div class="post-content">
-
     <div class="fusion-fullwidth fullwidth-box fusion-parallax-none nonhundred-percent-fullwidth bg-light-gris" style="background-position: center center;background-repeat: no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;background-attachment:none;padding-top:40px; padding-bottom:40px;">
         <div class="fusion-builder-row fusion-row ">
             <div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1" style="margin-top:0px;margin-bottom:0px;">
@@ -443,14 +480,14 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
                                 </div>
                                 <p id="opcmodelo" class="p-formstyle" style="opacity:0;">Seleccione un modelo</p>
                                 <div class="form-group">
-                                    <div class="col-xs-12 np">
                                         <label class="form-titulos">Versión</label>
+                                        <div class="form-group">
                                         <select name="version" id="version" class="form-style form-control tamano-selected color-effect-10" aria-required="true" required>
                                             <option value="0" class="color-selected" selected="true" disabled="disabled">Seleccione su versión</option>
                                             <?php echo $opcionVersiones; ?>
                                         </select>
-                                        <p id="opcversion" class="p-formstyle">Selecciona una opción</p>
-                                    </div>
+                                        </div>
+                                        <p id="opcversion" class="p-formstyle">Selecciona una opción</p>      
                                 </div>
                                 <div class="form-group">
                                     <label class="form-titulos">Nombres:</label>
@@ -563,7 +600,7 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
                                     <input type="hidden" name="perfil" value="<?php echo $perfil; ?>">
                                     <input type="hidden" name="min" value="<?php echo $pres_min; ?>">
                                     <input type="hidden" name="max" value="<?php echo $pres_max; ?>">
-                                    <button type="submit" class="btn btn-danger">Volver</button>
+                                    <button type="submit" class="btnSeguir2">Volver</button>
                                 </form>
                             </div>
                         </div>
@@ -1229,8 +1266,8 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
                                             'utm_medium': '<?php echo $utm_medium; ?>',
                                             'utm_campaign': '<?php echo $utm_campaign; ?>',
                                         };
-                                        //  window.location.href="https://derco.com.pe/catalogo-derco/gracias.php?marca="+post_analytics.marca+"&modelo="+post_analytics.modelo+"&version="+post_analytics.version+"&first_name="+post_analytics.first_name+"&last_name="+post_analytics.last_name+"&tipo_documento="+post_analytics.tipo_documento+"&razon_social="+post_analytics.razon_social+"&numero_documento="+post_analytics.numero_documento+"&celular="+post_analytics.celular+"&correo="+post_analytics.correo+"&utm_source="+post_analytics.utm_source+"&utm_medium="+post_analytics.utm_medium+"&utm_campaign="+post_analytics.utm_campaign;
-                                        // window.location.href = "https://derco.com.pe";
+                                        
+                                         window.location.href = "https://derco.com.pe/catalogo-derco";
 
                                     },
                                     error: function(jqXHR, exception, response) {

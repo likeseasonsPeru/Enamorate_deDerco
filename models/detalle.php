@@ -514,7 +514,7 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
                                     <input type="hidden" name="perfilold" value="<?php echo $perfil; ?>">
                                     <input type="hidden" name="min" value="<?php echo $pres_min; ?>">
                                     <input type="hidden" name="max" value="<?php echo $pres_max; ?>">
-                                    <button type="submit" class="btn btn-danger">Volver</button>
+                                    <button type="submit" class="btnSeguir2">Volver</button>
                                 </form>
                             </div>
                         </div>
