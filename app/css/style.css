@@ -943,3 +943,14 @@ margin-top: 30px;
     transition: 0.4s all;
     margin: 0px 10px;
 }
+
+.titulo-autos2{
+  font-weight: bold !important;
+  font-size: 25px !important;
+  color: #656568 !important;
+  margin-top: 56px !important;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  text-align: center;
+}
