@@ -338,7 +338,7 @@ body{
   }
   .tamModelo{
     height: 450px;
-    max-width: 320px;
+    max-width: 500px;
   }
 }
 @media (min-width: 768px) {
@@ -929,4 +929,28 @@ margin-top: 30px;
   .marcas {
       min-height: 245px;
   }
+}
+
+.btnVolver{
+  color: #e41b17;
+    border: 1px solid white;
+    border-radius: 25px;
+    font-size: 16px;
+    letter-spacing: 2px;
+    background-color: white;
+    padding: 10px 30px;
+    outline: none;
+    transition: 0.4s all;
+    margin: 0px 10px;
+}
+
+.titulo-autos2{
+  font-weight: bold !important;
+  font-size: 25px !important;
+  color: #656568 !important;
+  margin-top: 56px !important;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  text-align: center;
 }

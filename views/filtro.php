@@ -285,7 +285,7 @@ $autos_pag .= '</div>';
 
     <!-- <div id="contenedor"> -->
     <div class="col-12 text-center np">
-        <h1 class="titulo-autos text-center">TENEMOS LO QUE NECESITAS</h1>
+        <h1 class="titulo-autos2 text-center">TENEMOS LO QUE NECESITAS</h1>
         <div class="container text-center">
             <h2 id="selecciona" class="titulo-autos text-center">Seleccione un modelo</h2>
             <div class="row">
