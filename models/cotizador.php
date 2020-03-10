@@ -307,7 +307,17 @@ for ($m = 0; $m < $numModelos; $m++) {
 
         $numVersiones = count($arrayVersiones);
         for ($v = 0; $v < $numVersiones; $v++) {
-            $opcionVersiones .= '<option value="' . $arrayVersiones[$v]['name'] . '" data-sap="' . $arrayVersiones[$v]['codigo_sap'] . '">' . $arrayVersiones[$v]['name'] . '</option>';
+            if ($arrayVersiones[$v]['model'] == 'BT-50'){
+                if ($perfil == 'emprendedor' && ($arrayVersiones[$v]['codigo_sap'] == 'UL7DLAB_PE' || $arrayVersiones[$v]['codigo_sap'] == 'UL7DLAA_PE')){
+                    $opcionVersiones .= '<option value="' . $arrayVersiones[$v]['name'] . '" data-sap="' . $arrayVersiones[$v]['codigo_sap'] . '">' . $arrayVersiones[$v]['name'] . '</option>';
+                }
+                if ($perfil == 'nuevo-adulto' && ($arrayVersiones[$v]['codigo_sap'] == 'UL7PLAF_PE' || $arrayVersiones[$v]['codigo_sap'] == 'UL7PLAB_PE')){
+                    $opcionVersiones .= '<option value="' . $arrayVersiones[$v]['name'] . '" data-sap="' . $arrayVersiones[$v]['codigo_sap'] . '">' . $arrayVersiones[$v]['name'] . '</option>';
+                }
+            }else {
+                $opcionVersiones .= '<option value="' . $arrayVersiones[$v]['name'] . '" data-sap="' . $arrayVersiones[$v]['codigo_sap'] . '">' . $arrayVersiones[$v]['name'] . '</option>';
+            }
+            
         }
     }
 }
