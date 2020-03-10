@@ -54,8 +54,14 @@ if (isset($_POST['perfil'])) {
   </div>
 </div>
 <div id="contenedor" class="container">
-    <div class="row col-6">
-      <img src="app/img/Banner-landing.jpg" class="img-banner">
+    <div class="row col-12 bgi" style="
+    background-image: url(app/img/Banner-landing.jpg);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    margin: 0px">
+      <button class="col-xs-9 col-sm-4 col-md-3 col-lg-2 col-xl-2 btnSeguir3 style="margin-left: auto; margin-top: auto;">
+        ¡COTIZA TU AUTO <br> CON BONOS AQUÍ!
+      </button>
     </div>
 
     <div class="contenedor-principal">
