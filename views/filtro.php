@@ -178,7 +178,6 @@ if ($autos[0] != null) {
             if (isset($autos[0]['alias_marca'])){
                 $auto = $autos[0];
             }
-
             $count++;
             //var_dump($auto);
             $thumbnail = $base_path . '/assets/modelos/281x180/' . $auto['alias_marca'] . '/' . $auto['foto_principal'];
@@ -209,12 +208,12 @@ if ($autos[0] != null) {
 
             // $autos_pag .= '<form action="models/cotizador.php?modelo='.$auto['alias_modelo'].'&marca='.$auto['marca'].'" method="POST">';
             $autos_pag .= '<div class="text-center">';
-            $autos_pag .= '<form action="' . $auto['alias_modelo'] . '/' . $auto['marca'] . '" method="POST">';
+            $autos_pag .= '<form action="' . $auto['alias_modelo'] . '/' . $auto['alias_marca'] . '" method="POST">';
             $autos_pag .= '<input type="hidden" name="perfil" value="' . $perfil . '">';
             $autos_pag .= '<input type="hidden" name="min" value="' . $min . '">';
             $autos_pag .= '<input type="hidden" name="max" value="' . $max . '">';
             $autos_pag .= '<input type="submit" class="bt-transparente" value="VER DETALLES"/></form>';
-            $autos_pag .= '<form action="cotizar/' . $auto['alias_modelo'] . '/' . $auto['marca'] . '" method="POST">';
+            $autos_pag .= '<form action="cotizar/' . $auto['alias_modelo'] . '/' . $auto['alias_marca'] . '" method="POST">';
             $autos_pag .= '<input type="hidden" name="perfil" value="' . $perfil . '">';
             $autos_pag .= '<input type="hidden" name="min" value="' . $min . '">';
             $autos_pag .= '<input type="hidden" name="max" value="' . $max . '">';
