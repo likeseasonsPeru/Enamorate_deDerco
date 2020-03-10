@@ -313,6 +313,8 @@ for ($m = 0; $m < $numModelos; $m++) {
                 }
                 if ($perfil == 'nuevo-adulto' && ($arrayVersiones[$v]['codigo_sap'] == 'UL7PLAF_PE' || $arrayVersiones[$v]['codigo_sap'] == 'UL7PLAB_PE')){
                     $opcionVersiones .= '<option value="' . $arrayVersiones[$v]['name'] . '" data-sap="' . $arrayVersiones[$v]['codigo_sap'] . '">' . $arrayVersiones[$v]['name'] . '</option>';
+                }else {
+                    $opcionVersiones .= '<option value="' . $arrayVersiones[$v]['name'] . '" data-sap="' . $arrayVersiones[$v]['codigo_sap'] . '">' . $arrayVersiones[$v]['name'] . '</option>';
                 }
             }else {
                 $opcionVersiones .= '<option value="' . $arrayVersiones[$v]['name'] . '" data-sap="' . $arrayVersiones[$v]['codigo_sap'] . '">' . $arrayVersiones[$v]['name'] . '</option>';
