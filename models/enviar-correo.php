@@ -25,7 +25,7 @@ if($_POST)
       //$to = 'dercolead@gacsa.pe';
       $to = 'ullauri.jeanalex@gmail.com';
       //$to = 'wmunozarellano@gmail.com';
-      $subject = '25 Días de Locura';
+      $subject = 'Derco Oportunidades';
 
       $headers = "From: noreply@dercoperu.net\r\n";
       //$headers .= "Reply-To: ". strip_tags($_POST["txtCorreo"]) . "\r\n";
