@@ -1279,7 +1279,8 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
                                             'utm_campaign': '<?php echo $utm_campaign; ?>',
                                         };
                                         
-                                         window.location.href = "https://derco.com.pe/catalogo-derco";
+                                        // window.location.href = "https://derco.com.pe/catalogo-derco";
+                                        window.location.href= 'gracias.php'
 
                                     },
                                     error: function(jqXHR, exception, response) {
