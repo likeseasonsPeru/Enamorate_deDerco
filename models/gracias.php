@@ -54,7 +54,7 @@
                                     <div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url="">
 
                                         <div class="col-md-12 text-center justify-content-center">
-                                            <h3 class="col-xs-12 col-md-12 col-lg-12" style="
+                                            <h3 class="col-xs-6 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="
                                             color: #dc241f;
                                             font-size: 31px; 
                                             font-weight: bold;
@@ -64,12 +64,12 @@
                                         ">
                                                 Gracias por cotizar con nosotros.
                                             </h3>
-                                            <p style="font-size:19px;margin: 10px">En menos de 24 horas nos estaremos comunicando con usted.</p>
+                                            <p class="col-xs-6 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="font-size:19px;margin: 10px">En menos de 24 horas nos estaremos comunicando con usted.</p>
                                             <div id="bt-atras" style="
                                                 cursor:pointer;
                                                 margin: 0;
                                                 padding: 0;">
-                                                <button class="" type="bu" style="
+                                                <button class="col-xs-6 col-sm-12 col-md-12 col-lg-12 col-xl-12" type="button" style="
                                                     color: white;
                                                     border: 1px solid white;
                                                     border-radius: 25px;
