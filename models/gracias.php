@@ -53,11 +53,36 @@
                                 <div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1" style="margin-top:0px;margin-bottom:0px;">
                                     <div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url="">
 
-                                        <div class="col-md-12 text-center">
-                                            <h3 style="color: #dc241f;font-size: 20px; font-weight: bold;margin-top: 40px;">Gracias por cotizar con nosotros.</h3>
-                                            <p style="font-size:16px;">En menos de 24 horas nos estaremos comunicando con usted.</p>
-                                            <div id="bt-atras" style="cursor:pointer;margin: 0;padding: 0;">
-                                                <span style="color: #dc241f;">IR AL CATÁLOGO DE AUTOS</span>
+                                        <div class="col-md-12 text-center justify-content-center">
+                                            <h3 class="col-xs-12 col-md-12 col-lg-12" style="
+                                            color: #dc241f;
+                                            font-size: 31px; 
+                                            font-weight: bold;
+                                            margin-top: 40px;
+                                            font-weight: bold;
+                                            letter-spacing :1px;
+                                        ">
+                                                Gracias por cotizar con nosotros.
+                                            </h3>
+                                            <p style="font-size:19px;margin: 10px">En menos de 24 horas nos estaremos comunicando con usted.</p>
+                                            <div id="bt-atras" style="
+                                                cursor:pointer;
+                                                margin: 0;
+                                                padding: 0;">
+                                                <button class="" type="bu" style="
+                                                    color: white;
+                                                    border: 1px solid white;
+                                                    border-radius: 25px;
+                                                    padding: 10px 30px;
+                                                    background-color: #e41b17;
+                                                    font-size: 18px;
+                                                    outline: none;
+                                                    transition: 0.4s all;
+                                                    margin-top: 10px;
+                                                    font-weight: bold;
+                                                    ">
+                                                        IR AL CATÁLOGO DE AUTOS
+                                                    </button>
                                             </div>
                                         </div>
                                         <div class="fusion-clearfix"></div>
