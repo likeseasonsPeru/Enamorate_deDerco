@@ -100,7 +100,9 @@ if (isset($_POST['perfil'])) {
                   <option value="emprendedor">Comerciales (Vans/Pick Up/Taxi)</option>
                   <option value="familion">Autos Familiares</option>
                   <option value="nuevo-adulto">Estilo de vida</option>
-                  <option value="esforzado">Mi primer auto</option>
+                  <option value="Pituco">Pituco</option>
+                  <option value="Padre de Familia">Padre de Familia</option>
+                  <option value="Aspiracional">Aspiracional</option>
                 </select>
               </div>
             </div>

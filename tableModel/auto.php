@@ -11,7 +11,7 @@ class Auto extends EntidadBase{
     private $date;
 
     public function __construct(){
-        $table='autos2017';  // <- tabla de los models
+        $table='modelos_version_dercoportunidades';  // <- tabla de los models
         parent::__construct($table);
     }
 

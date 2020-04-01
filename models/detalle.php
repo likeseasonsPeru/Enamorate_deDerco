@@ -251,8 +251,6 @@ foreach ($autos_marca as $auto) {
     }
 }
 
-
-
 function objeto_a_json($data)
 {
     if (is_object($data)) {
@@ -290,8 +288,9 @@ $numModelos = count($arrayModelos);
 
 // Versiones
 
-$opcionVersiones = '';
-for ($m = 0; $m < $numModelos; $m++) {
+$opcionVersiones = '<option value="' . $_POST['version'] . '" data-sap="' . $_POST['codigo_sap'] . '">' . $_POST['version'] . '</option>';
+
+/* for ($m = 0; $m < $numModelos; $m++) {
     if ($arrayModelos[$m]['name'] == $modelo) {
         $urlVersiones = 'https://cotizadorderco.com/version-brands/' . $arrayModelos[$m]['_id'];
         $cURLConnection2 = curl_init();
@@ -310,7 +309,7 @@ for ($m = 0; $m < $numModelos; $m++) {
             $opcionVersiones .= '<option value="' . $arrayVersiones[$v]['name'] . '" data-sap="' . $arrayVersiones[$v]['codigo_sap'] . '">' . $arrayVersiones[$v]['name'] . '</option>';
         }
     }
-}
+} */
 
 // Offices
 
@@ -426,10 +425,12 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
                     </div>
                     <div class="col-xs-6 col-md-6 text-right">
                         
-                        <form action="../cotizar/<?php echo $_GET['modelo'];?>/<?php echo $_GET['marca'];?>" method="POST">
+                        <form action="../../cotizar/<?php echo $_GET['modelo'];?>/<?php echo $_GET['marca'];?>/<?php echo $_GET['id'];?>" method="POST">
                             <input type="hidden" name="perfil" value="  <?php echo $_POST['perfil'];?> ">
                             <input type="hidden" name="min" value="<?php echo $_POST['min'];?>">
                             <input type="hidden" name="max" value="<?php echo $_POST['max'];?>">
+                            <input type="hidden" name="version" value="<?php echo $_POST['version'];?>">
+                            <input type="hidden" name="codigo_sap" value="<?php echo $_POST['codigo_sap'];?>">
                             <input type="submit" id="bt-cotizador" class="btn bt-realizacotizacion" value="Realizar Cotización" />
                         </form>
                     </div>
@@ -510,10 +511,12 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
                     <div style="margin-top:30px;margin-bottom:30px; padding:0 15px;">
                         <div class="col-xs-12 col-md-12 text-left">
                             <div id="bt-atras2" style="cursor:pointer;margin: 0;padding: 0;">
-                                <form action="../filtro" method="POST">
+                                <form action="../../filtro" method="POST">
                                     <input type="hidden" name="perfilold" value="<?php echo $perfil; ?>">
                                     <input type="hidden" name="min" value="<?php echo $pres_min; ?>">
                                     <input type="hidden" name="max" value="<?php echo $pres_max; ?>">
+                                    <input type="hidden" name="version" value="<?php echo $_POST['version']; ?>">
+                                    <input type="hidden" name="codigo_sap" value="<?php echo $_POST['codigo_sap']; ?>">
                                     <button type="submit" class="btnSeguir2" style="margin: 0px 10px;">Volver</button>
                                 </form>
                             </div>

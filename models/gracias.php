@@ -94,12 +94,6 @@
                     </div>
 
 
-                    <?php
-                    include_once dirname(__DIR__) . '../../globals/includes/footer-alt.php';
-                    ?>
-
-
-
                     <script type="text/javascript">
                         $(document).ready(function() {
                             window.dataLayer = window.dataLayer || [];

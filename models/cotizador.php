@@ -20,11 +20,13 @@ $tipo_cambio = floatval($cambio[0]['tipo_cambio']);
 
 $marca = $_GET['marca'];
 $modelo = $_GET['modelo'];
+$id = $_GET['id'];
 //$marcaid = '';
 
 $perfil = $_POST['perfil'];
 $pres_min = $_POST['min'];
 $pres_max = $_POST['max'];
+
 
 
 if (!isset($perfil)) {
@@ -290,8 +292,8 @@ $numModelos = count($arrayModelos);
 
 // Versiones
 
-$opcionVersiones = '';
-for ($m = 0; $m < $numModelos; $m++) {
+$opcionVersiones = '<option value="' . $_POST['version'] . '" data-sap="' . $_POST['codigo_sap'] . '">' . $_POST['version'] . '</option>';
+/* for ($m = 0; $m < $numModelos; $m++) {
     if ($arrayModelos[$m]['name'] == $modelo) {
         $urlVersiones = 'https://cotizadorderco.com/version-brands/' . $arrayModelos[$m]['_id'];
         $cURLConnection2 = curl_init();
@@ -307,22 +309,21 @@ for ($m = 0; $m < $numModelos; $m++) {
 
         $numVersiones = count($arrayVersiones);
         for ($v = 0; $v < $numVersiones; $v++) {
-            if ($arrayVersiones[$v]['model'] == 'BT-50'){
-                if ($perfil == 'emprendedor' && ($arrayVersiones[$v]['codigo_sap'] == 'UL7DLAB_PE' || $arrayVersiones[$v]['codigo_sap'] == 'UL7DLAA_PE')){
+            if ($arrayVersiones[$v]['model'] == 'BT-50') {
+                if ($perfil == 'emprendedor' && ($arrayVersiones[$v]['codigo_sap'] == 'UL7DLAB_PE' || $arrayVersiones[$v]['codigo_sap'] == 'UL7DLAA_PE')) {
                     $opcionVersiones .= '<option value="' . $arrayVersiones[$v]['name'] . '" data-sap="' . $arrayVersiones[$v]['codigo_sap'] . '">' . $arrayVersiones[$v]['name'] . '</option>';
                 }
-                if ($perfil == 'nuevo-adulto' && ($arrayVersiones[$v]['codigo_sap'] == 'UL7PLAF_PE' || $arrayVersiones[$v]['codigo_sap'] == 'UL7PLAB_PE')){
+                if ($perfil == 'nuevo-adulto' && ($arrayVersiones[$v]['codigo_sap'] == 'UL7PLAF_PE' || $arrayVersiones[$v]['codigo_sap'] == 'UL7PLAB_PE')) {
                     $opcionVersiones .= '<option value="' . $arrayVersiones[$v]['name'] . '" data-sap="' . $arrayVersiones[$v]['codigo_sap'] . '">' . $arrayVersiones[$v]['name'] . '</option>';
-                }else {
+                } else {
                     $opcionVersiones .= '<option value="' . $arrayVersiones[$v]['name'] . '" data-sap="' . $arrayVersiones[$v]['codigo_sap'] . '">' . $arrayVersiones[$v]['name'] . '</option>';
                 }
-            }else {
+            } else {
                 $opcionVersiones .= '<option value="' . $arrayVersiones[$v]['name'] . '" data-sap="' . $arrayVersiones[$v]['codigo_sap'] . '">' . $arrayVersiones[$v]['name'] . '</option>';
             }
-            
         }
     }
-}
+} */
 
 // Offices
 
@@ -428,43 +429,43 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
 </div>
 
 <div class="fusion-fullwidth fullwidth-box nonhundred-percent-fullwidth" style="background-color: rgba(255,255,255,0);background-position: center center; background-repeat: no-repeat;padding-bottom:20px;">
-        <div class="fusion-builder-row fusion-row">
-            <div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1 fusion-one-full fusion-column-first fusion-column-last 1-1" style="margin-top:0px;margin-bottom:0px;">
-                <div class="fusion-column-wrapper" style="background-position:left top;background-repetar:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;">
-                    <div class="col-md-12 mt-40 text-center">
-                        <h2 class="titulo-autos text-center">
-                            "Solicita una cotización"
-                        </h2>
+    <div class="fusion-builder-row fusion-row">
+        <div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1 fusion-one-full fusion-column-first fusion-column-last 1-1" style="margin-top:0px;margin-bottom:0px;">
+            <div class="fusion-column-wrapper" style="background-position:left top;background-repetar:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;">
+                <div class="col-md-12 mt-40 text-center">
+                    <h2 class="titulo-autos text-center">
+                        "Solicita una cotización"
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="cotizador" class="fusion-fullwidth fullwidth-box fusion-parallax-none nonhundred-percent-fullwidth bg-gris" style="background-position: center center;background-repeat: no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;background-attachment:none;">
+    <div class="fusion-builder-row fusion-row ">
+        <div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1">
+            <div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url>
+                <div class="col-md-12 cotizador-titulo-modelo">
+                    <div class="col-md-8 col-xs-12 newtitlemodel">
+                        <h2 class="titlemodelfix"><?php echo $modelo; ?></h2>
+                        <h3 class="col-xs-12 col-md-6"><?php echo $html_precio_cotizador; ?></h3>
+                    </div>
+                    <div class="col-md-6 col-xs-12 cotizador-precios cotizadorversionmovil">
+                        <p class="fontSize15">
+                            "
+                            *Precio en base a la versión básica.
+                            "
+                            <br>
+                        </p>
+                    </div>
+                    <div class="col-md-4 col-xs-12 cotizadorccambio text-right">
+                        <h3>Tipo de cambio | <?php echo $tipo_cambio ?></h3>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div id="cotizador" class="fusion-fullwidth fullwidth-box fusion-parallax-none nonhundred-percent-fullwidth bg-gris" style="background-position: center center;background-repeat: no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;background-attachment:none;">
-        <div class="fusion-builder-row fusion-row ">
-            <div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1">
-                  <div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url>
-                    <div class="col-md-12 cotizador-titulo-modelo">
-                        <div class="col-md-8 col-xs-12 newtitlemodel">
-                            <h2 class="titlemodelfix"><?php echo $modelo; ?></h2>
-                            <h3 class="col-xs-12 col-md-6"><?php echo $html_precio_cotizador;?></h3>
-                        </div>
-                        <div class="col-md-6 col-xs-12 cotizador-precios cotizadorversionmovil">
-                            <p class="fontSize15">
-                            "
-                            *Precio en base a la versión básica.
-                            "
-                            <br>
-                            </p>
-                        </div>
-                        <div class="col-md-4 col-xs-12 cotizadorccambio text-right">
-                            <h3>Tipo de cambio | <?php echo $tipo_cambio?></h3>
-                        </div>
-                    </div>
-                  </div>  
-            </div>
-        </div>
-    </div>
+</div>
 <div class="post-content">
     <div class="fusion-fullwidth fullwidth-box fusion-parallax-none nonhundred-percent-fullwidth bg-light-gris" style="background-position: center center;background-repeat: no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;background-attachment:none;padding-top:40px; padding-bottom:40px;">
         <div class="fusion-builder-row fusion-row ">
@@ -492,14 +493,14 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
                                 </div>
                                 <p id="opcmodelo" class="p-formstyle" style="opacity:0;">Seleccione un modelo</p>
                                 <div class="form-group">
-                                        <label class="form-titulos">Versión</label>
-                                        <div class="form-group">
+                                    <label class="form-titulos">Versión</label>
+                                    <div class="form-group">
                                         <select name="version" id="version" class="form-style form-control tamano-selected color-effect-10" aria-required="true" required>
                                             <option value="0" class="color-selected" selected="true" disabled="disabled">Seleccione su versión</option>
                                             <?php echo $opcionVersiones; ?>
                                         </select>
-                                        </div>
-                                        <p id="opcversion" class="p-formstyle">Selecciona una opción</p>      
+                                    </div>
+                                    <p id="opcversion" class="p-formstyle">Selecciona una opción</p>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-titulos">Nombres:</label>
@@ -608,10 +609,12 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
                     <div style="margin-top:30px;margin-bottom:30px; padding:0 15px;">
                         <div class="col-xs-12 col-md-12 text-left">
                             <div id="bt-atras2" style="cursor:pointer;margin: 0;padding: 0;">
-                                <form action="../../filtro" method="POST">
+                                <form action="../../../filtro" method="POST">
                                     <input type="hidden" name="perfil" value="<?php echo $perfil; ?>">
                                     <input type="hidden" name="min" value="<?php echo $pres_min; ?>">
                                     <input type="hidden" name="max" value="<?php echo $pres_max; ?>">
+                                    <input type="hidden" name="version" value="<?php echo $_POST['version']; ?>">
+                                    <input type="hidden" name="version" value="<?php echo $_POST['codigo_sap']; ?>">
                                     <button type="submit" class="btnSeguir2" style="margin: 0px 10px;">Volver</button>
                                 </form>
                             </div>
@@ -1217,7 +1220,7 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
 
                         $.ajax({
                             type: "POST",
-                            url: "../send-data",
+                            url: "../../send-data",
                             crossDomain: true,
                             data: post_data,
                             dataType: 'html',
@@ -1251,7 +1254,7 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
 
                                 $.ajax({
                                     type: "POST",
-                                    url: "../enviar-correo",
+                                    url: "../../enviar-correo",
                                     crossDomain: true,
                                     data: post_email_data,
                                     dataType: 'html',
@@ -1278,9 +1281,9 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
                                             'utm_medium': '<?php echo $utm_medium; ?>',
                                             'utm_campaign': '<?php echo $utm_campaign; ?>',
                                         };
-                                        
+
                                         // window.location.href = "https://derco.com.pe/catalogo-derco";
-                                        window.location.href= 'gracias.php'
+                                        window.location.href = '../../../models/gracias.php'
 
                                     },
                                     error: function(jqXHR, exception, response) {
