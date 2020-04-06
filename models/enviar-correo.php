@@ -23,7 +23,10 @@ if($_POST)
       //EMAIL
       //$to = 'armando@sabor.pe';
       //$to = 'dercolead@gacsa.pe';
-      $to = 'ullauri.jeanalex@gmail.com';
+
+
+      
+
       //$to = 'wmunozarellano@gmail.com';
       $subject = 'Derco Oportunidades';
 
@@ -52,6 +55,26 @@ if($_POST)
       $message .= '</body></html>';
 
      // mail($to, $subject, $message, $headers);
+
+      if ($tienda == '30489009'){
+        $to = 'dercoleads@gacsa.pe';
+        mail($to, $subject, $message, $headers);
+      }
+
+      if ($tienda == 'PE04' || $tienda == 'PE05'){
+        $to = 'fcordova@autolandperu.com';
+        mail($to, $subject, $message, $headers);
+      }
+
+      if ($tienda == 'PE25' || $tienda == 'PE26' || $tienda == 'X001' || $tienda == 'PE24'){
+        $to = 'aarteaga@maquinarias.pe';
+        mail($to, $subject, $message, $headers);
+      }
+
+      if ($tienda == 'PE41' || $tienda=='PE39' || $tienda == 'PE42' || $tienda == 'PE40' || $tienda == 'PE43'){
+        $to = 'bjusto@gruporoberts.pe';
+        mail($to, $subject, $message, $headers);
+      }
 
 }
 ?>
