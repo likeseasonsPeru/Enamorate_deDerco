@@ -292,7 +292,8 @@ $numModelos = count($arrayModelos);
 
 // Versiones
 
-$opcionVersiones = '<option value="' . $_POST['version'] . '" data-sap="' . $_POST['codigo_sap'] . '">' . $_POST['version'] . '</option>';
+$opcionVersiones = '<option value="' . $_POST['version'] . '" data-sap="' . $_POST['codigo_sap'] . '" class="color-selected" selected="true" >' . $_POST['version'] . '</option>';
+
 /* for ($m = 0; $m < $numModelos; $m++) {
     if ($arrayModelos[$m]['name'] == $modelo) {
         $urlVersiones = 'https://cotizadorderco.com/version-brands/' . $arrayModelos[$m]['_id'];
@@ -496,9 +497,11 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
                                     <label class="form-titulos">Versión</label>
                                     <div class="form-group">
                                         <select name="version" id="version" class="form-style form-control tamano-selected color-effect-10" aria-required="true" required>
-                                            <option value="0" class="color-selected" selected="true" disabled="disabled">Seleccione su versión</option>
-                                            <?php echo $opcionVersiones; ?>
+                                            <!-- <option value="0" class="color-selected" selected="true" disabled="disabled">Seleccione su versión</option> -->
+                                            <?php   echo $opcionVersiones; ?>
                                         </select>
+                                        <!-- <input type="text">
+                                        <input type="text" id="version" class="form-control form-style color-effect-2" name="version" minlength="2" required disabled value="<?php echo $marca_sap; ?>"> -->
                                     </div>
                                     <p id="opcversion" class="p-formstyle">Selecciona una opción</p>
                                 </div>

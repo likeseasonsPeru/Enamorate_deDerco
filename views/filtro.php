@@ -14,118 +14,103 @@ $cambio_model = new Cambio();
 $cambio = $cambio_model->ejecutarSql("SELECT * FROM tipo_cambio");
 $tipo_cambio = floatval($cambio[0]['tipo_cambio']);
 
-if (isset($_POST['perfil'])) {
-    $perfil = $_POST['perfil'];
+ if (isset($_POST['perfil'])) {
+    if ($_POST['perfil'] == ''){
+        $perfil = 'todos';
+    }else {
+        $perfil = $_POST['perfil'];
+    }
 } else {
     $perfil = 'todos';
-}
+} 
+
 
 $min = $_POST['min'];
 $max = $_POST['max'];
+//$perfiles = $_POST['perfil'];
 //$marca = $_POST['marca'];
 //$tipo_auto = $_POST['tipo'];
 
 
-/*
-$min = 10000;
-$max = 20000;
-$marca = 'Renault';
-*/
 
 $base_path = 'https://derco.com.pe/catalogo-derco/';
 
-/*
-$perfil = 'esforzado';
-$pres_min = 10000;
-$pres_max = 15000;
-$email = 'alex@gmail.com';
-$cell = '987456321';
-*/
 
 
 /* Filtros de búsqueda */
-/* $query = 'SELECT * FROM autos2017';
-$titulo_seccion = '';
-//Valiamos la marca
-if ($marca) {
-    if ($marca == 'Todas las marcas') {
-        $titulo_seccion = 'Seleccione un modelo';
-        $query .= ' WHERE alias_marca!="null"';
-    } else {
 
-        $titulo_seccion .= 'Seleccione un ';
-        //Titulo
-        switch ($marca) {
-            case 'suzuki':
-                $titulo_seccion .= 'Suzuki';
-                break;
-
-            case 'mazda':
-                $titulo_seccion .= 'Mazda';
-                break;
-
-            case 'ds':
-                $titulo_seccion .= 'DS';
-                break;
-
-            case 'citroen':
-                $titulo_seccion .= 'Citroën';
-                break;
-
-            case 'greatwall':
-                $titulo_seccion .= 'Great Wall';
-                break;
-
-            case 'haval':
-                $titulo_seccion .= 'Haval';
-                break;
-
-            case 'foton':
-                $titulo_seccion .= 'Foton';
-                break;
-
-            case 'jac':
-                $titulo_seccion .= 'Jac';
-                break;
-
-            case 'changan':
-                $titulo_seccion .= 'Changan';
-                break;
-
-            case 'renault':
-                $titulo_seccion .= 'Renault';
-                //$meta_descripcion .= 'Catálogo de autos y camionetas de la marca Renault con diversos modelos. Derco es el mayor operador de venta de autos en Perú. ACCEDE AHORA.';
-                break;
-        }
-
-        $query .= ' WHERE alias_marca="' . $marca . '"';
-    }
-}
-
-//Validamos el modelo
-if ($tipo_auto != 'todas') {
-    $i = 0;
-    foreach ($tipo_auto as $value) {
-
-        if ($i == 0) {
-            $query .= " AND (";
-        } else {
-            $query .= " OR ";
-        }
-
-        $query .= 'tipo_auto="' . $value . '"';
-        $i++;
-    }
-
-    $query .= ') ';
-} */
 
 
 $auto_model = new Auto();
 
 if ($perfil != null) {
 
-    if ($perfil == 'emprendedor') {
+    if ($perfil == 'todos'){
+        $query = "SELECT * FROM modelos_version_dercoportunidades where (modelo = 'HONOR S' or  modelo= 'NEW VAN' or  modelo= 'GRAND VAN TURISMO' or modelo='GRAND SUPERVAN' or  modelo= 'C-ELYSÉE' or  modelo= 'NEW C30' or  modelo= 'WINGLE 5 GASOLINA' or  modelo= 'WINGLE 5 DIESEL' or  modelo= 'WINGLE 7 DIESEL' or modelo='J4' or modelo='REFINE' or modelo='SUNRAY' or modelo='T6' or modelo='X200' or modelo= 'BT-50' or modelo= 'Alaskan' or modelo='Logan' or modelo='Master' or modelo='Oroch' or modelo='APV VAN' or modelo='NEW CIAZ' or modelo='ERTIGA' or modelo= 'CS15' or modelo= 'NEW C3' or  alias_modelo= 'new-c4-cactus' or  modelo='NEW M4' or modelo= 'NEW H2' or modelo='S2' or modelo='MAZDA 2 SEDAN' or modelo='NEW ALTO' or modelo='CELERIO' or modelo = 'NEW DZIRE' or modelo= 'CS35 PLUS' or  modelo= 'CS55'  or  modelo='C5 AIRCROSS' or modelo= 'H3' or modelo='H6 Sport' or modelo='S2' or modelo='S3' or modelo='GRAND S3'  or modelo='CX-3' or modelo='CX-30' or modelo='MAZDA 2 SPORT'  or modelo='MX-5' or modelo='MAZDA 3 SEDAN' or modelo='MAZDA 3 SPORT' or modelo='MAZDA 6 SEDAN' or modelo='KWID' or modelo='BALENO' or modelo='GRAND VITARA' or modelo='JIMNY' or modelo='ALL NEW SWIFT' or modelo='NEW DZIRE' or modelo='NEW VITARA' or modelo='CX70' or modelo='NEW H6' or modelo='CX-5' or modelo='CX-9' or modelo='Duster' or modelo='Koleos' or modelo='S-CROSS' or modelo='Kangoo' or modelo = 'Captur' or modelo='NEW SWIFT SPORT')";
+    }else {
+        $query = "SELECT * FROM modelos_version_dercoportunidades where (";
+        $cont = 0;
+
+        if (strpos($perfil, 'emprendedor') !== false){
+            $query .= "modelo = 'HONOR S' or  modelo= 'NEW VAN' or  modelo= 'GRAND VAN TURISMO' or modelo='GRAND SUPERVAN' or modelo='A500' or modelo = 'M90' or  modelo= 'C-ELYSÉE' or modelo= 'NEW M4' or  modelo= 'NEW C30' or  modelo= 'WINGLE 5 GASOLINA' or  modelo= 'WINGLE 5 DIESEL' or  modelo= 'WINGLE 7 DIESEL' or modelo='J4' or modelo='REFINE' or modelo='SUNRAY' or modelo='T6' or modelo='X200' or modelo= 'BT-50' or modelo= 'Alaskan' or modelo='Logan' or modelo='Master' or modelo='APV VAN' or modelo='NEW CIAZ' or modelo='ERTIGA' or modelo='Kangoo'";
+            $cont++;
+        }
+
+        if (strpos($perfil, 'esforzado') !== false){
+            if ($cont !== 0){
+                $query .= ' or ';
+            }
+            $query .= "modelo= 'CS15' or  modelo= 'C-ELYSÉE'  or  modelo='NEW M4' or modelo= 'J4' or modelo='S2' or modelo='MAZDA 2 SEDAN' or modelo = 'Oroch' or modelo='NEW ALTO' or modelo='CELERIO' or modelo = 'NEW DZIRE'";
+            $cont++;
+        }
+
+        if (strpos($perfil, 'nuevo-adulto') !== false){
+            if ($cont !== 0){
+                $query .= ' or ';
+            }
+            $query .= "modelo= 'CS35 PLUS' or  modelo= 'CS55' or modelo= 'NEW C3' or  alias_modelo= 'new-c4-cactus' or  modelo='C5 AIRCROSS' or modelo= 'H3' or modelo= 'NEW H2' or modelo='H6 Sport' or modelo = 'NEW H6' or modelo='S2' or modelo='S3' or modelo='GRAND S3' or modelo = 'BT-50' or modelo='CX-3' or modelo='CX-30' or modelo='MAZDA 2 SPORT' or modelo='MX-5' or modelo='MAZDA 3 SEDAN' or modelo='MAZDA 3 SPORT' or modelo='MAZDA 6 SEDAN' or modelo='KWID' or modelo = 'Sandero' or modelo = 'Stepway' or modelo='BALENO' or modelo='GRAND VITARA' or modelo = 'IGNIS' or modelo='ALL NEW SWIFT' or  modelo= 'WINGLE 7 DIESEL'";
+            $cont++;
+        }
+
+        if (strpos($perfil, 'familion') !== false){
+            if ($cont !== 0){
+                $query .= ' or ';
+            }
+            $query .= "modelo = 'CS35 PLUS' or  modelo= 'CS55' or modelo='CX70' or modelo='HONOR S' or modelo='C5 AIRCROSS' or modelo='H3' or modelo= 'H6 Sport' or modelo='GRAND S3' or modelo='CX-30' or modelo='CX-5' or modelo='CX-9' or modelo='Duster' or modelo='Koleos' or modelo='ERTIGA' or modelo='S-CROSS' or modelo= 'NEW VITARA'";
+            $cont++;
+        }
+
+        if (strpos($perfil, 'Pituco') !== false){
+            if ($cont !== 0){
+                $query .= ' or ';
+            }
+            $query .= "modelo = 'NEW C3' or modelo= 'Captur' or modelo='JIMNY' or modelo= 'NEW SWIFT SPORT' or  modelo = 'NEW H6' or modelo= 'CX-3' or modelo = 'CX-30' or modelo='CX-5' or modelo= 'MAZDA 2 SPORT' or modelo='MX-5' or modelo='MAZDA 3 SEDAN' or modelo='MAZDA 3 SPORT' or modelo='MAZDA 6 SEDAN'";
+            $cont++;
+        }
+
+        if (strpos($perfil, 'Padre de Familia') !== false){
+            if ($cont !== 0){
+                $query .= ' or ';
+            }
+            $query .= "modelo = 'CS35 PLUS' or modelo= 'CS55' or modelo='CX70' or alias_modelo= 'new-c4-cactus' or modelo='C5 AIRCROSS' or modelo= 'H3' or modelo='H6 Sport' or modelo='NEW H6' or modelo='S3' or modelo = 'GRAND S3' or modelo='CX-5' or modelo='CX-9' or modelo = 'S-CROSS' or modelo = 'NEW VITARA'";
+            $cont++;
+        }
+
+        if (strpos($perfil, 'Aspiracional') !== false){
+            if ($cont !== 0){
+                $query .= ' or ';
+            }
+            $query .= "modelo = 'CS15' or modelo= 'NEW H2' or modelo = 'S2' or modelo = 'CX-3' or modelo = 'MAZDA 2 SPORT' or modelo = 'MAZDA 2 SEDAN'";
+            $cont++;
+        }
+
+
+
+        $query .= ")";
+    }
+
+
+   /*  if ($perfil == 'emprendedor') {
         $query = "SELECT * FROM modelos_version_dercoportunidades where (modelo = 'HONOR S' or  modelo= 'NEW VAN' or  modelo= 'GRAND VAN TURISMO' or modelo='GRAND SUPERVAN' or modelo='A500' or modelo = 'M90' or  modelo= 'C-ELYSÉE' or modelo= 'NEW M4' or  modelo= 'NEW C30' or  modelo= 'WINGLE 5 GASOLINA' or  modelo= 'WINGLE 5 DIESEL' or  modelo= 'WINGLE 7 DIESEL' or modelo='J4' or modelo='REFINE' or modelo='SUNRAY' or modelo='T6' or modelo='X200' or modelo= 'BT-50' or modelo= 'Alaskan' or modelo='Logan' or modelo='Master' or modelo='APV VAN' or modelo='NEW CIAZ' or modelo='ERTIGA' or modelo='Kangoo')";
     } else if ($perfil == 'esforzado') {
         $query = "SELECT * FROM modelos_version_dercoportunidades where (modelo= 'CS15' or  modelo= 'C-ELYSÉE'  or  modelo='NEW M4' or modelo= 'J4' or modelo='S2' or modelo='MAZDA 2 SEDAN' or modelo = 'Oroch' or modelo='NEW ALTO' or modelo='CELERIO' or modelo = 'NEW DZIRE')";
@@ -140,8 +125,11 @@ if ($perfil != null) {
     } else if ($perfil == 'Aspiracional') {
         $query = "SELECT * FROM modelos_version_dercoportunidades where (modelo = 'CS15' or modelo= 'NEW H2' or modelo = 'S2' or modelo = 'CX-3' or modelo = 'MAZDA 2 SPORT' or modelo = 'MAZDA 2 SEDAN')";
     } else {
-        $query = "SELECT * FROM modelos_version_dercoportunidades where (modelo = 'HONOR S' or  modelo= 'NEW VAN' or  modelo= 'GRAND VAN TURISMO' or modelo='GRAND SUPERVAN' or  modelo= 'C-ELYSÉE' or  modelo= 'NEW C30' or  modelo= 'WINGLE 5 GASOLINA' or  modelo= 'WINGLE 5 DIESEL' or  modelo= 'WINGLE 7 DIESEL' or modelo='J4' or modelo='REFINE' or modelo='SUNRAY' or modelo='T6' or modelo='X200' or modelo= 'BT-50' or modelo= 'Alaskan' or modelo='Logan' or modelo='Master' or modelo='Oroch' or modelo='APV VAN' or modelo='NEW CIAZ' or modelo='ERTIGA' or modelo= 'CS15' or modelo= 'NEW C3' or  alias_modelo= 'new-c4-cactus' or  modelo='NEW M4' or modelo= 'NEW H2' or modelo='S2' or modelo='MAZDA 2 SEDAN' or modelo='NEW ALTO' or modelo='CELERIO' or modelo = 'NEW DZIRE' or modelo= 'CS35 PLUS' or  modelo= 'CS55'  or  modelo='C5 AIRCROSS' or modelo= 'H3' or modelo='H6 Sport' or modelo='S2' or modelo='S3' or modelo='GRAND S3'  or modelo='CX-3' or modelo='CX-30' or modelo='MAZDA 2 SPORT'  or modelo='MX-5' or modelo='MAZDA 3 SEDAN' or modelo='MAZDA 3 SPORT' or modelo='MAZDA 6 SEDAN' or modelo='KWID' or modelo='BALENO' or modelo='GRAND VITARA' or modelo='JIMNY' or modelo='ALL NEW SWIFT' or modelo='NEW DZIRE' or modelo='NEW VITARA' or modelo='CX70' or modelo='NEW H6' or modelo='CX-5' or modelo='CX-9' or modelo='Duster' or modelo='Koleos' or modelo='S-CROSS' or modelo='Kangoo' or modelo = 'Captur' or modelo='NEW SWIFT SPORT')";
-    }
+        
+    } */
+
+
+
 }
 
 
@@ -184,6 +172,15 @@ if ($autos[0] != null) {
                 $auto = $autos[0];
             }
             $count++;
+
+            $alias_marcalogo = $auto['alias_marca'];
+            if ($alias_marcalogo == 'ds'){
+                $alias_marcalogo = '-'.$alias_marcalogo;
+            }
+
+            $logo = '<div class="fondo-logo"><img src="'. $base_path. '/assets/img/logo'. $alias_marcalogo. '.png" class="img-responsive" /></div>';
+
+
             //var_dump($auto);
             $thumbnail = $base_path . '/assets/modelos/281x180/' . $auto['alias_marca'] . '/' . $auto['foto_principal'];
             $dolares = $auto['precio_promocional'];
@@ -210,6 +207,7 @@ if ($autos[0] != null) {
                 $autos_pag .= '</div>';
                 $autos_pag .= '<div class="img-auto"><img src="' . $thumbnail . '" class="img-filtro" /></div>';
                 $autos_pag .= '<p class="informacion-basica"><!--Año: 2016--><br>' . $auto['resumen'] . '</p>';
+                $autos_pag .= $logo;
 
                 // $autos_pag .= '<form action="models/cotizador.php?modelo='.$auto['alias_modelo'].'&marca='.$auto['marca'].'" method="POST">';
                 $autos_pag .= '<div class="text-center">';

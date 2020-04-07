@@ -165,7 +165,7 @@ body {
 }
 
 .modelo-select {
-    color:#707276;
+    color:#ffffff;
     /*margin-top: 15px;*/
     cursor: pointer;
     height:35px;
@@ -187,14 +187,14 @@ body {
 }
 
 .checkbox-modelo-noselected {
-
+    
 }
 
 .checkbox-modelo {
     float: right;
     width: 13px;
     height: 13px;
-    border:2px solid #707276;
+    border:2px solid #ffffff;
     margin-top: 1px;
 
     -webkit-transition: background-color .2s linear, border-color .2s linear;

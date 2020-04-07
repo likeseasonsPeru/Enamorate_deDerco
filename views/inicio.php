@@ -54,49 +54,51 @@ if (isset($_POST['perfil'])) {
   </div>
 </div>
 <div id="contenedor" class="container">
-    <div class="row col-6">
-      <img src="app/img/Banner-landing.jpg" class="img-banner">
+  <div class="row col-6">
+    <img src="app/img/Banner-landing.jpg" class="img-banner">
+  </div>
+
+  <div class="contenedor-principal">
+    <div class="row filtro-container">
+      <div class="col-12 col-sm-12 col-md-12 bg-grayderco2 text-center bgTop">
+        <p class="filtros-head">FILTROS DE BUSQUEDA</p>
+      </div>
     </div>
 
-    <div class="contenedor-principal">
-      <div class="row filtro-container">
-        <div class="col-12 col-sm-12 col-md-12 bg-grayderco2 text-center bgTop">
-          <p class="filtros-head">FILTROS DE BUSQUEDA</p>
-        </div>
-      </div>
-
-      <form id="formfilter" action="" method="POST">
-        <div class="row text-center mgt">
-          <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-4 text-center marginSeccion">
-            <div class="col-12 np espacioPregunta pdTb">
-              <h5 class="filtros-title-white">PRECIO</h5>
-            </div>
-
-            <div class="min">
-              <div class="marginEspacioPrecios">
-                <div for="inputMin" class="pdRight negrita text-white col-12">Desde $</div>
-                <input type="text" name="min" class="text-center inputPrecios " maxlength="6" id="inputMin" placeholder="Ingrese su rango" onkeypress="return insNumber(event)" style="
-    border-radius: 25px;"></input>
-              </div>
-            </div>
-            <div class="max">
-              <div class="marginEspacioPrecios">
-                <div for="inputMin" class="pdRight negrita text-white col-12">Hasta $</div>
-                <input type="text" name='max' class="text-center inputPrecios " maxlength="6" id="inputMax" placeholder="Ingrese su rango" onkeypress="return insNumber(event)" style="
-    border-radius: 25px;"></input>
-              </div>
-            </div>
+    <form id="formfilter" action="" method="POST">
+      <div class="row text-center mgt">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-4 text-center marginSeccion">
+          <div class="col-12 np espacioPregunta pdTb">
+            <h5 class="filtros-title-white">PRECIO</h5>
           </div>
 
-          <div class="col-12 col-sm-12 col-md-6 col-xl-4 text-center marginTopCategorias">
-            <div class="col-md-12 ">
-              <div class="filtros-title">
-                <p class="filtros-title-white">Categorias</p>
-              </div>
-              <div class="marcas-select">
-                <select class="selectCategorias text-center" name="perfil" id="buscar-categorias" class="col-12">
-                  <!-- <option value="todas">Todos</option> -->
-                  <option selected="true" disabled="disabled">Seleccione su categoría</option>
+          <div class="min">
+            <div class="marginEspacioPrecios">
+              <div for="inputMin" class="pdRight negrita text-white col-12">Desde $</div>
+              <input type="text" name="min" class="text-center inputPrecios " maxlength="6" id="inputMin" placeholder="Ingrese su rango" onkeypress="return insNumber(event)" style="
+    border-radius: 25px;"></input>
+            </div>
+          </div>
+          <div class="max">
+            <div class="marginEspacioPrecios">
+              <div for="inputMin" class="pdRight negrita text-white col-12">Hasta $</div>
+              <input type="text" name='max' class="text-center inputPrecios " maxlength="6" id="inputMax" placeholder="Ingrese su rango" onkeypress="return insNumber(event)" style="
+    border-radius: 25px;"></input>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-12 col-md-6 col-xl-4 text-center marginTopCategorias">
+          <div class="col-md-12 ">
+            <div class="filtros-title">
+              <!-- <p class="filtros-title-white">Categorias</p> -->
+              <h5 class="filtros-title-white">Categorias</h5>
+            </div>
+            
+            <!-- <div class="marcas-select">
+                <select class="selectCategorias text-center" name="perfil" id="buscar-categorias" class="col-12"> -->
+            <!-- <option value="todas">Todos</option> -->
+            <!-- <option selected="true" disabled="disabled">Seleccione su categoría</option>
                   <option value="emprendedor">Comerciales (Vans/Pick Up/Taxi)</option>
                   <option value="familion">Autos Familiares</option>
                   <option value="nuevo-adulto">Estilo de vida</option>
@@ -104,19 +106,83 @@ if (isset($_POST['perfil'])) {
                   <option value="Padre de Familia">Padre de Familia</option>
                   <option value="Aspiracional">Aspiracional</option>
                 </select>
+              </div> -->
+
+            <input type="hidden" id='perfiles' name="perfil" value="todos">
+
+            <div class="col-md-12 bg-grayderco">
+              <div id="emprendedor" class="modelo-select">
+                <i class="fa fa-angle-right" aria-hidden="true"></i> Comerciales (Vans/Pick Up/Taxi)
+                <div class="checkbox-modelo"></div>
+              </div>
+
+              <div id="familion" class="modelo-select">
+                <i class="fa fa-angle-right" aria-hidden="true"></i> Autos Familiares
+                <div class="checkbox-modelo"></div>
+              </div>
+
+              <div id="nuevo-adulto" class="modelo-select">
+                <i class="fa fa-angle-right" aria-hidden="true"></i> Estilo de vida
+                <div class="checkbox-modelo"></div>
+              </div>
+
+              <div id="esforzado" class="modelo-select">
+                <i class="fa fa-angle-right" aria-hidden="true"></i> Mi primer auto
+                <div class="checkbox-modelo"></div>
+              </div>
+
+              <div id="Pituco" class="modelo-select">
+                <i class="fa fa-angle-right" aria-hidden="true"></i> Pituco
+                <div class="checkbox-modelo"></div>
+              </div>
+
+              <div id="Padre de Familia" class="modelo-select">
+                <i class="fa fa-angle-right" aria-hidden="true"></i> Padre de Familia
+                <div class="checkbox-modelo"></div>
+              </div>
+
+              <div id="Aspiracional" class="modelo-select">
+                <i class="fa fa-angle-right" aria-hidden="true"></i> Aspiracional
+                <div class="checkbox-modelo"></div>
               </div>
             </div>
           </div>
-          <div class="col-12 col-sm-12 col-md-12 col-xl-3">
-            <div class="col-12 espacioBtns">
-              <button id="btnBuscar" class="btnSeguir2 " type="button" name="button">
-                BUSCAR
-              </button>
-            </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-xl-3">
+          <div class="col-12 espacioBtns">
+            <button id="btnBuscar" class="btnSeguir2 " type="button" name="button">
+              BUSCAR
+            </button>
           </div>
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
 
 <!-- Modal -->
@@ -224,10 +290,16 @@ if (isset($_POST['perfil'])) {
     })
 
     $('#btnBuscar').click(function() {
-      
-      perfil = $('#buscar-categorias option:selected').val();
+
+      //perfil = $('#buscar-categorias option:selected').val();
+
+
+
       min = $('#inputMin').val();
       max = $('#inputMax').val();
+      $('#perfiles').val(buscar_modelo);
+
+
 
       /* if ($.trim(min).length = 0){
         if (perfil == 'Seleccione su categoría'){
@@ -235,36 +307,37 @@ if (isset($_POST['perfil'])) {
         }
       } */
 
-      if ($.trim(min).length = 0){
+      if ($.trim(min).length = 0) {
         $('#inputMin').val('0');
       }
 
-      if ($.trim(max).length = 0){
+      if ($.trim(max).length = 0) {
         $('#inputMax').val('0');
       }
+
       $('#formfilter').attr('action', 'filtro');
       $('#formfilter').submit();
 
 
-/* 
-      $.ajax({
-        url: 'filtro.php',
-        type: 'POST',
-        data: {
-          perfil,
-          max,
-          min,
-          marca,
-          tipo
-        },
-        datatype: 'html',
-        success: function(datahtml) {
-          $('#contenedor').html(datahtml);
-        },
-        error: function() {
-          $('#contenedor').html('<p>error al cargar desde Ajax</p>');
-        }
-      })  */
+      /* 
+            $.ajax({
+              url: 'filtro.php',
+              type: 'POST',
+              data: {
+                perfil,
+                max,
+                min,
+                marca,
+                tipo
+              },
+              datatype: 'html',
+              success: function(datahtml) {
+                $('#contenedor').html(datahtml);
+              },
+              error: function() {
+                $('#contenedor').html('<p>error al cargar desde Ajax</p>');
+              }
+            })  */
     })
 
 

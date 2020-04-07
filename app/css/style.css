@@ -551,9 +551,10 @@ margin-top: 30px;
 
 .bg-grayderco{
   padding: 30px;
-  background-color: #c1c0c0;
+  background-color: #dc241f;
   text-align: left;
 }
+
 
 .bg-grayderco2{
   padding: 25px;
@@ -569,7 +570,7 @@ margin-top: 30px;
   background-color: #707276;
 }
 .modelo-select {
-  color:#707276;
+  columns: #ffffff;;
   /*margin-top: 15px;*/
   cursor: pointer;
   height:35px;
@@ -586,19 +587,19 @@ margin-top: 30px;
 }*/
 
 .checkbox-modelo-selected-color {
-  color: #dc241f;
+  color: #ffffff;
 }
 
 .checkbox-modelo-selected {
-  background-color: #dc241f;
-  border-color: #dc241f !important;
+  background-color: #ffffff;
+  border-color: #ffffff !important;
 }
 
 .checkbox-modelo {
   float: right;
   width: 13px;
   height: 13px;
-  border:2px solid #707276;
+  border:2px solid #ffffff;
   margin-top: 1px;
 
   -webkit-transition: background-color .2s linear, border-color .2s linear;
@@ -633,6 +634,24 @@ margin-top: 30px;
   margin:0 !important;
   padding: 0 0 10px 0 !important;
   border-bottom: 3px solid #545558;
+}
+
+.filtros-title, .filtros-title-gray {
+  font-size:12px;
+}
+
+.filtros-title-white {
+  padding: 0 0 5px 0 !important;
+  border-bottom: 1px solid #fff;
+}
+
+.filtros-title-gray {
+  padding: 0 0 5px 0 !important;
+  border-bottom: 1px solid #545558;
+}
+
+#titulo-modelos-filtro {
+  margin-bottom: 30px;
 }
 
 .marcas .img-responsive {
