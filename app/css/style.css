@@ -574,6 +574,7 @@ margin-top: 30px;
   /*margin-top: 15px;*/
   cursor: pointer;
   height:35px;
+  font-size: 15px; 
 }
 
 .modelo .img-responsive {
@@ -785,6 +786,7 @@ margin-top: 30px;
   .marginEspacioPrecios{
     margin-top: 0px;
   }
+
 }
 
 .bg-derco2{
@@ -865,6 +867,13 @@ margin-top: 30px;
 @media(max-width: 321px) and (max-width: 357px){
   .img-banner{
     max-width: 289px;
+  }
+
+}
+
+@media(max-width: 321px){
+  .modelo-select {
+    font-size: 12px; 
   }
 }
 
