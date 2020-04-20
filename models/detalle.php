@@ -21,6 +21,7 @@ $tipo_cambio = floatval($cambio[0]['tipo_cambio']);
 $marca = $_GET['marca'];
 $marcaid = $_GET['marca'];
 $modelo = $_GET['modelo'];
+$version = $_POST['version'];
 
 $perfil = $_POST['perfil'];
 $pres_min = $_POST['min'];
@@ -67,7 +68,7 @@ if (isset($_GET['utm_medium'])) {
 // autos 
 
 $auto_model = new Auto();
-$autos_marca = $auto_model->ejecutarSql("SELECT * FROM autos2017 WHERE alias_modelo='$modelo'");
+$autos_marca = $auto_model->ejecutarSql("SELECT * FROM modelos_version_dercoportunidades WHERE version='$version'");
 
 
 foreach ($autos_marca as $auto) {
@@ -84,14 +85,15 @@ foreach ($autos_marca as $auto) {
     $color_auto = $auto['color_auto'];
     $color_techo = $auto['color_techo'];
     $foto_fondo = $auto['foto_fondo'];
+    //   $colores = $auto['colores'];
     $informacion_basica = htmlspecialchars($auto['informacion_basica'], ENT_COMPAT, 'ISO-8859-1', true);
     //var_dump($informacion_basica);
     $ficha_tecnica = htmlspecialchars($auto['ficha_tecnica'], ENT_COMPAT, 'ISO-8859-1', true);
     //var_dump($ficha_tecnica);
 
-    $dolares = $auto['dolares'];
-    $precio_anio = $auto['Precio_anio'];
-    $preventa = $auto['preventa'];
+    $dolares = $auto['precio_promocional'];
+    $precio_anio = $auto['Anio'];
+    // $preventa = $auto['preventa'];
     $autopdf = $auto['auto_pdf'];
 
 
@@ -229,12 +231,44 @@ foreach ($autos_marca as $auto) {
     //Colores
     $html_color_auto = '';
     if ($color_auto != '') {
-        $html_color_auto .= '<div class="col-md-12 text-left mt-30">';
+        /* $html_color_auto .= '<div class="col-md-12 text-left mt-30">';
         $html_color_auto .= '<p style="font-size:22px;color:#707276;">Colores</p>';
         $html_color_auto .= '<img src="' . $base_path . '/assets/modelos/colores/' . $color_auto . '" class="img-responsive"/>';
-        $html_color_auto .= '</div>';
+        $html_color_auto .= '</div>'; */
     }
 
+    if ($color_auto != '') {
+
+        // seprando cadena en arreglo 
+
+
+        $html_color_auto .= '<div id="img-container" marca="'.$_GET['marca'].'" modelo="'.$_GET['modelo'].'" class="col-md-12 text-center">';
+        $html_color_auto .= '<p style="font-size:22px;color:#707276;">Colores</p>';
+
+        // $html_color_auto .= '<img src="' . $base_path . '/assets/modelos/colores/' . $color_auto . '" class="img-responsive"/>';
+
+        //if (strpos($colores, 'rojo') !== false){
+        $html_color_auto .= '<div class="col-xs-2 col-sm-6 col-md-6 col-lg-6 mt-30">';
+        $html_color_auto .= '<button data-color="Rojo" class="image-color btn btn-primary btn-block">Gris-Shark-blanco</button>';
+        $html_color_auto .= '</div>';
+
+        $html_color_auto .= '<div class="col-xs-2 col-sm-6 col-md-6 col-lg-6 mt-30">';
+        $html_color_auto .= '<button data-color="Plata" class="image-color btn btn-primary btn-block">Plata</button>';
+        $html_color_auto .= '</div>';
+
+        $html_color_auto .= '<div class="col-xs-2 col-sm-6 col-md-6 col-lg-6 mt-30">';
+        $html_color_auto .= '<button data-color="Gris" class="image-color btn btn-primary btn-block">Gris</button>';
+        $html_color_auto .= '</div>';
+
+        $html_color_auto .= '<div class="col-xs-2 col-sm-6 col-md-6 col-lg-6 mt-30">';
+        $html_color_auto .= '<button data-color="Dorado" class="image-color btn btn-primary btn-block">Dorado</button>';
+        $html_color_auto .= '</div>';
+
+        //}
+
+
+        $html_color_auto .= '</div>';
+    }
     //Colores Techo
     // $html_techo= '';
     if ($color_techo != '') {
@@ -244,11 +278,11 @@ foreach ($autos_marca as $auto) {
         $html_techo .= '</div>';
     }
     //Preventa
-    if ($preventa == 'si') {
+    /* if ($preventa == 'si') {
         $html_precio_cabecera = 'Precio Preventa: Desde ' . $dolares . ' <span style="color:#000;">/</span> ' . $soles;
         $html_precio_preventa = '*Sólo hasta el 15 de Junio.';
         $html_precio_preventa_cot = '**Precio Preventa: Sólo hasta el 15 de Junio.';
-    }
+    } */
 }
 
 function objeto_a_json($data)
@@ -424,13 +458,13 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
                         <img src="<?php echo $base_path; ?>/assets/img/<?php echo $logo; ?>" />
                     </div>
                     <div class="col-xs-6 col-md-6 text-right">
-                        
-                        <form action="../../cotizar/<?php echo $_GET['modelo'];?>/<?php echo $_GET['marca'];?>/<?php echo $_GET['id'];?>" method="POST">
-                            <input type="hidden" name="perfil" value="  <?php echo $_POST['perfil'];?> ">
-                            <input type="hidden" name="min" value="<?php echo $_POST['min'];?>">
-                            <input type="hidden" name="max" value="<?php echo $_POST['max'];?>">
-                            <input type="hidden" name="version" value="<?php echo $_POST['version'];?>">
-                            <input type="hidden" name="codigo_sap" value="<?php echo $_POST['codigo_sap'];?>">
+
+                        <form action="../../cotizar/<?php echo $_GET['modelo']; ?>/<?php echo $_GET['marca']; ?>/<?php echo $_GET['id']; ?>" method="POST">
+                            <input type="hidden" name="perfil" value="  <?php echo $_POST['perfil']; ?> ">
+                            <input type="hidden" name="min" value="<?php echo $_POST['min']; ?>">
+                            <input type="hidden" name="max" value="<?php echo $_POST['max']; ?>">
+                            <input type="hidden" name="version" value="<?php echo $_POST['version']; ?>">
+                            <input type="hidden" name="codigo_sap" value="<?php echo $_POST['codigo_sap']; ?>">
                             <input type="submit" id="bt-cotizador" class="btn bt-realizacotizacion" value="Realizar Cotización" />
                         </form>
                     </div>
@@ -457,7 +491,7 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
 
                             <?php echo $texto_cambioreferencial; ?>
                         </p>
-                        <img src="<?php echo $foto_principal; ?>" alt="alt=" <?php echo $alt_img; ?>"" class="img-responsive" />
+                        <img id="modelo-imagen" src="<?php echo $foto_principal; ?>" alt="alt=" <?php echo $alt_img; ?>"" class="img-responsive" />
                     </div>
                     <div class="col-md-4">
                         <!-- <div class="cuadro-propiedades cuadro-propiedades-movil text-center" style="padding-bottom: 20px;">
@@ -539,6 +573,20 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
     var perfil = $('#inputperfil').val()
     var pres_min = $('#inputprecmin').val();
     var pres_max = $('#inputprecmax').val();
+
+
+    //var path_colores_img = `https://derco.com.pe/catalogo-derco/assets/modelos/colores/${marca}/${modelo}/`
+    
+
+    $('.image-color').click(function(e) {
+        var marcapost =  $('#img-container').attr('marca');
+        var modelopost =  $('#img-container').attr('modelo');  
+        var path_colores_img = `https://derco.com.pe/catalogo-derco/assets/modelos/colores/${marcapost}/${modelopost}/`
+        var color_modelo = $(this).attr('data-color');
+        path_colores_img += color_modelo+'.jpg'
+        $('#modelo-imagen').attr("src", path_colores_img); 
+    })
+
     //NOMBRES
     $("#first_name").keydown(function(e) {
         // Permite: backspace, delete, tab, escape, enter and .
@@ -788,6 +836,8 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
         var twtLink = 'http://twitter.com/home?status=' + encodeURIComponent(twtTitle + ' ' + twtUrl);
         window.open(twtLink);
     }
+
+    //  CAmbiar color de modelo
 
     $("#EnviarForm").click(function(e) {
 
