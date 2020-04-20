@@ -90,11 +90,11 @@ if (isset($_POST['perfil'])) {
 
         <div class="col-12 col-sm-12 col-md-6 col-xl-4 text-center marginTopCategorias">
           <div class="col-md-12 ">
-            <div class="filtros-title">
+            <div id="filtros-perfil" class="filtros-title">
               <!-- <p class="filtros-title-white">Categorias</p> -->
               <h5 class="filtros-title-white">Categorias</h5>
             </div>
-            
+
             <!-- <div class="marcas-select">
                 <select class="selectCategorias text-center" name="perfil" id="buscar-categorias" class="col-12"> -->
             <!-- <option value="todas">Todos</option> -->
@@ -110,7 +110,7 @@ if (isset($_POST['perfil'])) {
 
             <input type="hidden" id='perfiles' name="perfil" value="todos">
 
-            <div class="col-md-12 bg-grayderco">
+            <div id="select-perfiles" class="col-md-12 bg-grayderco">
               <div id="emprendedor" class="modelo-select">
                 <i class="fa fa-angle-right" aria-hidden="true"></i> Comerciales (Vans/Pick Up/Taxi)
                 <div class="checkbox-modelo"></div>
@@ -147,6 +147,63 @@ if (isset($_POST['perfil'])) {
               </div>
             </div>
           </div>
+
+          <!---------------------------------- Marcas -------------------------->
+
+          <input type="hidden" id='marcas' name="marcas" value="todos">
+
+          <div class="col-md-12 my-2">
+            <div id="filtros-marca" class="filtros-title">
+              <!-- <p class="filtros-title-white">Categorias</p> -->
+              <h5 class="filtros-title-white">Marcas</h5>
+            </div>
+
+
+            <div id="select-marcas" class="col-md-12 bg-grayderco">
+              <div id="Suzuki" class="marca-select">
+                <i class="fa fa-angle-right" aria-hidden="true"></i> Suzuki
+                <div class="checkbox-marca"></div>
+              </div>
+
+              <div id="Renault" class="marca-select">
+                <i class="fa fa-angle-right" aria-hidden="true"></i> Renault
+                <div class="checkbox-marca"></div>
+              </div>
+
+              <div id="Mazda" class="marca-select">
+                <i class="fa fa-angle-right" aria-hidden="true"></i> Mazda
+                <div class="checkbox-marca"></div>
+              </div>
+
+              <div id="Citroën" class="marca-select">
+                <i class="fa fa-angle-right" aria-hidden="true"></i> Citroën
+                <div class="checkbox-marca"></div>
+              </div>
+              <!-- <div id="DS" class="modelo-select">
+                <i class="fa fa-angle-right" aria-hidden="true"></i> DS
+                <div class="checkbox-modelo"></div>
+              </div> -->
+              <div id="Great Wall" class="marca-select">
+                <i class="fa fa-angle-right" aria-hidden="true"></i> Great Wall
+                <div class="checkbox-marca"></div>
+              </div>
+
+              <div id="Haval" class="marca-select">
+                <i class="fa fa-angle-right" aria-hidden="true"></i> Haval
+                <div class="checkbox-marca"></div>
+              </div>
+              <div id="Jac" class="marca-select">
+                <i class="fa fa-angle-right" aria-hidden="true"></i> Jac Motors
+                <div class="checkbox-marca"></div>
+              </div>
+              <div id="Changan" class="marca-select">
+                <i class="fa fa-angle-right" aria-hidden="true"></i> Changan
+                <div class="checkbox-marca"></div>
+              </div>
+            </div>
+
+          </div>
+
         </div>
         <div class="col-12 col-sm-12 col-md-12 col-xl-3">
           <div class="col-12 espacioBtns">
@@ -158,31 +215,6 @@ if (isset($_POST['perfil'])) {
       </div>
     </form>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
 
 <!-- Modal -->
@@ -214,11 +246,15 @@ if (isset($_POST['perfil'])) {
 
 <script type="text/javascript">
   $(document).ready(function() {
+
+    $('#select-marcas').toggle();
+
     let perfil = 'todos';
     let min = '';
     let max = '';
     let marca = 'Todas las marcas';
     let tipo = 'todas';
+    let marcas= 'todas';
 
     $("#inputMin").keydown(function(e) {
       // Permite: backspace, delete, tab, escape, enter and .
@@ -281,9 +317,41 @@ if (isset($_POST['perfil'])) {
       tipo = buscar_modelo;
     });
 
+    var buscar_marca = [];
+
+    $('.marca-select').click(function() {
+
+      if ($(this).hasClass('checkbox-marca-selected-color')) {
+        //Removemos del array de búsqueda por modelos
+        var index = buscar_marca.indexOf(this.id);
+
+        if (index > -1) {
+          buscar_marca.splice(index, 1);
+        }
+      } else {
+        //Agregamos al array de búsqueda por modelos
+        buscar_marca.push(this.id);
+      }
+
+      $(this).toggleClass('checkbox-marca-selected-color');
+      $(this).children('.checkbox-marca').toggleClass('checkbox-marca-selected');
+      marcas = buscar_marca;
+    });
+
     /*  $('#buscar-marcas').change(function() {
        marca = $('#buscar-marcas option:selected').val();
      } */
+
+    $('#filtros-marca').click(function() {
+      $('#select-marcas').toggle(200);
+      $('#select-perfiles').toggle(200);
+    })
+
+    $('#filtros-perfil').click(function() {
+      $('#select-perfiles').toggle(200);
+      $('#select-marcas').toggle(200);
+    })
+
 
     $('#buscar-categorias').change(function() {
       perfil = $('#buscar-categorias option:selected').val();
@@ -297,7 +365,8 @@ if (isset($_POST['perfil'])) {
 
       min = $('#inputMin').val();
       max = $('#inputMax').val();
-      $('#perfiles').val(buscar_modelo);
+      $('#perfiles').val(tipo);
+      $('#marcas').val(marcas);
 
 
 

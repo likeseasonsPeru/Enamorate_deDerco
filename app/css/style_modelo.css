@@ -171,17 +171,24 @@ body {
     height:35px;
 }
 
+.marca-select {
+    color:#ffffff;
+    /*margin-top: 15px;*/
+    cursor: pointer;
+    height:35px;
+}
+
 /*.modelo-select:hover .checkbox-modelo,
 .modelo-select:focus .checkbox-modelo{
     background-color: #dc241f;
     border-color: #dc241f;
 }*/
 
-.checkbox-modelo-selected-color {
+.checkbox-modelo-selected-color .checkbox-marca-selected-color{
     color: #dc241f;
 }
 
-.checkbox-modelo-selected {
+.checkbox-modelo-selected .checkbox-marca-selected {
     background-color: #dc241f;
     border-color: #dc241f !important;
 }
@@ -190,7 +197,7 @@ body {
     
 }
 
-.checkbox-modelo {
+.checkbox-modelo .checkbox-marca{
     float: right;
     width: 13px;
     height: 13px;

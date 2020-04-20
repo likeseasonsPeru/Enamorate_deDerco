@@ -551,6 +551,7 @@ margin-top: 30px;
 
 .bg-grayderco{
   padding: 30px;
+  padding-bottom: 5px; 
   background-color: #dc241f;
   text-align: left;
 }
@@ -577,6 +578,14 @@ margin-top: 30px;
   font-size: 15px; 
 }
 
+.marca-select {
+  columns: #ffffff;;
+  /*margin-top: 15px;*/
+  cursor: pointer;
+  height:35px;
+  font-size: 15px; 
+}
+
 .modelo .img-responsive {
   margin: 0 auto;
 }
@@ -590,13 +599,31 @@ margin-top: 30px;
 .checkbox-modelo-selected-color {
   color: #ffffff;
 }
+.checkbox-marca-selected-color {
+  color: #ffffff;
+}
 
 .checkbox-modelo-selected {
   background-color: #ffffff;
   border-color: #ffffff !important;
 }
+.checkbox-marca-selected {
+  background-color: #ffffff;
+  border-color: #ffffff !important;
+}
+.checkbox-modelo{
+  float: right;
+  width: 13px;
+  height: 13px;
+  border:2px solid #ffffff;
+  margin-top: 1px;
 
-.checkbox-modelo {
+  -webkit-transition: background-color .2s linear, border-color .2s linear;
+  -moz-transition: background-color .2s linear, border-color .2s linear;
+  -o-transition: background-color .2s linear, border-color .2s linear;
+  transition: background-color .2s linear, border-color .2s linear;
+}
+.checkbox-marca{
   float: right;
   width: 13px;
   height: 13px;
@@ -873,6 +900,9 @@ margin-top: 30px;
 
 @media(max-width: 321px){
   .modelo-select {
+    font-size: 12px; 
+  }
+  .marca-select {
     font-size: 12px; 
   }
 }

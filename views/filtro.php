@@ -27,6 +27,7 @@ $tipo_cambio = floatval($cambio[0]['tipo_cambio']);
 
 $min = $_POST['min'];
 $max = $_POST['max'];
+$marcas = $_POST['marcas'];
 //$perfiles = $_POST['perfil'];
 //$marca = $_POST['marca'];
 //$tipo_auto = $_POST['tipo'];
@@ -39,13 +40,11 @@ $base_path = 'https://derco.com.pe/catalogo-derco/';
 
 /* Filtros de búsqueda */
 
-
-
 $auto_model = new Auto();
 
 if ($perfil != null) {
 
-    if ($perfil == 'todos'){
+    if ($perfil == 'todas'){
         $query = "SELECT * FROM modelos_version_dercoportunidades where (modelo='A500' or modelo = 'HONOR S' or  modelo= 'NEW VAN' or  modelo= 'GRAND VAN TURISMO' or modelo='GRAND SUPERVAN' or  modelo= 'C-ELYSÉE' or  modelo= 'NEW C30' or  modelo= 'WINGLE 5 GASOLINA' or  modelo= 'WINGLE 5 DIESEL' or  modelo= 'WINGLE 7 DIESEL' or modelo='J4' or modelo='REFINE' or modelo='SUNRAY' or modelo='T6' or modelo='X200' or modelo= 'BT-50' or modelo= 'Alaskan' or modelo='Logan' or modelo='Master' or modelo='Oroch' or modelo='APV VAN' or modelo='NEW CIAZ' or modelo='ERTIGA' or modelo= 'CS15' or modelo= 'NEW C3' or  alias_modelo= 'new-c4-cactus' or  modelo='NEW M4' or modelo= 'NEW H2' or modelo='S2' or modelo='MAZDA 2 SEDAN' or modelo='NEW ALTO' or modelo='CELERIO' or modelo = 'NEW DZIRE' or modelo= 'CS35 PLUS' or  modelo= 'CS55'  or  modelo='C5 AIRCROSS' or modelo= 'H3' or modelo='H6 Sport' or modelo='S2' or modelo='S3' or modelo='GRAND S3'  or modelo='CX-3' or modelo='CX-30' or modelo='MAZDA 2 SPORT'  or modelo='MX-5' or modelo='MAZDA 3 SEDAN' or modelo='MAZDA 3 SPORT' or modelo='MAZDA 6 SEDAN' or modelo='KWID' or modelo='BALENO' or modelo='GRAND VITARA' or modelo='JIMNY' or modelo='ALL NEW SWIFT' or modelo='NEW DZIRE' or modelo='NEW VITARA' or modelo='CX70' or modelo='NEW H6' or modelo='CX-5' or modelo='CX-9' or modelo='Duster' or modelo='Koleos' or modelo='S-CROSS' or modelo='Kangoo' or modelo = 'Captur' or modelo='NEW SWIFT SPORT' or modelo= 's-presso')";
     }else {
         $query = "SELECT * FROM modelos_version_dercoportunidades where (";
@@ -103,12 +102,8 @@ if ($perfil != null) {
             $query .= "modelo = 'CS15' or modelo= 'NEW H2' or modelo = 'S2' or modelo = 'CX-3' or modelo = 'MAZDA 2 SPORT' or modelo = 'MAZDA 2 SEDAN'";
             $cont++;
         }
-
-
-
         $query .= ")";
     }
-
 
    /*  if ($perfil == 'emprendedor') {
         $query = "SELECT * FROM modelos_version_dercoportunidades where (modelo = 'HONOR S' or  modelo= 'NEW VAN' or  modelo= 'GRAND VAN TURISMO' or modelo='GRAND SUPERVAN' or modelo='A500' or modelo = 'M90' or  modelo= 'C-ELYSÉE' or modelo= 'NEW M4' or  modelo= 'NEW C30' or  modelo= 'WINGLE 5 GASOLINA' or  modelo= 'WINGLE 5 DIESEL' or  modelo= 'WINGLE 7 DIESEL' or modelo='J4' or modelo='REFINE' or modelo='SUNRAY' or modelo='T6' or modelo='X200' or modelo= 'BT-50' or modelo= 'Alaskan' or modelo='Logan' or modelo='Master' or modelo='APV VAN' or modelo='NEW CIAZ' or modelo='ERTIGA' or modelo='Kangoo')";
@@ -128,8 +123,70 @@ if ($perfil != null) {
         
     } */
 
+}
 
+/* var_dump($marcas);
+var_dump($perfil); */
 
+if ($marcas){
+    if ($marcas !== 'todas'){
+        $cont = 0;
+        $query .= ' AND (';
+        if (strpos($marcas, 'Suzuki') !== false){
+            $query .= "marca = 'Suzuki'";
+            $cont++;
+        }
+        if (strpos($marcas, 'Renault') !== false){
+            if ($cont !== 0){
+                $query .= ' or ';
+            }
+            $query .= "marca = 'Renault'";
+            $cont++;
+        }
+        if (strpos($marcas, 'Mazda') !== false){
+            if ($cont !== 0){
+                $query .= ' or ';
+            }
+            $query .= "marca = 'Mazda'";
+            $cont++;
+        }
+        if (strpos($marcas, 'Citroën') !== false){
+            if ($cont !== 0){
+                $query .= ' or ';
+            }
+            $query .= "marca = 'Citroën'";
+            $cont++;
+        }
+        if (strpos($marcas, 'Great Wall') !== false){
+            if ($cont !== 0){
+                $query .= ' or ';
+            }
+            $query .= "marca = 'Great Wall'";
+            $cont++;
+        }
+        if (strpos($marcas, 'Haval') !== false){
+            if ($cont !== 0){
+                $query .= ' or ';
+            }
+            $query .= "marca = 'Haval'";
+            $cont++;
+        }
+        if (strpos($marcas, 'Jac') !== false){
+            if ($cont !== 0){
+                $query .= ' or ';
+            }
+            $query .= "marca = 'Jac'";
+            $cont++;
+        }
+        if (strpos($marcas, 'Changan') !== false){
+            if ($cont !== 0){
+                $query .= ' or ';
+            }
+            $query .= "marca = 'Changan'";
+            $cont++;
+        }
+        $query .= ")";
+    }
 }
 
 
@@ -145,16 +202,18 @@ if ($max && $max != '0') {
     $query .= ' AND precio_promocional<="' . $max . '"';
 }
 
-//$query .= ' AND estado="1"';
+$query .= "ORDER BY precio_promocional";
 
 
-/* 
-//Orden
+
+/* //Orden
 if ($min != '' || $max != '') {
     $query .= ' AND estado="1" ORDER BY dolares ASC;';
 } else {
     $query .= ' AND estado="1" ORDER BY id, dolares ASC;';
 } */
+
+//var_dump($query);
 
 $autos = $auto_model->ejecutarSql($query);
 $autos_pag = '';
