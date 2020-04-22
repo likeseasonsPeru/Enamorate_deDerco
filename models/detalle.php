@@ -82,7 +82,7 @@ foreach ($autos_marca as $auto) {
     $color_auto = $auto['color_auto'];
     $color_techo = $auto['color_techo'];
     $foto_fondo = $auto['foto_fondo'];
-    //   $colores = $auto['colores'];
+    $colores = $auto['colores'];
     $informacion_basica = htmlspecialchars($auto['informacion_basica'], ENT_COMPAT, 'ISO-8859-1', true);
     //var_dump($informacion_basica);
     $ficha_tecnica = htmlspecialchars($auto['ficha_tecnica'], ENT_COMPAT, 'ISO-8859-1', true);
@@ -227,40 +227,31 @@ foreach ($autos_marca as $auto) {
 
     //Colores
     $html_color_auto = '';
-    if ($color_auto != '') {
-        /* $html_color_auto .= '<div class="col-md-12 text-left mt-30">';
+    // if ($color_auto != '') {
+    /* $html_color_auto .= '<div class="col-md-12 text-left mt-30">';
         $html_color_auto .= '<p style="font-size:22px;color:#707276;">Colores</p>';
         $html_color_auto .= '<img src="' . $base_path . '/assets/modelos/colores/' . $color_auto . '" class="img-responsive"/>';
         $html_color_auto .= '</div>'; */
-    }
+    // }
 
-    if ($color_auto != '') {
+    if ($colores != '') {
 
         // seprando cadena en arreglo 
+        $array_colores = explode(",", $colores);
 
-
-        $html_color_auto .= '<div id="img-container" marca="'.$_GET['marca'].'" modelo="'.$_GET['modelo'].'" class="col-md-12 text-center">';
+        $html_color_auto .= '<div id="img-container" marca="' . $_GET['marca'] . '" modelo="' . $_GET['modelo'] . '" class="col-md-12 text-center">';
         $html_color_auto .= '<p style="font-size:22px;color:#707276;">Colores</p>';
+
+        $ulrpaleta = 'https://derco.com.pe/catalogo-derco/assets/modelos/colores/'.$_GET['marca'].'/'.$_GET['modelo'].'/Paleta';
+        foreach ($array_colores as $color) {
+            $html_color_auto .= '<div class="col-xs-2 col-sm-6 col-md-6 col-lg-6 mt-30">';
+            $html_color_auto .= '<button data-color="'.$color.'" class="image-color"> <img class="" src="'.$ulrpaleta.$color.'.jpg"></button>';
+            $html_color_auto .= '</div>';
+        }
 
         // $html_color_auto .= '<img src="' . $base_path . '/assets/modelos/colores/' . $color_auto . '" class="img-responsive"/>';
 
         //if (strpos($colores, 'rojo') !== false){
-        $html_color_auto .= '<div class="col-xs-2 col-sm-6 col-md-6 col-lg-6 mt-30">';
-        $html_color_auto .= '<button data-color="Rojo" class="image-color btn btn-primary btn-block">Gris-Shark-blanco</button>';
-        $html_color_auto .= '</div>';
-
-        $html_color_auto .= '<div class="col-xs-2 col-sm-6 col-md-6 col-lg-6 mt-30">';
-        $html_color_auto .= '<button data-color="Plata" class="image-color btn btn-primary btn-block">Plata</button>';
-        $html_color_auto .= '</div>';
-
-        $html_color_auto .= '<div class="col-xs-2 col-sm-6 col-md-6 col-lg-6 mt-30">';
-        $html_color_auto .= '<button data-color="Gris" class="image-color btn btn-primary btn-block">Gris</button>';
-        $html_color_auto .= '</div>';
-
-        $html_color_auto .= '<div class="col-xs-2 col-sm-6 col-md-6 col-lg-6 mt-30">';
-        $html_color_auto .= '<button data-color="Dorado" class="image-color btn btn-primary btn-block">Dorado</button>';
-        $html_color_auto .= '</div>';
-
         //}
 
 
@@ -579,15 +570,15 @@ include 'https://derco.com.pe/globals/includes/menu-alt.php'; */
 
 
     //var path_colores_img = `https://derco.com.pe/catalogo-derco/assets/modelos/colores/${marca}/${modelo}/`
-    
+
 
     $('.image-color').click(function(e) {
-        var marcapost =  $('#img-container').attr('marca');
-        var modelopost =  $('#img-container').attr('modelo');  
+        var marcapost = $('#img-container').attr('marca');
+        var modelopost = $('#img-container').attr('modelo');
         var path_colores_img = `https://derco.com.pe/catalogo-derco/assets/modelos/colores/${marcapost}/${modelopost}/`
         var color_modelo = $(this).attr('data-color');
-        path_colores_img += color_modelo+'.jpg'
-        $('#modelo-imagen').attr("src", path_colores_img); 
+        path_colores_img += color_modelo + '.jpg'
+        $('#modelo-imagen').attr("src", path_colores_img);
     })
 
     //NOMBRES

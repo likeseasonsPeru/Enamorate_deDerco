@@ -337,6 +337,11 @@ body {
     min-height: 168px;
 }
 
+.img-color{
+    width: 15px;
+    height: 15px
+  }
+
 .modelo .precio-carro {
     font-size:22px;
     color:#dc241f;

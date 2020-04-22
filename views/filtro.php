@@ -213,8 +213,8 @@ if ($min != '' || $max != '') {
     $query .= ' AND estado="1" ORDER BY id, dolares ASC;';
 } */
 
-var_dump($perfil);
-var_dump($marcas);
+/* var_dump($perfil);
+var_dump($marcas); */
 //var_dump($query);
 
 $autos = $auto_model->ejecutarSql($query);
