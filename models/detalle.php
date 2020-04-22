@@ -24,13 +24,10 @@ $modelo = $_GET['modelo'];
 $version = $_POST['version'];
 
 $perfil = $_POST['perfil'];
+$marcas = $_POST['marcas'];
 $pres_min = $_POST['min'];
 $pres_max = $_POST['max'];
 
-
-if (!isset($perfil)) {
-    $perfil = '';
-}
 
 if (!isset($pres_min) || $pres_min == '') {
     $pres_min = '0';
@@ -408,6 +405,9 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
 }
 
 // for production
+// for production
+/* include 'https://derco.com.pe/globals/includes/header-alt.php';
+include 'https://derco.com.pe/globals/includes/menu-alt.php'; */
 
 ?>
 
@@ -461,6 +461,7 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
 
                         <form action="../../cotizar/<?php echo $_GET['modelo']; ?>/<?php echo $_GET['marca']; ?>/<?php echo $_GET['id']; ?>" method="POST">
                             <input type="hidden" name="perfil" value="  <?php echo $_POST['perfil']; ?> ">
+                            <input type="hidden" name="marcas" value="  <?php echo $_POST['marcas']; ?> ">
                             <input type="hidden" name="min" value="<?php echo $_POST['min']; ?>">
                             <input type="hidden" name="max" value="<?php echo $_POST['max']; ?>">
                             <input type="hidden" name="version" value="<?php echo $_POST['version']; ?>">
@@ -546,7 +547,8 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
                         <div class="col-xs-12 col-md-12 text-left">
                             <div id="bt-atras2" style="cursor:pointer;margin: 0;padding: 0;">
                                 <form action="../../filtro" method="POST">
-                                    <input type="hidden" name="perfilold" value="<?php echo $perfil; ?>">
+                                    <input type="hidden" name="perfil" value="<?php echo $perfil; ?>">
+                                    <input type="hidden" name="marcas" value="<?php echo $marcas; ?>">
                                     <input type="hidden" name="min" value="<?php echo $pres_min; ?>">
                                     <input type="hidden" name="max" value="<?php echo $pres_max; ?>">
                                     <input type="hidden" name="version" value="<?php echo $_POST['version']; ?>">
@@ -571,6 +573,7 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
     var reruc = new RegExp("^[A-Za-záéíóúÁÉÍÓÚÑñ -.&0123456789]+$");
 
     var perfil = $('#inputperfil').val()
+    var marcas = $('#inputmarcas').val()
     var pres_min = $('#inputprecmin').val();
     var pres_max = $('#inputprecmax').val();
 

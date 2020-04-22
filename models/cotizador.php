@@ -24,6 +24,7 @@ $id = $_GET['id'];
 //$marcaid = '';
 
 $perfil = $_POST['perfil'];
+$marcas = $_POST['marcas'];
 $pres_min = $_POST['min'];
 $pres_max = $_POST['max'];
 
@@ -479,6 +480,7 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
                     <div class="col-xs-12">
                         <div id="frmcontactenos">
                             <input type="hidden" id='inputperfil' value="<?php echo $perfil; ?>">
+                            <input type="hidden" id='inputmarcas' value="<?php echo $marcas; ?>">
                             <input type="hidden" id='inputprecmin' value="<?php echo $pres_min; ?>">
                             <input type="hidden" id='inputprecmax' value="<?php echo $pres_max; ?>">
 
@@ -614,6 +616,7 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
                             <div id="bt-atras2" style="cursor:pointer;margin: 0;padding: 0;">
                                 <form action="../../../filtro" method="POST">
                                     <input type="hidden" name="perfil" value="<?php echo $perfil; ?>">
+                                    <input type="hidden" name="marcas" value="<?php echo $marcas; ?>">
                                     <input type="hidden" name="min" value="<?php echo $pres_min; ?>">
                                     <input type="hidden" name="max" value="<?php echo $pres_max; ?>">
                                     <input type="hidden" name="version" value="<?php echo $_POST['version']; ?>">
@@ -757,6 +760,7 @@ if ($alias == 'suzuki' || $alias == 'mazda') {
     var reruc = new RegExp("^[A-Za-záéíóúÁÉÍÓÚÑñ -.&0123456789]+$");
 
     var perfil = $('#inputperfil').val()
+    var marcas = $('#inputmarcas').val()
     var pres_min = $('#inputprecmin').val();
     var pres_max = $('#inputprecmax').val();
     //NOMBRES

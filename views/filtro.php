@@ -44,7 +44,7 @@ $auto_model = new Auto();
 
 if ($perfil != null) {
 
-    if ($perfil == 'todas'){
+    if ($perfil == 'todas' || $perfil == 'todos'){
         $query = "SELECT * FROM modelos_version_dercoportunidades where (modelo='A500' or modelo = 'HONOR S' or  modelo= 'NEW VAN' or  modelo= 'GRAND VAN TURISMO' or modelo='GRAND SUPERVAN' or  modelo= 'C-ELYSÉE' or  modelo= 'NEW C30' or  modelo= 'WINGLE 5 GASOLINA' or  modelo= 'WINGLE 5 DIESEL' or  modelo= 'WINGLE 7 DIESEL' or modelo='J4' or modelo='REFINE' or modelo='SUNRAY' or modelo='T6' or modelo='X200' or modelo= 'BT-50' or modelo= 'Alaskan' or modelo='Logan' or modelo='Master' or modelo='Oroch' or modelo='APV VAN' or modelo='NEW CIAZ' or modelo='ERTIGA' or modelo= 'CS15' or modelo= 'NEW C3' or  alias_modelo= 'new-c4-cactus' or  modelo='NEW M4' or modelo= 'NEW H2' or modelo='S2' or modelo='MAZDA 2 SEDAN' or modelo='NEW ALTO' or modelo='CELERIO' or modelo = 'NEW DZIRE' or modelo= 'CS35 PLUS' or  modelo= 'CS55'  or  modelo='C5 AIRCROSS' or modelo= 'H3' or modelo='H6 Sport' or modelo='S2' or modelo='S3' or modelo='GRAND S3'  or modelo='CX-3' or modelo='CX-30' or modelo='MAZDA 2 SPORT'  or modelo='MX-5' or modelo='MAZDA 3 SEDAN' or modelo='MAZDA 3 SPORT' or modelo='MAZDA 6 SEDAN' or modelo='KWID' or modelo='BALENO' or modelo='GRAND VITARA' or modelo='JIMNY' or modelo='ALL NEW SWIFT' or modelo='NEW DZIRE' or modelo='NEW VITARA' or modelo='CX70' or modelo='NEW H6' or modelo='CX-5' or modelo='CX-9' or modelo='Duster' or modelo='Koleos' or modelo='S-CROSS' or modelo='Kangoo' or modelo = 'Captur' or modelo='NEW SWIFT SPORT' or modelo= 's-presso')";
     }else {
         $query = "SELECT * FROM modelos_version_dercoportunidades where (";
@@ -129,7 +129,7 @@ if ($perfil != null) {
 var_dump($perfil); */
 
 if ($marcas){
-    if ($marcas !== 'todas'){
+    if (trim($marcas) !== 'todas'){
         $cont = 0;
         $query .= ' AND (';
         if (strpos($marcas, 'Suzuki') !== false){
@@ -213,6 +213,8 @@ if ($min != '' || $max != '') {
     $query .= ' AND estado="1" ORDER BY id, dolares ASC;';
 } */
 
+var_dump($perfil);
+var_dump($marcas);
 //var_dump($query);
 
 $autos = $auto_model->ejecutarSql($query);
@@ -271,6 +273,7 @@ if ($autos[0] != null) {
                 // $autos_pag .= '<form action="models/cotizador.php?modelo='.$auto['alias_modelo'].'&marca='.$auto['marca'].'" method="POST">';
                 $autos_pag .= '<div class="text-center">';
                 $autos_pag .= '<form action="' . $auto['alias_modelo'] . '/' . $auto['alias_marca'] . '/' . $auto['id'] . '" method="POST">';
+                $autos_pag .= '<input type="hidden" name="marcas" value="' . $marcas . '">';
                 $autos_pag .= '<input type="hidden" name="perfil" value="' . $perfil . '">';
                 $autos_pag .= '<input type="hidden" name="min" value="' . $min . '">';
                 $autos_pag .= '<input type="hidden" name="max" value="' . $max . '">';
@@ -278,6 +281,7 @@ if ($autos[0] != null) {
                 $autos_pag .= '<input type="hidden" name="codigo_sap" value="' . $auto['codigo_sap'] . '">';
                 $autos_pag .= '<input type="submit" class="bt-transparente" value="VER DETALLES"/></form>';
                 $autos_pag .= '<form action="cotizar/' . $auto['alias_modelo'] . '/' . $auto['alias_marca'] . '/' . $auto['id'] . '" method="POST">';
+                $autos_pag .= '<input type="hidden" name="marcas" value="' . $marcas . '">';
                 $autos_pag .= '<input type="hidden" name="perfil" value="' . $perfil . '">';
                 $autos_pag .= '<input type="hidden" name="min" value="' . $min . '">';
                 $autos_pag .= '<input type="hidden" name="max" value="' . $max . '">';
