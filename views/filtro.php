@@ -102,6 +102,14 @@ if ($perfil != null) {
             $query .= "modelo = 'CS15' or modelo= 'NEW H2' or modelo = 'S2' or modelo = 'CX-3' or modelo = 'MAZDA 2 SPORT' or modelo = 'MAZDA 2 SEDAN'";
             $cont++;
         }
+
+        if (strpos($perfil, 'Diseño & Confort') !== false){
+            if ($cont !== 0){
+                $query .= ' or ';
+            }
+            $query .= "modelo = 'NEW C3' or modelo= 'Captur' or modelo='JIMNY' or modelo= 'NEW SWIFT SPORT' or  modelo = 'NEW H6' or modelo= 'CX-3' or modelo = 'CX-30' or modelo='CX-5' or modelo= 'MAZDA 2 SPORT' or modelo='MX-5' or modelo='MAZDA 3 SEDAN' or modelo='MAZDA 3 SPORT' or modelo='MAZDA 6 SEDAN' or modelo= 'CS35 PLUS' or  modelo= 'CS55' or modelo= 'NEW C3' or  alias_modelo= 'new-c4-cactus' or  modelo='C5 AIRCROSS' or modelo= 'H3' or modelo= 'NEW H2' or modelo='H6 Sport' or modelo = 'NEW H6' or modelo='S2' or modelo='S3' or modelo='GRAND S3' or modelo = 'BT-50' or modelo='CX-3' or modelo='CX-30' or modelo='MAZDA 2 SPORT' or modelo='MX-5' or modelo='MAZDA 3 SEDAN' or modelo='MAZDA 3 SPORT' or modelo='MAZDA 6 SEDAN' or modelo='KWID' or modelo = 'Sandero' or modelo = 'Stepway' or modelo='BALENO' or modelo='GRAND VITARA' or modelo = 'IGNIS' or modelo='ALL NEW SWIFT' or  modelo= 'WINGLE 7 DIESEL' or modelo = 'CS15' or modelo= 'NEW H2' or modelo = 'S2' or modelo = 'CX-3' or modelo = 'MAZDA 2 SPORT' or modelo = 'MAZDA 2 SEDAN'";
+            $cont++;
+        }
         $query .= ")";
     }
 
