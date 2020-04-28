@@ -335,6 +335,7 @@ body{
   }
   .marginEspacioPrecios{
     margin-top: 15px;
+    width: '90%'
   }
   .tamModelo{
     height: 450px;

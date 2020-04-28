@@ -236,26 +236,35 @@ foreach ($autos_marca as $auto) {
 
     if ($colores != '') {
 
-        // seprando cadena en arreglo 
-        $array_colores = explode(",", $colores);
+         // seprando cadena en arreglo 
+         $array_colores = explode(",", $colores);
 
-        $html_color_auto .= '<div id="img-container" marca="' . $_GET['marca'] . '" modelo="' . $_GET['modelo'] . '" class="col-md-12 text-center">';
-        $html_color_auto .= '<p style="font-size:22px;color:#707276;">Colores</p>';
-
-        $ulrpaleta = 'https://derco.com.pe/catalogo-derco/assets/modelos/colores/'.$_GET['marca'].'/'.$_GET['modelo'].'/Paleta';
-        foreach ($array_colores as $color) {
-            $html_color_auto .= '<div class="col-xs-2 col-sm-6 col-md-6 col-lg-6 mt-30">';
-            $html_color_auto .= '<button data-color="'.$color.'" class="image-color"> <img class="" src="'.$ulrpaleta.$color.'.jpg"></button>';
-            $html_color_auto .= '</div>';
-        }
-
-        // $html_color_auto .= '<img src="' . $base_path . '/assets/modelos/colores/' . $color_auto . '" class="img-responsive"/>';
-
-        //if (strpos($colores, 'rojo') !== false){
-        //}
-
-
-        $html_color_auto .= '</div>';
+         $foto_principal = 'https://derco.com.pe/catalogo-derco/assets/modelos/colores/'.$_GET['marca'].'/'.$_GET['modelo'].'/'.$array_colores[array_rand($array_colores)].'.jpg';
+ 
+         $html_color_auto .= '<div id="img-container" marca="' . $_GET['marca'] . '" modelo="' . $_GET['modelo'] . '" class="col-md-12 text-center">';
+         $html_color_auto .= '<p style="font-size:22px;color:#707276;">Colores</p>';
+ 
+         $ulrpaleta = 'https://derco.com.pe/catalogo-derco/assets/modelos/colores/'.$_GET['marca'].'/'.$_GET['modelo'].'/Paleta';
+         foreach ($array_colores as $color) {
+             if ($_GET['modelo'] == 'mazda-3-sedan'){
+                 if ($color == 'Rojo' || $color == 'Plata'){
+                     $extension = '.png';
+                 }else {
+                     $extension = '.jpg';
+                 }
+             }
+             $html_color_auto .= '<div class="col-xs-3 col-md-3 col-lg-3 mt-30">';
+             $html_color_auto .= '<button data-color="'.$color.'" class="image-color boton-colores"> <img class="taman-colores" src="'.$ulrpaleta.$color.$extension.'"></button>';
+             $html_color_auto .= '</div>';
+         }
+ 
+         // $html_color_auto .= '<img src="' . $base_path . '/assets/modelos/colores/' . $color_auto . '" class="img-responsive"/>';
+ 
+         //if (strpos($colores, 'rojo') !== false){
+         //}
+ 
+ 
+         $html_color_auto .= '</div>';
     }
     //Colores Techo
     // $html_techo= '';
