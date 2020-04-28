@@ -112,22 +112,18 @@ if (isset($_POST['perfil'])) {
 
             <div id="select-perfiles" class="col-md-12 bg-grayderco">
               <div id="emprendedor" class="modelo-select">
-                <i class="fa fa-angle-right" aria-hidden="true"></i> Comerciales (Vans/Pick Up/Taxi)
+                <i class="fa fa-angle-right" aria-hidden="true"></i> Trabajo (Taxi, Van,Pick Up, Furgon)
                 <div class="checkbox-modelo"></div>
               </div>
 
               <div id="familion" class="modelo-select">
-                <i class="fa fa-angle-right" aria-hidden="true"></i> Autos Familiares
+                <i class="fa fa-angle-right" aria-hidden="true"></i> Vans
                 <div class="checkbox-modelo"></div>
               </div>
 
-              <div id="nuevo-adulto" class="modelo-select">
+
+              <!-- <div id="nuevo-adulto" class="modelo-select">
                 <i class="fa fa-angle-right" aria-hidden="true"></i> Estilo de vida
-                <div class="checkbox-modelo"></div>
-              </div>
-
-              <div id="esforzado" class="modelo-select">
-                <i class="fa fa-angle-right" aria-hidden="true"></i> Mi primer auto
                 <div class="checkbox-modelo"></div>
               </div>
 
@@ -136,13 +132,26 @@ if (isset($_POST['perfil'])) {
                 <div class="checkbox-modelo"></div>
               </div>
 
-              <div id="Padre de Familia" class="modelo-select">
-                <i class="fa fa-angle-right" aria-hidden="true"></i> Padre de Familia
-                <div class="checkbox-modelo"></div>
-              </div>
 
               <div id="Aspiracional" class="modelo-select">
                 <i class="fa fa-angle-right" aria-hidden="true"></i> Aspiracional
+                <div class="checkbox-modelo"></div>
+              </div> -->
+
+              <div id="Diseño & Confort" class="modelo-select">
+                <i class="fa fa-angle-right" aria-hidden="true"></i> Diseño & Confort
+                <div class="checkbox-modelo"></div>
+              </div>
+
+
+
+              <div id="esforzado" class="modelo-select">
+                <i class="fa fa-angle-right" aria-hidden="true"></i> Mi primer auto
+                <div class="checkbox-modelo"></div>
+              </div>
+
+              <div id="Padre de Familia" class="modelo-select">
+                <i class="fa fa-angle-right" aria-hidden="true"></i> Familia
                 <div class="checkbox-modelo"></div>
               </div>
             </div>
@@ -254,7 +263,7 @@ if (isset($_POST['perfil'])) {
     let max = '';
     let marca = 'Todas las marcas';
     let tipo = 'todas';
-    let marcas= 'todas';
+    let marcas = 'todas';
 
     $("#inputMin").keydown(function(e) {
       // Permite: backspace, delete, tab, escape, enter and .
