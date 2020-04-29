@@ -1,13 +1,8 @@
 <?php
 
 $flag = false;
+$filtro = 'motos'
 
-if (isset($_POST['perfil'])) {
-  $flag = true;
-  $perfil = $_POST['perfil'];
-  $min = $_POST['min'];
-  $max = $_POST['max'];
-}
 
 ?>
 
@@ -64,165 +59,387 @@ if (isset($_POST['perfil'])) {
         <p class="filtros-head">FILTROS DE BUSQUEDA</p>
       </div>
     </div>
+    <!-- Filtro para autos -->
+    <?php if ($filtro == 'autos') { ?>
 
-    <form id="formfilter" action="" method="POST">
-      <div class="row text-center mgt">
-        <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-4 text-center marginSeccion">
-          <div class="col-12 np espacioPregunta pdTb">
-            <h5 class="filtros-title-white">PRECIO</h5>
-          </div>
+      <form id="formfilter" action="" method="POST">
+        <div class="row text-center mgt">
+          <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-4 text-center marginSeccion">
+            <div class="col-12 np espacioPregunta pdTb">
+              <h5 class="filtros-title-white">PRECIO</h5>
+            </div>
 
-          <div class="min">
-            <div class="marginEspacioPrecios">
-              <div for="inputMin" class="pdRight negrita text-white col-12">Desde $</div>
-              <input type="text" name="min" class="text-center inputPrecios " maxlength="6" id="inputMin" placeholder="Ingrese su rango" onkeypress="return insNumber(event)" style="
-    border-radius: 25px;"></input>
+            <div class="min">
+              <div class="marginEspacioPrecios">
+                <div for="inputMin" class="pdRight negrita text-white col-12">Desde $</div>
+                <input type="text" name="min" class="text-center inputPrecios " maxlength="6" id="inputMin" placeholder="Ingrese su rango" onkeypress="return insNumber(event)" style="
+                  border-radius: 25px;"></input>
+              </div>
+            </div>
+            <div class="max">
+              <div class="marginEspacioPrecios">
+                <div for="inputMin" class="pdRight negrita text-white col-12">Hasta $</div>
+                <input type="text" name='max' class="text-center inputPrecios " maxlength="6" id="inputMax" placeholder="Ingrese su rango" onkeypress="return insNumber(event)" style="
+                  border-radius: 25px;"></input>
+              </div>
             </div>
           </div>
-          <div class="max">
-            <div class="marginEspacioPrecios">
-              <div for="inputMin" class="pdRight negrita text-white col-12">Hasta $</div>
-              <input type="text" name='max' class="text-center inputPrecios " maxlength="6" id="inputMax" placeholder="Ingrese su rango" onkeypress="return insNumber(event)" style="
-    border-radius: 25px;"></input>
+
+          <div class="col-12 col-sm-12 col-md-6 col-xl-4 text-center marginTopCategorias">
+            <div class="col-md-12 ">
+              <div id="filtros-perfil" class="filtros-title">
+                <!-- <p class="filtros-title-white">Categorias</p> -->
+                <h5 class="filtros-title-white">Categorias</h5>
+              </div>
+
+              <!-- <div class="marcas-select">
+                              <select class="selectCategorias text-center" name="perfil" id="buscar-categorias" class="col-12"> -->
+              <!-- <option value="todas">Todos</option> -->
+              <!-- <option selected="true" disabled="disabled">Seleccione su categoría</option>
+                                <option value="emprendedor">Comerciales (Vans/Pick Up/Taxi)</option>
+                                <option value="familion">Autos Familiares</option>
+                                <option value="nuevo-adulto">Estilo de vida</option>
+                                <option value="Pituco">Pituco</option>
+                                <option value="Padre de Familia">Padre de Familia</option>
+                                <option value="Aspiracional">Aspiracional</option>
+                              </select>
+                            </div> -->
+
+              <input type="hidden" id='perfiles' name="perfil" value="todos">
+
+              <div id="select-perfiles" class="col-md-12 bg-grayderco">
+                <div id="emprendedor" class="modelo-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> Trabajo (Taxi, Van,Pick Up, Furgon)
+                  <div class="checkbox-modelo"></div>
+                </div>
+
+                <div id="familion" class="modelo-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> Vans
+                  <div class="checkbox-modelo"></div>
+                </div>
+
+
+                <!-- <div id="nuevo-adulto" class="modelo-select">
+                              <i class="fa fa-angle-right" aria-hidden="true"></i> Estilo de vida
+                              <div class="checkbox-modelo"></div>
+                            </div>
+
+                            <div id="Pituco" class="modelo-select">
+                              <i class="fa fa-angle-right" aria-hidden="true"></i> Pituco
+                              <div class="checkbox-modelo"></div>
+                            </div>
+
+
+                            <div id="Aspiracional" class="modelo-select">
+                              <i class="fa fa-angle-right" aria-hidden="true"></i> Aspiracional
+                              <div class="checkbox-modelo"></div>
+                            </div> -->
+
+                <div id="Diseño & Confort" class="modelo-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> Diseño & Confort
+                  <div class="checkbox-modelo"></div>
+                </div>
+
+
+
+                <div id="esforzado" class="modelo-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> Mi primer auto
+                  <div class="checkbox-modelo"></div>
+                </div>
+
+                <div id="Padre de Familia" class="modelo-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> Familia
+                  <div class="checkbox-modelo"></div>
+                </div>
+              </div>
+            </div>
+
+            <!---------------------------------- Marcas -------------------------->
+
+            <input type="hidden" id='marcas' name="marcas" value="todos">
+
+            <div class="col-md-12 my-2">
+              <div id="filtros-marca" class="filtros-title">
+                <!-- <p class="filtros-title-white">Categorias</p> -->
+                <h5 class="filtros-title-white">Marcas</h5>
+              </div>
+
+
+              <div id="select-marcas" class="col-md-12 bg-grayderco">
+                <div id="Suzuki" class="marca-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> Suzuki
+                  <div class="checkbox-marca"></div>
+                </div>
+
+                <div id="Renault" class="marca-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> Renault
+                  <div class="checkbox-marca"></div>
+                </div>
+
+                <div id="Mazda" class="marca-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> Mazda
+                  <div class="checkbox-marca"></div>
+                </div>
+
+                <div id="Citroën" class="marca-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> Citroën
+                  <div class="checkbox-marca"></div>
+                </div>
+                <!-- <div id="DS" class="modelo-select">
+                              <i class="fa fa-angle-right" aria-hidden="true"></i> DS
+                              <div class="checkbox-modelo"></div>
+                            </div> -->
+                <div id="Great Wall" class="marca-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> Great Wall
+                  <div class="checkbox-marca"></div>
+                </div>
+
+                <div id="Haval" class="marca-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> Haval
+                  <div class="checkbox-marca"></div>
+                </div>
+                <div id="Jac" class="marca-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> Jac Motors
+                  <div class="checkbox-marca"></div>
+                </div>
+                <div id="Changan" class="marca-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> Changan
+                  <div class="checkbox-marca"></div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+          <div class="col-12 col-sm-12 col-md-12 col-xl-3">
+            <div class="col-12 espacioBtns">
+              <button id="btnBuscar" class="btnSeguir2 " type="button" name="button">
+                BUSCAR
+              </button>
             </div>
           </div>
         </div>
+      </form>
 
-        <div class="col-12 col-sm-12 col-md-6 col-xl-4 text-center marginTopCategorias">
-          <div class="col-md-12 ">
-            <div id="filtros-perfil" class="filtros-title">
-              <!-- <p class="filtros-title-white">Categorias</p> -->
-              <h5 class="filtros-title-white">Categorias</h5>
+    <?php } else if ($filtro == 'camiones') { ?>
+
+      <!-- Filtro para autos -->
+
+      <form id="formfilter" action="" method="POST">
+        <div class="row text-center mgt">
+          <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-4 text-center marginSeccion">
+            <div class="col-12 np espacioPregunta pdTb">
+              <h5 class="filtros-title-white">PRECIO</h5>
             </div>
 
-            <!-- <div class="marcas-select">
-                <select class="selectCategorias text-center" name="perfil" id="buscar-categorias" class="col-12"> -->
-            <!-- <option value="todas">Todos</option> -->
-            <!-- <option selected="true" disabled="disabled">Seleccione su categoría</option>
-                  <option value="emprendedor">Comerciales (Vans/Pick Up/Taxi)</option>
-                  <option value="familion">Autos Familiares</option>
-                  <option value="nuevo-adulto">Estilo de vida</option>
-                  <option value="Pituco">Pituco</option>
-                  <option value="Padre de Familia">Padre de Familia</option>
-                  <option value="Aspiracional">Aspiracional</option>
-                </select>
-              </div> -->
-
-            <input type="hidden" id='perfiles' name="perfil" value="todos">
-
-            <div id="select-perfiles" class="col-md-12 bg-grayderco">
-              <div id="emprendedor" class="modelo-select">
-                <i class="fa fa-angle-right" aria-hidden="true"></i> Trabajo (Taxi, Van,Pick Up, Furgon)
-                <div class="checkbox-modelo"></div>
+            <div class="min">
+              <div class="marginEspacioPrecios">
+                <div for="inputMin" class="pdRight negrita text-white col-12">Desde $</div>
+                <input type="text" name="min" class="text-center inputPrecios " maxlength="6" id="inputMin" placeholder="Ingrese su rango" onkeypress="return insNumber(event)" style="
+                  border-radius: 25px;"></input>
               </div>
-
-              <div id="familion" class="modelo-select">
-                <i class="fa fa-angle-right" aria-hidden="true"></i> Vans
-                <div class="checkbox-modelo"></div>
-              </div>
-
-
-              <!-- <div id="nuevo-adulto" class="modelo-select">
-                <i class="fa fa-angle-right" aria-hidden="true"></i> Estilo de vida
-                <div class="checkbox-modelo"></div>
-              </div>
-
-              <div id="Pituco" class="modelo-select">
-                <i class="fa fa-angle-right" aria-hidden="true"></i> Pituco
-                <div class="checkbox-modelo"></div>
-              </div>
-
-
-              <div id="Aspiracional" class="modelo-select">
-                <i class="fa fa-angle-right" aria-hidden="true"></i> Aspiracional
-                <div class="checkbox-modelo"></div>
-              </div> -->
-
-              <div id="Diseño & Confort" class="modelo-select">
-                <i class="fa fa-angle-right" aria-hidden="true"></i> Diseño & Confort
-                <div class="checkbox-modelo"></div>
-              </div>
-
-
-
-              <div id="esforzado" class="modelo-select">
-                <i class="fa fa-angle-right" aria-hidden="true"></i> Mi primer auto
-                <div class="checkbox-modelo"></div>
-              </div>
-
-              <div id="Padre de Familia" class="modelo-select">
-                <i class="fa fa-angle-right" aria-hidden="true"></i> Familia
-                <div class="checkbox-modelo"></div>
+            </div>
+            <div class="max">
+              <div class="marginEspacioPrecios">
+                <div for="inputMin" class="pdRight negrita text-white col-12">Hasta $</div>
+                <input type="text" name='max' class="text-center inputPrecios " maxlength="6" id="inputMax" placeholder="Ingrese su rango" onkeypress="return insNumber(event)" style="
+                  border-radius: 25px;"></input>
               </div>
             </div>
           </div>
 
-          <!---------------------------------- Marcas -------------------------->
+          <div class="col-12 col-sm-12 col-md-6 col-xl-4 text-center marginTopCategorias">
+            <div class="col-md-12 ">
+              <div id="filtros-perfil" class="filtros-title">
+                <!-- <p class="filtros-title-white">Categorias</p> -->
+                <h5 class="filtros-title-white">Categorias</h5>
+              </div>
 
-          <input type="hidden" id='marcas' name="marcas" value="todos">
+              <input type="hidden" id='perfiles' name="perfil" value="todos">
 
-          <div class="col-md-12 my-2">
-            <div id="filtros-marca" class="filtros-title">
-              <!-- <p class="filtros-title-white">Categorias</p> -->
-              <h5 class="filtros-title-white">Marcas</h5>
+              <div id="select-perfiles" class="col-md-12 bg-grayderco">
+                <div id="livianos" class="modelo-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> Livianos
+                  <div class="checkbox-modelo"></div>
+                </div>
+
+                <div id="pesados" class="modelo-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> Pesados
+                  <div class="checkbox-modelo"></div>
+                </div>
+                
+                <div id="construccion" class="modelo-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> Construccion
+                  <div class="checkbox-modelo"></div>
+                </div>
+              </div>
             </div>
 
+            <!---------------------------------- Marcas -------------------------->
 
-            <div id="select-marcas" class="col-md-12 bg-grayderco">
-              <div id="Suzuki" class="marca-select">
-                <i class="fa fa-angle-right" aria-hidden="true"></i> Suzuki
-                <div class="checkbox-marca"></div>
-              </div>
+            <input type="hidden" id='marcas' name="marcas" value="todos">
 
-              <div id="Renault" class="marca-select">
-                <i class="fa fa-angle-right" aria-hidden="true"></i> Renault
-                <div class="checkbox-marca"></div>
+            <div class="col-md-12 my-2">
+              <div id="filtros-marca" class="filtros-title">
+                <!-- <p class="filtros-title-white">Categorias</p> -->
+                <h5 class="filtros-title-white">Carga util</h5>
               </div>
 
-              <div id="Mazda" class="marca-select">
-                <i class="fa fa-angle-right" aria-hidden="true"></i> Mazda
-                <div class="checkbox-marca"></div>
+
+              <div id="select-marcas" class="col-md-12 bg-grayderco">
+                <div id="3t" class="marca-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> 3.0T
+                  <div class="checkbox-marca"></div>
+                </div>
+
+                <div id="4t" class="marca-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> 4.0T
+                  <div class="checkbox-marca"></div>
+                </div>
+
+                <div id="5t" class="marca-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> 5.0T
+                  <div class="checkbox-marca"></div>
+                </div>
+
+                <div id="6t" class="marca-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> 6.0T
+                  <div class="checkbox-marca"></div>
+                </div>
+               
+                <div id="9t" class="marca-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> 9.0T
+                  <div class="checkbox-marca"></div>
+                </div>
+
+                <div id="10t" class="marca-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> 10.0T
+                  <div class="checkbox-marca"></div>
+                </div>
+                <div id="10.8t" class="marca-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> 10.8T
+                  <div class="checkbox-marca"></div>
+                </div>
+                <div id="13t" class="marca-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> 13.0T
+                  <div class="checkbox-marca"></div>
+                </div>
+                <div id="14.8t" class="marca-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> 14.8T
+                  <div class="checkbox-marca"></div>
+                </div>
+                <div id="48t" class="marca-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> 48T
+                  <div class="checkbox-marca"></div>
+                </div>
+                <div id="15m3" class="marca-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> 15 M3
+                  <div class="checkbox-marca"></div>
+                </div>
+                <div id="9m3" class="marca-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> 9M3
+                  <div class="checkbox-marca"></div>
+                </div>
               </div>
 
-              <div id="Citroën" class="marca-select">
-                <i class="fa fa-angle-right" aria-hidden="true"></i> Citroën
-                <div class="checkbox-marca"></div>
-              </div>
-              <!-- <div id="DS" class="modelo-select">
-                <i class="fa fa-angle-right" aria-hidden="true"></i> DS
-                <div class="checkbox-modelo"></div>
-              </div> -->
-              <div id="Great Wall" class="marca-select">
-                <i class="fa fa-angle-right" aria-hidden="true"></i> Great Wall
-                <div class="checkbox-marca"></div>
-              </div>
-
-              <div id="Haval" class="marca-select">
-                <i class="fa fa-angle-right" aria-hidden="true"></i> Haval
-                <div class="checkbox-marca"></div>
-              </div>
-              <div id="Jac" class="marca-select">
-                <i class="fa fa-angle-right" aria-hidden="true"></i> Jac Motors
-                <div class="checkbox-marca"></div>
-              </div>
-              <div id="Changan" class="marca-select">
-                <i class="fa fa-angle-right" aria-hidden="true"></i> Changan
-                <div class="checkbox-marca"></div>
-              </div>
             </div>
 
           </div>
-
+          <div class="col-12 col-sm-12 col-md-12 col-xl-3">
+            <div class="col-12 espacioBtns">
+              <button id="btnBuscar" class="btnSeguir2 " type="button" name="button">
+                BUSCAR
+              </button>
+            </div>
+          </div>
         </div>
-        <div class="col-12 col-sm-12 col-md-12 col-xl-3">
-          <div class="col-12 espacioBtns">
-            <button id="btnBuscar" class="btnSeguir2 " type="button" name="button">
-              BUSCAR
-            </button>
+      </form>
+
+    <?php } else if ($filtro == 'motos'){ ?>
+
+      <form id="formfilter" action="" method="POST">
+        <div class="row text-center mgt">
+          <div class="col-12 col-sm-12 col-md-6 col-lg-5 col-xl-6 text-center marginSeccion">
+            <div class="col-12 np espacioPregunta pdTb">
+              <h5 class="filtros-title-white">PRECIO</h5>
+            </div>
+
+            <div class="min">
+              <div class="marginEspacioPrecios">
+                <div for="inputMin" class="pdRight negrita text-white col-12">Desde $</div>
+                <input type="text" name="min" class="text-center inputPrecios " maxlength="6" id="inputMin" placeholder="Ingrese su rango" onkeypress="return insNumber(event)" style="
+                  border-radius: 25px;"></input>
+              </div>
+            </div>
+            <div class="max">
+              <div class="marginEspacioPrecios">
+                <div for="inputMin" class="pdRight negrita text-white col-12">Hasta $</div>
+                <input type="text" name='max' class="text-center inputPrecios " maxlength="6" id="inputMax" placeholder="Ingrese su rango" onkeypress="return insNumber(event)" style="
+                  border-radius: 25px;"></input>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-12 col-md-6 col-xl-6 text-center marginTopCategorias">
+            <div class="col-md-12 ">
+              <div id="filtros-perfil" class="filtros-title">
+                <!-- <p class="filtros-title-white">Categorias</p> -->
+                <h5 class="filtros-title-white">Categorias</h5>
+              </div>
+
+              <input type="hidden" id='perfiles' name="perfil" value="todos">
+
+              <div id="select-perfiles" class="col-md-12 bg-grayderco">
+                <div id="sport" class="modelo-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> On Sport
+                  <div class="checkbox-modelo"></div>
+                </div>
+
+                <div id="off" class="modelo-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> On Off
+                  <div class="checkbox-modelo"></div>
+                </div>
+                
+                <div id="utility" class="modelo-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> On Utility
+                  <div class="checkbox-modelo"></div>
+                </div>
+
+                <div id="chopper" class="modelo-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> Chopper
+                  <div class="checkbox-modelo"></div>
+                </div>
+                <div id="scooter" class="modelo-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> Scooter
+                  <div class="checkbox-modelo"></div>
+                </div>
+                <div id="cub" class="modelo-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> Cub
+                  <div class="checkbox-modelo"></div>
+                </div>
+                <div id="touring" class="modelo-select">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i> Touring
+                  <div class="checkbox-modelo"></div>
+                </div>
+              </div>
+            </div>
+
+            <!---------------------------------- Marcas -------------------------->
+
+            <input type="hidden" id='marcas' name="marcas" value="todos">
+
+          </div>
+          <div class="col-12 col-sm-12 col-md-12 col-xl-3">
+            <div class="col-12 espacioBtns">
+              <button id="btnBuscar" class="btnSeguir2 " type="button" name="button">
+                BUSCAR
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    </form>
+      </form>
+    <?php }?>
+
   </div>
 </div>
 
