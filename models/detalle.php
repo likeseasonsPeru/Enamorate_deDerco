@@ -238,7 +238,7 @@ foreach ($autos_marca as $auto) {
 
          // seprando cadena en arreglo 
          $array_colores = explode(",", $colores);
-
+         $extension = '.jpg';
          $foto_principal = 'https://derco.com.pe/catalogo-derco/assets/modelos/colores/'.$_GET['marca'].'/'.$_GET['modelo'].'/'.$array_colores[array_rand($array_colores)].'.jpg';
  
          $html_color_auto .= '<div id="img-container" marca="' . $_GET['marca'] . '" modelo="' . $_GET['modelo'] . '" class="col-md-12 text-center">';

@@ -19,7 +19,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
  RewriteRule ^([A-Za-z0-9-%ë]+)/enviar-correo?$ models/enviar-correo.php 
 
 # RewriteRule cotizador.php
-RewriteRule ^cotizar/([A-Za-z0-9-%]+)/([A-Za-z0-9%ë]+)/([A-Za-z0-9%ë]+)?$ models/cotizador.php?modelo=$1&marca=$2&id=3 [L,QSA]
+RewriteRule ^([A-Za-z0-9-%]+)/([A-Za-z0-9%ë]+)/([A-Za-z0-9%ë]+)/cotizar?$ models/cotizador.php?modelo=$1&marca=$2&id=3 [L,QSA]
 
 # RewriteRule detalles.php
 RewriteRule ^([A-Za-z0-9-%]+)/([A-Za-z0-9%ë]+)/([A-Za-z0-9%ë]+)?$ models/detalle.php?modelo=$1&marca=$2&id=3 [L,QSA]
